@@ -1,37 +1,330 @@
-body {
-    padding-top: 60px;
-    padding-bottom: 40px;
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+@font-face {
+    font-family: introRegular;
+    font-style: normal;
+    font-weight: 400;
+    src: url(/fonts/introRegular.ttf);
 }
 
-.zf-green {
-    color: #68b604;
+@font-face {
+    font-family: introRegular;
+    font-style: normal;
+    font-weight: 700;  
+    src: url(/fonts/introRegular.ttf);
 }
 
-.btn-success {
-  background-color: #57a900;
-  background-image: -moz-linear-gradient(top, #70d900, #57a900);
-  background-image: -ms-linear-gradient(top, #70d900, #57a900);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#70d900), to(#57a900));
-  background-image: -webkit-linear-gradient(top, #70d900, #57a900);
-  background-image: -o-linear-gradient(top, #70d900, #57a900);
-  background-image: linear-gradient(top, #70d900, #57a900);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#70d900', endColorstr='#57a900', GradientType=0);
+@font-face {
+    font-family: futurical;
+    font-style: normal;
+    font-weight: 400;  
+    src: url(/fonts/futurical.ttf);
 }
 
-.btn-success:hover,
-.btn-success:active,
-.btn-success.active,
-.btn-success.disabled,
-.btn-success[disabled] {
-  background-color: #57a900;
+@font-face {
+    font-family: niveaLight;
+    font-style: normal;
+    font-weight: 400;  
+    src: url(/fonts/niveaLight.ttf);
 }
 
-.btn-success:active, .btn-success.active {
-  background-color: #57a900;
+@font-face {
+    font-family: niveaBook;
+    font-style: normal;
+    font-weight: 400;  
+    src: url(/fonts/niveaBook.ttf);
 }
 
-div.container a.brand {
-    background: url("../img/zf2-logo.png") no-repeat scroll 0 10px transparent;
-    margin-left: 0;
-    padding: 8px 20px 12px 40px;
+@font-face {
+    font-family: niveaMedium;
+    font-style: normal;
+    font-weight: 700;  
+    src: url(/fonts/niveaMedium.ttf);
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 100%;
+    margin-bottom: -60px;
+}
+
+.content {
+    margin-top: 60px;
+}
+
+nav {
+    font-family: introRegular !important;
+    height: 72px;
+    padding-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-left {
+    padding-left: 20px;
+    width: 204px;
+    float: left;
+    height: 100%;
+}
+
+.main-logo {
+    background-image: url(/img/main-logo.png);
+    background-size: contain;
+    width: 204px;
+    height: 42px;
+    display: block;
+    float: left;
+}
+
+.nav-right {
+    padding-right: 10px;
+    float: right;
+    width: 265px;
+    height: 60px;
+}
+
+.icon-phone {
+    float: left;
+    background: url(/img/phone-icon.png) left center no-repeat;
+    width: 40px;
+    height: 60px;
+    padding-right: 15px;
+}
+
+.phones {
+    float: left;
+    width: 210px;
+    height: 60px;
+}
+.phone-skype {
+    line-height: 30px;
+    height: 30px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+footer {
+    border-top: 1px solid #000000;
+    height: 59px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.footer-social-icons {
+    float: right;
+    padding-top: 15px;
+    width: 200px;
+    height: 33px;
+}
+
+.social-icon {
+    margin: 0 7px 10px;
+    width: 33px;
+    height: 33px;
+    display: block;
+    float: left;
+    background-size: contain;
+}
+
+.twitter {
+    background-image: url(/img/twitter.png);
+}
+
+.facebook {
+    background-image: url(/img/facebook.png);
+}
+
+.google {
+    background-image: url(/img/google.png);
+}
+
+.vk {
+    background-image: url(/img/vk.png);
+}
+
+.twitter:hover {
+    background-image: url(/img/twitter_hover.png);
+}
+
+.facebook:hover {
+    background-image: url(/img/facebook_hover.png);
+}
+
+.google:hover {
+    background-image: url(/img/google_hover.png);
+}
+
+.vk:hover {
+    background-image: url(/img/vk_hover.png);
+}
+
+.container {
+    width: 1170px;
+    min-height: 500px;
+    margin: 0 auto;
+}
+
+.menu {
+    position: absolute;
+    width: 100px;
+    font-size: 24px;
+    top: 25px;
+    text-align: center;
+    font-weight: bold;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.main-navigation {
+    height: 200px;
+}
+
+.main-navigation-item {
+    width: 25%;
+    float: left;
+}
+
+.main-navigation-item {
+    text-align: center;
+}
+
+.caption {
+    font-family: niveaLight !important;
+    margin: 0 41px;
+    font-size: 18px;
+}
+
+.caption h3{
+    font-family: niveaMedium !important;
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.left-align {
+    text-align: left;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.slider {
+    width: 100%;
+    height: 120px;
+    min-width: 700px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    text-align: right;
+    font-family: niveaLight !important;
+}
+
+.slider-big-text {
+    font-size: 3em;
+    margin: 10px 0;
+    font-weight: bold;
+    color: #072154;
+}
+
+.slider-small-text {
+    font-size: 2em;
+    color: #072154;
+}
+
+.contacts-button {
+    position: fixed;
+    top: 235px;
+    border: 0;
+    background: #071f4e;
+    line-height: 30px;
+    width: 200px;
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    margin-left: -85px;
+    -o-transform: rotate(270deg);
+    white-space: nowrap;
+    display: block;
+    font-size: 1.4em;
+    color: white;
+    font-family: futurical !important;
+    
+    z-index: 10001;
+}
+
+.wrap-menu {
+    font-family: niveaBook !important;
+    width: 100%;
+    background: white;
+    position: absolute;
+    top: 81px;
+    border-bottom: 1px solid #000000;
+    height: 0px;
+    overflow: hidden;
+    z-index: 10002;
+}
+
+.wrap-menu-items {
+    width: 1170px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    height: 120px;
+}
+
+.menu-item {
+    float: left;
+    margin-left: 20px;
+    text-align: right;
+    height: 120px;
+}
+
+.menu-item h2 {
+    font-size: 21px;
+    padding-left: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.menu-item_links {
+    line-height: 14px;
+    border-left: 1px solid #000000;
+    height: 75px;
+    padding-left: 20px;
+    padding-left: 16px;
+}
+
+.menu-item_links p {
+    padding-bottom: 5px;
+}
+
+.menu-item:first-of-type div {
+    border-left: 0px solid #000000;
+    height: 900px;
+}
+
+
+/* PROMOTE */
+
+.promote-title-icons {
+    width: 720px;
+    margin: 0 auto;
+}
+
+.promote-title-icon_left {
+    background-image: url(/img/vk_hover.png);
+}
+
+.promote-title-icon_right {
+    background-image: url(/img/vk_hover.png);
 }

@@ -1,55 +1,140 @@
 <?php echo $this->doctype(); ?>
 
-<html lang="en">
+<html lang="ru">
     <head>
         <meta charset="utf-8">
-        <?php echo $this->headTitle('ZF2 '. $this->translate('Skeleton Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?php echo $this->headTitle('abc') ?>
 
-        <?php echo $this->headMeta()
-            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
-            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        <?php
+        echo $this->headMeta()
+                ->appendName('viewport', 'width=device-width, height=device-height, initial-scale=1.0')
+                ->appendName('description', 'abc mediagroup')
+                ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
         ?>
 
         <!-- Le styles -->
-        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
-                        ->prependStylesheet($this->basePath() . '/css/style.css')
-                        ->prependStylesheet($this->basePath() . '/css/bootstrap-theme.min.css')
-                        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
+        <?php
+        echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                ->prependStylesheet($this->basePath() . '/css/style.css')
+        ?>
 
         <!-- Scripts -->
-        <?php echo $this->headScript()
-            ->prependFile($this->basePath() . '/js/bootstrap.min.js')
-            ->prependFile($this->basePath() . '/js/jquery.min.js')
-            ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
-            ->prependFile($this->basePath() . '/js/html5shiv.js',   'text/javascript', array('conditional' => 'lt IE 9',))
-        ; ?>
+        <?php
+        echo $this->headScript()
+                ->prependFile($this->basePath() . '/js/jquery.min.js')
+                ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                ->prependFile($this->basePath() . '/js/html5shiv.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+        ;
+        ?>
 
     </head>
-    <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="<?php echo $this->url('home') ?>"><img src="<?php echo $this->basePath('img/zf2-logo.png') ?>" alt="Zend Framework 2"/>&nbsp;<?php echo $this->translate('Skeleton Application') ?></a>
+    <body class="<?= $this->controllerName(); ?>">
+        <div class="wrapper">
+            <nav> 
+                <p class="menu">Меню</p>
+                <div class="nav-left">
+                    <a class="main-logo" href="/">
+                    </a>
                 </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
-                    </ul>
-                </div><!--/.nav-collapse -->
+                <div class="nav-right">
+                    <div class="icon-phone"></div>
+                    <div class="phones">
+                        <div class="phone-skype">
+                            <a class="skype-call-number" href="skype:echo123?call">+375 29 615-27-93</a>
+                        </div>
+                        <div class="phone-skype">
+                            <a class="skype-call-number" href="skype:echo123?call">+375 33 615-27-93</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="wrap-menu">
+                <div class="wrap-menu-items">
+                    <div class="menu-item">
+                        <h2>
+                            <a href="#">Продвижение</a>
+                        </h2>
+                        <br/>
+                        <div class="menu-item_links">
+                            <p><a href="#">Привлечение целевых клиентов</a></p>
+                            <p><a href="#">Старт быстрых продаж</a></p>
+                            <p><a href="#">Узнаваемость бренда</a></p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h2>
+                            <a href="#">WEB Design</a>
+                        </h2>
+                        <br/>
+                        <div class="menu-item_links">
+                            <p><a href="#">Портфолио</a></p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h2>
+                            <a href="#">WEB Маркетинг</a>
+                        </h2>
+                        <br/>
+                        <div class="menu-item_links">
+                            <p><a href="#">Исследование покупательской<br/>способности</a></p>
+                            <p><a href="#">Меркетинговые исследования</a></p>
+                            <p><a href="#">Страницы товаров</a></p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h2>
+                            <a href="#">Реклама и PR</a>
+                        </h2>
+                        <br/>
+                        <div class="menu-item_links">
+                            <p><a href="#">Привлечение аудитории</a></p>
+                            <p><a href="#">Баннерная реклама</a></p>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h2>
+                            <a href="#">Контакты</a>
+                        </h2>
+                        <br/>
+                        <div class="menu-item_links">
+                        </div>
+                    </div>
+                </div>
             </div>
-        </nav>
-        <div class="container">
-            <?php echo $this->content; ?>
-            <hr>
-            <footer>
-                <p>&copy; 2005 - <?php echo date('Y') ?> by Zend Technologies Ltd. <?php echo $this->translate('All rights reserved.') ?></p>
-            </footer>
-        </div> <!-- /container -->
-        <?php echo $this->inlineScript() ?>
+            <div class="container">
+                <div class="left-banners">
+                </div>
+                <div class="content">
+                    <?php echo $this->content; ?>
+                </div>
+                <div class="vip-banners">
+                </div>
+            </div>    
+        </div>
+        <button class="contacts-button">Связаться с нами</button>
+        <footer>
+            <div class="footer-social-icons">
+                <a class="social-icon twitter" href="#"></a>
+                <a class="social-icon facebook" href="#"></a>
+                <a class="social-icon google" href="#"></a>
+                <a class="social-icon vk" href="#"></a>
+            </div>
+        </footer>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var speed = 1000,
+                        originalHeight = 0,
+                        hoverHeight = 120;
+
+                $('.menu').on('click', function () {
+                    if ($('.wrap-menu').height() == originalHeight) {
+                        $('.wrap-menu').animate({height: hoverHeight}, speed);
+                    } else {
+                        $('.wrap-menu').animate({height: originalHeight}, speed);
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
