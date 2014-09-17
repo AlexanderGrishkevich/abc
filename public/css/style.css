@@ -318,7 +318,7 @@ footer {
 
 /* PROMOTE */
 
-.promotion-title-icons {
+.title-icons {
     width: 540px;
     height: 120px;
     margin: 0 auto;
@@ -329,15 +329,15 @@ footer {
     background-image: url(/img/publicity_static.png);
 }
 
-.promotion-static {
+.promotion_static {
     background-image: url(/img/promotion_static.png);
 }
 
-.design-static {
+.design_static {
     background-image: url(/img/design_static.png);
 }
 
-.marketing-static {
+.marketing_static {
     background-image: url(/img/marketing_static.png);
 }
 
@@ -345,19 +345,19 @@ footer {
     background-image: url(/img/publicity_static_hover.png);
 }
 
-.promotion-static:hover {
+.promotion_static:hover {
     background-image: url(/img/promotion_static_hover.png);
 }
 
-.design-static:hover {
+.design_static:hover {
     background-image: url(/img/design_static_hover.png);
 }
 
-.marketing-static:hover {
+.marketing_static:hover {
     background-image: url(/img/marketing_static_hover.png);
 }
 
-.promotion-title-icon {
+.title-icon {
     background-position: center;
     background-repeat: no-repeat;
     float: left;
@@ -365,8 +365,19 @@ footer {
     height: 155px;
 }
 
-.promotion-title-icon_main {
+.page_promotion {
     background-image: url(/img/promotion_hover.png);
+}
+
+.page_design {
+    background-image: url(/img/design_hover.png);
+}
+
+.page_marketing {
+    background-image: url(/img/marketing_hover.png);
+}
+
+.title-icon_main {
     float: left;
     width: 140px;
     height: 120px;
@@ -374,7 +385,7 @@ footer {
     background-repeat: no-repeat;
 }
 
-.promotion-title_text {
+.title_text {
     text-align: center;
     font-weight: bold;
     font-size: 30px;
@@ -584,3 +595,102 @@ footer {
     margin-left: 20px;
     display: inline-block;
 }
+
+
+/*  MARKETING PAGE  */
+
+.marketing-body-block_2 {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #072154;
+}
+
+.marketing-body-block_3 {
+    width: 800px;
+    margin: 0 auto;
+    height: 245px;
+    margin-top: 20px;
+    background-image: url(/img/marketing_diagram.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.marketing-body-block_6 {
+    width: 800px;
+    margin: 10px auto 0;
+    font-size: 20px;
+    background: #d2d2d2;
+    color: #072154;
+}
+
+.marketing-body-block_6 ul {
+    width: 750px;
+    margin: 0 auto;
+    padding-left: 50px;
+    padding-left: 10px;
+    list-style-type: disc;
+    line-height: 26px;
+}
+
+.marketing-body-block_5 {
+    width: 800px;
+    margin: 0 auto;
+    font-size: 19px;
+    margin-top: 40px;
+}
+
+.marketing-body-block_5-item_number {
+    width: 10px;
+    text-align: center;
+    color: #072154;
+    float: left;
+    height: 55px;
+    padding-right: 3px;
+    margin-right: 10px;
+    border-right: 2px solid #dadada;
+    font-weight: bold;
+    font-size: 21px;
+}
+
+.marketing-body-block_5-item_text {
+    width: 780px;
+    text-align: justify;
+    height: 69px;
+}
+
+.marketing-body-block_7 {
+    text-align: center;
+    font-size: 27px;
+    color: #072154;
+    font-weight: bold;
+}
+
+.marketing-body-block_8 {
+    margin: 10px auto 0;
+    width: 800px;
+    font-size: 18px;
+    line-height: 20px;
+    padding: 20px 10px;
+    background: #d2d2d2;
+}
+
+.marketing-body-block_9 {
+    width: 600px;
+    margin: 20px auto;
+    height: 30px;
+}
+
+.marketing-body-block_9-item {
+    height: 100%;
+    width: 105px;
+    display: inline-block;
+    background-image: url(/img/logo_mebel.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 21px;
+}
+
