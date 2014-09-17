@@ -7,7 +7,7 @@ use Zend\Mvc\Controller\AbstractActionController,
 
 class PageController extends AbstractActionController {
 
-    public function promoteAction() {
+    public function promotionAction() {
         return new ViewModel();
     }
 
