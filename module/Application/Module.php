@@ -16,6 +16,7 @@ class Module
 {
     public function onBootstrap(MvcEvent $e)
     {
+        $this->setDefaultTranslator($e);
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
@@ -47,5 +48,18 @@ class Module
                 },           
             )
         );  
+    }
+    
+    protected function setDefaultTranslator($e) {
+        $translator = $e->getApplication()->getServiceManager()->get('translator');
+
+        $type = 'phpArray';
+        $filename = 'data/language/ru/Zend_Validate.php';
+        $textDomain = 'default';
+        $locale = 'ru_RU';
+
+        $translator->addTranslationFile($type, $filename, $textDomain, $locale);
+
+        \Zend\Validator\AbstractValidator::setDefaultTranslator($translator);
     }
 }

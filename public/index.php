@@ -1,8 +1,8 @@
 <?php
-/**
- * This makes our life easier when dealing with paths. Everything is relative
- * to the application root now.
- */
+header('Content-Type: text/html; charset=utf-8');
+/* Set internal character encoding to UTF-8 */
+mb_internal_encoding("UTF-8");
+
 chdir(dirname(__DIR__));
 
 // Decline static file requests back to the PHP built-in webserver
