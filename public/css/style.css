@@ -58,10 +58,31 @@ body.index .content {
 }
 
 body.promotion .content, body.design .content, body.contacts .content,
-body.marketing .content, body.publicity .content{
+body.marketing .content, body.publicity .content {
     width: 800px;
     margin: 60px auto 0;
 }
+
+/* CHECKOUT */
+body.checkout .content {
+    width: 800px;
+    margin: 60px auto 0;
+}
+
+body.checkout .feedback-form {
+    margin: 20px auto 0;
+    float: none;
+}
+
+body.checkout .form-submit {
+   text-align: center;
+}
+
+body.checkout .form-submit input {
+   float: none;
+}
+
+/* CHECKOUT  END*/
 
 nav {
     height: 72px;
@@ -502,7 +523,7 @@ footer {
 }
 
 .promotion-body-table2 {
-    width: 675px;
+    width: 800px;
     margin: 0 auto;
     height: 100px;
     margin-top: 10px;
@@ -510,9 +531,9 @@ footer {
 
 .promotion-body-table2-cell {
     float: left;
-    width: 224px;
+    width: 266px;
     height: 100%;
-    font-size: 18px;
+    font-size: 17px;
     color: #072154;
     height: 60px;
     text-align: center;
@@ -775,7 +796,7 @@ body.contacts .container, body.process-feedback .container {
 }
 
 .title-contacts {
-    width: 280px;
+    width: 340px;
     margin: 20px 0;
     font-weight: bold;
     font-size: 35px;
@@ -904,6 +925,6 @@ body.contacts .container, body.process-feedback .container {
 .title-line {
     height: 37px;
     float: left;
-    width: 260px;
+    width: 230px;
     border-bottom: 1px solid #dadada;
 }

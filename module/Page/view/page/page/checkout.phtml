@@ -1,8 +1,36 @@
+<div class="title-line"></div>
+<div class="title-contacts">Оформить заказ</div>
+<div class="title-line"></div>
+
 <?php
+$form = $this->form;
+$form->prepare();
+$form->setAttribute('action', '/process-checkout');
+echo $this->form()->openTag($form);
+?>
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+<div class="feedback-form-content">
+    <div class="form-input"><?= $this->formElement($form->get('username')); ?></div>
+    <div class="form-error"><?= $this->formElementErrors($form->get('username')); ?></div>
 
+    <div class="form-input user-data"><?= $this->formElement($form->get('site')); ?></div>
+    <div class="form-error"><?= $this->formElementErrors($form->get('site')); ?></div>
+    
+    <div class="form-input user-data"><?= $this->formElement($form->get('phone')); ?></div>
+    <div class="form-error"><?= $this->formElementErrors($form->get('phone')); ?></div>
+    
+    <div class="form-input user-data"><?= $this->formElement($form->get('email')); ?></div>
+    <div class="form-error"><?= $this->formElementErrors($form->get('email')); ?></div>
+    
+    <div class="form-input"><?= $this->formElement($form->get('text')); ?></div>
+    <div class="form-error"><?= $this->formElementErrors($form->get('text')); ?></div>
+   
+    <?= $this->formCaptcha($form->get('captcha')); ?>
+    <div class="form-error"><?= $this->formElementErrors($form->get('captcha')); ?></div>
+
+    <div class="form-submit"><?= $this->formElement($form->get('submit')); ?></div>
+    <div class="form-error"><?= $this->formElementErrors($form->get('submit')); ?></div>	
+
+</div>
+
+<?php echo $this->form()->closeTag() ?>

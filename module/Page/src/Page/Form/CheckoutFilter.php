@@ -4,7 +4,7 @@ namespace Page\Form;
 
 use Zend\InputFilter\InputFilter;
 
-class FeedbackFilter extends InputFilter {
+class CheckoutFilter extends InputFilter {
     public function __construct() {
         
         $this->add(array(

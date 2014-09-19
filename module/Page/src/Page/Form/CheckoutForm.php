@@ -5,7 +5,7 @@ namespace Page\Form;
 use Zend\Form\Form,
     Zend\Captcha;
 
-class FeedbackForm extends Form {
+class CheckoutForm extends Form {
 
     public function __construct($name = null) {
         parent::__construct('login-form');
@@ -14,25 +14,41 @@ class FeedbackForm extends Form {
         $this->setAttribute('class', 'feedback-form');
 
         $this->add(array(
-            'type' => 'text',
             'name' => 'username',
+            'attributes' => array(
+                'type' => 'text',
+            ),
             'attributes' => array(
                 'placeholder' => 'Ваше имя*',
             ),
         ));
+        
         $this->add(array(
-            'type' => 'text',
+            'name' => 'site',
+            'attributes' => array(
+                'type' => 'text',
+            ),
+            'attributes' => array(
+                'placeholder' => 'Адрес вашего сайта',
+            ),
+        ));
+
+        $this->add(array(
             'name' => 'phone',
+            'attributes' => array(
+                'type' => 'text',
+            ),
             'attributes' => array(
                 'placeholder' => 'Телефон*',
             ),
         ));
 
         $this->add(array(
-            'type' => 'text',
             'name' => 'email',
             'attributes' => array(
-                'multiple' => 'true',
+                'type' => 'text',
+            ),
+            'attributes' => array(
                 'placeholder' => 'Email*',
             ),
         ));
