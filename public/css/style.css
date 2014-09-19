@@ -8,13 +8,6 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,abbr,ac
 }
 
 @font-face {
-    font-family: introRegular;
-    font-style: normal;
-    font-weight: 700;  
-    src: url(/fonts/introRegular.ttf);
-}
-
-@font-face {
     font-family: futurical;
     font-style: normal;
     font-weight: 400;  
@@ -36,10 +29,10 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,abbr,ac
 }
 
 @font-face {
-    font-family: niveaMedium;
+    font-family: euroRegular;
     font-style: normal;
-    font-weight: 700;  
-    src: url(/fonts/niveaMedium.ttf);
+    font-weight: 400;  
+    src: url(/fonts/euroRegular.ttf);
 }
 
 body, html {
@@ -56,16 +49,21 @@ body, html {
 .content {
     overflow: hidden;
     padding-bottom: 100px;
+    font-family: niveaLight !important;
 }
 
 body.index .content {
     width: 1120px;
-    margin: 0 auto;
-    margin-top: 60px;
+    margin: 60px auto 0;
+}
+
+body.promotion .content, body.design .content, body.contacts .content,
+body.marketing .content, body.publicity .content{
+    width: 800px;
+    margin: 60px auto 0;
 }
 
 nav {
-    font-family: introRegular !important;
     height: 72px;
     padding-top: 10px;
     position: relative;
@@ -93,6 +91,7 @@ nav {
     float: right;
     width: 265px;
     height: 60px;
+    font-family: euroRegular !important;
 }
 
 .icon-phone {
@@ -182,8 +181,9 @@ footer {
 }
 
 .menu {
+    font-family: introRegular !important;
     position: absolute;
-    width: 100px;
+    width: 550px;
     font-size: 24px;
     top: 25px;
     text-align: center;
@@ -207,15 +207,13 @@ footer {
 }
 
 .caption {
-    font-family: niveaLight !important;
-    /* margin: 0 41px; */
     font-size: 18px;
 }
 
 .caption h3{
-    font-family: niveaMedium !important;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 23px;
+    font-family: niveaBook !important;
 }
 
 /*.left-align {
@@ -235,7 +233,6 @@ footer {
     margin-top: 10px;
     margin-bottom: 40px;
     text-align: right;
-    font-family: niveaLight !important;
 }
 
 .slider-big-text {
@@ -266,7 +263,6 @@ footer {
     font-size: 1.4em;
     color: white;
     font-family: futurical !important;
-
     z-index: 10001;
     cursor: pointer;
 }
@@ -400,6 +396,7 @@ footer {
     text-align: center;
     font-weight: bold;
     font-size: 30px;
+    font-family: niveaBook !important;
 }
 
 .promotion-body-block_1 {
@@ -413,15 +410,18 @@ footer {
     margin-top: 25px;
     font-size: 26px;
     font-weight: bold;
+    font-family: niveaBook !important;
 }
 
 .promotion-body-table {
     width: 800px;
     margin: 0 auto;
     margin-top: 15px;
-    height: 120px;
+    /* height: 120px; */
     background: #d2d2d2;
     text-align: left;
+    font-family: niveaBook !important;
+    overflow: hidden;
 }
 
 .promotion-body-table-cell {
@@ -432,7 +432,7 @@ footer {
     font-size: 18px;
     color: #072154;
     font-weight: bold;
-    height: 90px;
+    /* height: 90px; */
 }
 
 .promotion-body-table-cell_number {
@@ -455,6 +455,7 @@ footer {
     font-size: 24px;
     margin-top: 20px;
     color: #072154;
+    font-family: niveaBook !important;
 }
 
 .promotion-body-block_4 {
@@ -497,6 +498,7 @@ footer {
     font-size: 27px;
     color: #072154;
     font-weight: bold;
+    font-family: niveaBook !important;
 }
 
 .promotion-body-table2 {
@@ -524,6 +526,7 @@ footer {
 .promotion-body-table2-cell_title {
     font-weight: bold;
     font-size: 24px;
+    font-family: niveaBook !important;
 }
 
 .promotion-body-block_8 {
@@ -579,10 +582,11 @@ footer {
     line-height: 40px;
     font-size: 20px;
     font-weight: bold;
+    font-family: niveaBook !important;
 }
 
 .promotion-body-button_order {
-    width: 250px;
+    width: 248px;
     background: #555555;
     height: 100%;
     color: white;
@@ -616,6 +620,7 @@ footer {
     font-size: 26px;
     font-weight: bold;
     color: #072154;
+    font-family: niveaBook !important;
 }
 
 .marketing-body-block_3 {
@@ -635,6 +640,7 @@ footer {
     font-size: 20px;
     background: #d2d2d2;
     color: #072154;
+    font-family: niveaBook !important;
 }
 
 .marketing-body-block_6 ul {
@@ -677,6 +683,7 @@ footer {
     font-size: 27px;
     color: #072154;
     font-weight: bold;
+    font-family: niveaBook !important;
 }
 
 .marketing-body-block_8 {
@@ -689,20 +696,20 @@ footer {
 }
 
 .marketing-body-block_9 {
-    width: 600px;
-    margin: 20px auto;
-    height: 30px;
+    width: 800px;
+    /* margin: 20px auto; */
+    /* height: 30px; */
 }
 
 .marketing-body-block_9-item {
-    height: 100%;
+    height: 30px;
     width: 105px;
     display: inline-block;
     background-image: url(/img/logo_mebel.png);
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0 21px;
+    background-size: contain;
+    /* margin: 0 20px; */
 }
 
 /* WEB DESIGN */
@@ -739,9 +746,9 @@ footer {
 }
 
 .publicity-body-block_6 {
-    width: 800px;
+    width: 780px;
     margin: 10px auto 0;
-    font-size: 18px;
+    font-size: 17px;
     color: #072154;
     height: 150px;
 }
@@ -756,7 +763,7 @@ footer {
 
 .publicity-body-block_6 ul li {
     float: left;
-    width: 400px;
+    width: 380px;
 }
 
 /* CONTACTS */
@@ -790,6 +797,7 @@ body.contacts .container, body.process-feedback .container {
     float: left;
     font-size: 25px;
     line-height: 25px;
+    font-family: euroRegular !important;
 }
 
 .contacts-right-column_phone-icon_mts {
@@ -847,14 +855,14 @@ body.contacts .container, body.process-feedback .container {
 
 .feedback-form-content textarea {
     width: 100%;
-    max-width: 100%;
+    max-width: 380px;
     height: 100px;
     line-height: 23px;
     border: 1px solid #dbdbdb;
     vertical-align: top;
     padding: 0px 4px;
     box-sizing: border-box;
-    max-height: 160px;
+    height: 100px;
 }
 
 .feedback-form-content .form-submit input {
@@ -882,14 +890,13 @@ body.contacts .container, body.process-feedback .container {
 
 .feedback-form {
     width: 400px;
-    height: 440px;
     float: left;
     margin-top: 5px;
 }
 
 .form-error {
     color: red;
-    font-size: 14px;
+    font-size: 10px;
     line-height: 24px;
     height: 24px;
 }
