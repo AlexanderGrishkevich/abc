@@ -64,6 +64,10 @@ class PageController extends AbstractActionController {
     }
 
     public function bannerAction() {
+        $user = $this->getServiceLocator()->get('AuthService')->getIdentity();
+        if (!$user['id']) {
+            return $this->redirect()->toUrl('/home');
+        }
         return new ViewModel();
     }
 

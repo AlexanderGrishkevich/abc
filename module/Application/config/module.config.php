@@ -60,6 +60,7 @@ return array(
         'aliases' => array(
             'translator' => 'MvcTranslator',
         ),
+        
     ),
     'translator' => array(
         'locale' => 'ru_RU',
