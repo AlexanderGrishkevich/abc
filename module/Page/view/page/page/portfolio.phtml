@@ -1,0 +1,26 @@
+<div class="title-line"></div>
+<div class="title-contacts">Портфолио</div>
+<div class="title-line"></div>
+
+
+<div class="portfolio-body-slider">
+    <?php echo $this->Portfolio(); ?>
+</div>
+
+<div class="promotion-body-block_9">
+    <a href="<?= $this->url('page', array('action' => 'checkout')) ?>">
+        <div class="promotion-body-button_order">ОФОРМИТЬ ЗАКАЗ</div>
+    </a>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.portfolio-body-slider').bxSlider({
+            slideWidth: 720,
+            moveSlides: 1,
+            slideMargin: 0,
+            controls: true,
+            pager: true,
+        });
+    });
+</script>

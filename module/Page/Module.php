@@ -28,4 +28,17 @@ class Module {
             ),
         );
     }
+    
+    public function getViewHelperConfig() {
+        return array(
+            'factories' => array(
+                'Portfolio' => function ($helperPluginManager) {
+                    $serviceLocator = $helperPluginManager->getServiceLocator();
+                    $viewHelper = new View\Helper\PortfolioHelper();
+                    $viewHelper->setServiceLocator($serviceLocator);
+                    return $viewHelper;
+                }
+            )
+        );  
+    }   
 }

@@ -63,11 +63,7 @@ class PageController extends AbstractActionController {
         return new ViewModel();
     }
 
-    public function bannerAction() {
-        $user = $this->getServiceLocator()->get('AuthService')->getIdentity();
-        if (!$user['id']) {
-            return $this->redirect()->toUrl('/home');
-        }
+    public function bannersAction() {
         return new ViewModel();
     }
 
@@ -100,6 +96,10 @@ class PageController extends AbstractActionController {
     }
     
     public function confirmCheckoutAction() {
+        return new ViewModel();
+    }
+    
+    public function portfolioAction() {
         return new ViewModel();
     }
 

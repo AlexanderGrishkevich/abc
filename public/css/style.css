@@ -1,4 +1,4 @@
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
 
 @font-face {
     font-family: introRegular;
@@ -58,7 +58,8 @@ body.index .content {
 }
 
 body.promotion .content, body.design .content, body.contacts .content,
-body.marketing .content, body.publicity .content {
+body.marketing .content, body.publicity .content, body.portfolio .content,
+body.banners .content {
     width: 800px;
     margin: 60px auto 0;
 }
@@ -75,11 +76,11 @@ body.checkout .feedback-form {
 }
 
 body.checkout .form-submit {
-   text-align: center;
+    text-align: center;
 }
 
 body.checkout .form-submit input {
-   float: none;
+    float: none;
 }
 
 /* CHECKOUT  END*/
@@ -89,6 +90,7 @@ nav {
     padding-top: 10px;
     position: relative;
     overflow: hidden;
+    min-width: 870px;
 }
 
 .nav-left {
@@ -199,6 +201,7 @@ footer {
     /* width: 100%; */
     margin: 0 auto;
     /* min-height: 500px; */
+    min-width: 870px;
 }
 
 .menu {
@@ -801,7 +804,8 @@ body.contacts .container, body.process-feedback .container {
     font-weight: bold;
     font-size: 35px;
     text-align: center;
-    float: left;
+    display: inline-block;
+    /* float: left; */
 }
 
 .contacts-right-column_address {
@@ -924,7 +928,94 @@ body.contacts .container, body.process-feedback .container {
 
 .title-line {
     height: 37px;
-    float: left;
-    width: 230px;
+    /* float: left; */
+    width: 225px;
+    display: inline-block;
     border-bottom: 1px solid #dadada;
+}
+
+/* PORTFOLIO */
+
+.bx-controls-direction a {
+    width: 40px !important;
+    height: 60px !important;
+    margin-top: -30px!important;
+}
+
+.bx-prev {
+    background-image: url(/img/lg_larrow.gif);
+    background-position: center center;
+    background-repeat: no-repeat;
+    left: -50px;
+}
+
+.bx-next {
+    background-image: url(/img/lg_rarrow.gif);
+    background-position: center center;
+    background-repeat: no-repeat;
+    right: -40px;
+}
+
+.portfolio-body-slider-item_control_right {
+    width: 40px;
+    height: 60px;
+    float: left;
+    margin-top: 220px;
+    float: left;
+}
+
+.portfolio-body-slider {
+    float: left;
+    overflow: hidden;
+}
+
+.portfolio-body-slider-item {
+    height: 500px;
+}
+
+.portfolio-body-slider-item_left {
+    width: 365px;
+    float: left;
+    height: 100%;
+}
+
+.portfolio-body-slider-item_right {
+    width: 320px;
+    float: left;
+    height: 92%;
+    margin-left: 15px;
+    background: #d2d2d2;
+    overflow: hidden;
+    padding: 20px 10px 20px 10px;
+    font-size: 16px;
+}
+
+.portfolio-body-slider-item_right_activity {
+    height: 80px;
+    overflow: hidden;
+}
+
+.portfolio-body-slider-item_right_target {
+    height: 48px;
+    padding-top: 5px;
+    overflow: hidden;
+}
+
+.portfolio-body-slider-item_right_sitelink {
+    height: 17px;
+    padding-top: 5px;
+    overflow: hidden;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.portfolio-body-slider-item_right_work {
+    padding-top: 5px;
+    height: 192px;
+    overflow: hidden;
+}
+
+.portfolio-body-slider-item_right_review {
+    height: 96px;
+    padding-top: 5px;
+    overflow: hidden;
 }

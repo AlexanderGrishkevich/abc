@@ -1,0 +1,25 @@
+<?php foreach ($this->portfolios as $key => $portfolio) {?>
+
+    <div class="portfolio-body-slider-item">
+        <div class="portfolio-body-slider-item_left" style="background-image: url('<?= $portfolio['image'] ?>')"></div>
+        <div class="portfolio-body-slider-item_right">
+            <div class="portfolio-body-slider-item_right_activity"><b>Деятельность: </b>
+                <?= $portfolio['activity'] ?>
+            </div>
+            <div class="portfolio-body-slider-item_right_target"><b>Цель: </b>
+                <?= $portfolio['target'] ?>
+            </div>
+            <div class="portfolio-body-slider-item_right_sitelink">
+                <a href="<?= $portfolio['site_link'] ?>"><?= $portfolio['site_link'] ?></a>
+            </div>
+            <div class="portfolio-body-slider-item_right_work"><b>Выполненные работы:</b><br/>
+                <?= $portfolio['work'] ?>
+            </div>
+            <div class="portfolio-body-slider-item_right_review"><b>Отзыв:</b>
+                <?= $portfolio['review'] ?>
+            </div>
+        </div>
+    </div>
+
+
+<?php } ?>
