@@ -13,7 +13,7 @@ class PromotionHelper extends AbstractHelper {
         $portfolioTable = new PortfolioTable($dbAdapter);
         $portfolios = $portfolioTable->fetchAll()->toArray();
         
-        return $this->getView()->render('partial/portfolio', array('portfolios' => $portfolios));
+        return $this->getView()->render('partial/promotion', array('portfolios' => $portfolios));
     }
 
     public function setServiceLocator(ServiceManager $serviceLocator) {

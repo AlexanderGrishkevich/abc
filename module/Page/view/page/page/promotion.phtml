@@ -80,10 +80,7 @@
 <div class="promotion-body-block_8">** Для расчета стоимости, пожалуйста воспользуйтесь формой связи на сайте, позвоните нам или оставьте свой номер - наш менеджер свяжется с вами в ближайшее время.</div>
 
 <div class="promotion-body-carusel">
-    <div class="promotion-body-carusel_right"></div>
-    <div class="promotion-body-carusel_first"></div>
-    <div class="promotion-body-carusel_second"></div>
-    <div class="promotion-body-carusel_left"></div>
+    <?php echo $this->Promotion(); ?>
 </div>
 
 <div class="promotion-body-block_9">
@@ -93,3 +90,15 @@
     <div class="promotion-body-button_price">РАСЧИТАТЬ ЦЕНУ</div>
     <div class="promotion-body-button_analysis">АНАЛИЗ САЙТА</div>
 </div>
+
+<script>
+   $(document).ready(function () {
+       $('.promotion .promotion-body-carusel').bxSlider({
+            slideWidth: 720,
+            moveSlides: 1,
+            slideMargin: 0,
+            controls: true,
+            pager: false,
+        });
+   });
+</script>
