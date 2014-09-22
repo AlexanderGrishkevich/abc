@@ -11,6 +11,7 @@ class Portfolio {
     public $work;
     public $review;
     public $target;
+    public $logo;
 
     public function exchangeArray($data) {
         $this->id = (isset($data['id'])) ? $data['id'] : NULL;
@@ -20,6 +21,7 @@ class Portfolio {
         $this->work = (isset($data['work'])) ? $data['work'] : NULL;
         $this->review = (isset($data['review'])) ? $data['review'] : NULL;
         $this->target = (isset($data['target'])) ? $data['target'] : NULL;
+        $this->logo = (isset($data['logo'])) ? $data['logo'] : NULL;
     }
 
     public function getArrayCopy() {

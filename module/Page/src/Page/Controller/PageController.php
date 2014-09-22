@@ -102,5 +102,9 @@ class PageController extends AbstractActionController {
     public function portfolioAction() {
         return new ViewModel();
     }
+    
+    public function supportAction() {
+        return new ViewModel();
+    }
 
 }

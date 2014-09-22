@@ -34,7 +34,7 @@
 	/* -webkit-box-shadow: 0 0 5px #ccc; */
 	/* box-shadow: 0 0 5px #ccc; */
 	/* border:  5px solid #fff; */
-	left: -5px;
+	/*left: -5px;*/
 	background: #fff;
 	
 	/*fix other elements on the page moving (on Chrome)*/
@@ -58,7 +58,7 @@
 
 .bx-wrapper .bx-loading {
 	min-height: 50px;
-	background: url(images/bx_loader.gif) center center no-repeat #fff;
+	background: url(/img/bx_loader.gif) center center no-repeat #fff;
 	height: 100%;
 	width: 100%;
 	position: absolute;

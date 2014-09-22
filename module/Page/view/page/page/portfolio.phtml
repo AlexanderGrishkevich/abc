@@ -15,12 +15,23 @@
 
 <script>
     $(document).ready(function () {
+
+
+        $('.govno').bxSlider({
+            slideWidth: 365,
+            mode: 'vertical',
+            moveSlides: 1,
+            slideMargin: 0,
+            controls: false,
+            pager: true,
+        });
+
         $('.portfolio-body-slider').bxSlider({
             slideWidth: 720,
             moveSlides: 1,
             slideMargin: 0,
             controls: true,
-            pager: true,
+            pager: false,
         });
     });
 </script>

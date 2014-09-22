@@ -59,27 +59,28 @@ body.index .content {
 
 body.promotion .content, body.design .content, body.contacts .content,
 body.marketing .content, body.publicity .content, body.portfolio .content,
-body.banners .content {
+body.banners .content, body.support .content {
     width: 800px;
     margin: 60px auto 0;
 }
 
 /* CHECKOUT */
-body.checkout .content {
+body.checkout .content, body.process-checkout .content {
     width: 800px;
     margin: 60px auto 0;
 }
 
-body.checkout .feedback-form {
+body.checkout .feedback-form, body.process-checkout .feedback-form {
     margin: 20px auto 0;
     float: none;
+    overflow: hidden;
 }
 
-body.checkout .form-submit {
+body.checkout .form-submit, body.process-checkout .form-submit {
     text-align: center;
 }
 
-body.checkout .form-submit input {
+body.checkout .form-submit input, body.process-checkout .form-submit input {
     float: none;
 }
 
@@ -325,12 +326,20 @@ footer {
     padding-bottom: 5px;
 }
 
+.menu-item h2 a:hover {
+    color: #d2d2d2;
+}
+
 .menu-item_links {
     line-height: 14px;
     border-left: 1px solid #000000;
     height: 75px;
     padding-left: 20px;
     padding-left: 16px;
+}
+
+.menu-item_links p a:hover {
+    color: #d2d2d2;
 }
 
 .menu-item_links p {
@@ -729,7 +738,6 @@ footer {
     height: 30px;
     width: 105px;
     display: inline-block;
-    background-image: url(/img/logo_mebel.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -927,11 +935,11 @@ body.contacts .container, body.process-feedback .container {
 }
 
 .title-line {
-    height: 37px;
+    height: 10px;
     /* float: left; */
     width: 225px;
     display: inline-block;
-    border-bottom: 1px solid #dadada;
+    border-top: 1px solid #dadada;
 }
 
 /* PORTFOLIO */
@@ -939,7 +947,7 @@ body.contacts .container, body.process-feedback .container {
 .bx-controls-direction a {
     width: 40px !important;
     height: 60px !important;
-    margin-top: -30px!important;
+    margin-top: -60px!important;
 }
 
 .bx-prev {
@@ -970,19 +978,21 @@ body.contacts .container, body.process-feedback .container {
 }
 
 .portfolio-body-slider-item {
-    height: 500px;
+    height: 550px;
 }
 
 .portfolio-body-slider-item_left {
     width: 365px;
     float: left;
     height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .portfolio-body-slider-item_right {
     width: 320px;
     float: left;
-    height: 92%;
+    height: 460px;
     margin-left: 15px;
     background: #d2d2d2;
     overflow: hidden;
@@ -1018,4 +1028,12 @@ body.contacts .container, body.process-feedback .container {
     height: 96px;
     padding-top: 5px;
     overflow: hidden;
+}
+
+.portfolio-body-slider-item .bx-wrapper {
+    float: left;
+}
+
+.portfolio-body-slider-item .bx-wrapper .bx-viewport {
+    margin-top: 0;
 }

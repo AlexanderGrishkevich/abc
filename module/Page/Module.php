@@ -11,7 +11,7 @@ class Module {
             ),
             'Zend\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/src/' . str_replace('\\', '/' , __NAMESPACE__),
+                    __NAMESPACE__ => __DIR__ . '/src/' . str_replace('\\', '/', __NAMESPACE__),
                 ),
             ),
         );
@@ -20,15 +20,14 @@ class Module {
     public function getConfig() {
         return include __DIR__ . '/config/module.config.php';
     }
-     
+
     public function getServiceConfig() {
         return array(
-            'factories'=>array(
-     
+            'factories' => array(
             ),
         );
     }
-    
+
     public function getViewHelperConfig() {
         return array(
             'factories' => array(
@@ -37,8 +36,21 @@ class Module {
                     $viewHelper = new View\Helper\PortfolioHelper();
                     $viewHelper->setServiceLocator($serviceLocator);
                     return $viewHelper;
+                },
+                'Marketing' => function ($helperPluginManager) {
+                    $serviceLocator = $helperPluginManager->getServiceLocator();
+                    $viewHelper = new View\Helper\MarketingHelper();
+                    $viewHelper->setServiceLocator($serviceLocator);
+                    return $viewHelper;
+                },
+                'Promotion' => function ($helperPluginManager) {
+                    $serviceLocator = $helperPluginManager->getServiceLocator();
+                    $viewHelper = new View\Helper\PromotionHelper();
+                    $viewHelper->setServiceLocator($serviceLocator);
+                    return $viewHelper;
                 }
             )
-        );  
-    }   
+        );
+    }
+
 }
