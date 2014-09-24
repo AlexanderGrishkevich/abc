@@ -13,7 +13,7 @@ class PortfolioHelper extends AbstractHelper {
         $portfolioTable = new PortfolioTable($dbAdapter);
         $portfolios = $portfolioTable->fetchAll()->toArray();
         
-        return $this->getView()->render('partial/portfolio', array('portfolios' => $portfolios));
+        return $this->getView()->render('partial/portfolio', array('portfolios' => $portfolios, 'portfolioTable' => $portfolioTable));
     }
 
     public function setServiceLocator(ServiceManager $serviceLocator) {

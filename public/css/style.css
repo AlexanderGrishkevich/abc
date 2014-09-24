@@ -989,6 +989,7 @@ body.contacts .container, body.process-feedback .container {
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center center;
 }
 
 .portfolio-body-slider-item_right {

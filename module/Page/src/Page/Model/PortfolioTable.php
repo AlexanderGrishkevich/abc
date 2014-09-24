@@ -36,4 +36,14 @@ class PortfolioTable extends AbstractTableGateway {
 //        );
 //        $this->insert($data);
     }
+    
+    public function getPortfolioImagesById($id) {
+        $id = (int) $id;
+        $sql = "SELECT *
+                FROM `portfolio_images`
+                WHERE portfolio_id = $id";
+        $rowset = $this->adapter->query($sql, array());
+        return $rowset;
+        
+    }
 }

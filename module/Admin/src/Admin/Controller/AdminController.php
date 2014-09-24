@@ -122,5 +122,9 @@ class AdminController extends AbstractActionController {
         $response->getHeaders()->addHeaders(array('Content-Type' => 'application/json'));
         return $response;
     }
+    
+    public function addportfolioAction() {
+        return new ViewModel();
+    }
 
 }

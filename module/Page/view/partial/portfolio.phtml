@@ -1,10 +1,14 @@
 <?php foreach ($this->portfolios as $key => $portfolio) { ?>
-
+    <?php $images = $this->portfolioTable->getPortfolioImagesById($portfolio['id']) ?>
     <div class="portfolio-body-slider-item">
         <div class="portfolio-body-slider-item_images" style="height: 500px; float: left;">
-            <div class="portfolio-body-slider-item_left" style="background-image: url('/uploads/Desert.jpg<?php //$portfolio['image'] ?>')"></div>
-            <div class="portfolio-body-slider-item_left" style="background-image: url('/uploads/hello.jpg')"></div>
-            <div class="portfolio-body-slider-item_left" style="background-image: url('/uploads/orlenok.gif')"></div>
+            <?php if (!$images->count()) {  ?>
+                <div class="portfolio-body-slider-item_left" style="background-image: url('/img/no_picture.gif')"></div>
+            <?php } else { ?>
+                <?php foreach ($images as $image) { ?>
+                    <div class="portfolio-body-slider-item_left" style="background-image: url('<?= $image->filepath ?>')"></div>
+                <?php } ?>
+            <?php } ?>
         </div>
         <div class="portfolio-body-slider-item_right">
             <div class="portfolio-body-slider-item_right_activity"><b>Деятельность: </b>
