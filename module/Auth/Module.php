@@ -31,7 +31,7 @@ class Module implements AutoloaderProviderInterface
             'factories'=>array(
                 'AuthService' => function($sm) {
                     $dbAdapter           = $sm->get('DbAdapter');
-                    $dbTableAuthAdapter  = new DbTableAuthAdapter($dbAdapter, 'users', 'email', 'pass', 'MD5(?)');
+                    $dbTableAuthAdapter  = new DbTableAuthAdapter($dbAdapter, 'users', 'email', 'password', 'MD5(?)');
                  
                     $authService = new AuthenticationService();
                     $authService->setAdapter($dbTableAuthAdapter);

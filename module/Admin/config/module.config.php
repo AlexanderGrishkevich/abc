@@ -7,7 +7,7 @@ return array(
     ),
     'router' => array(
         'routes' => array(
-            'page' => array(
+            'admin' => array(
                 'type' => 'Segment',
                 'options' => array(
                     'route' => '/admin[/:action][/:id]',
@@ -31,7 +31,7 @@ return array(
 
     'view_manager' => array(
         'template_path_stack' => array(
-            'Page' => __DIR__ . '/../view',
+            'Admin' => __DIR__ . '/../view',
         ),
     ),
 );

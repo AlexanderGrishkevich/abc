@@ -1,0 +1,119 @@
+<div class="banners-price-table">
+    <div class="banners-price-table_head">
+        <div class="banners-price-table_item_first">id</div>
+        <div class="banners-price-table_item">Login</div>
+        <div class="banners-price-table_item">Password</div>
+    </div>
+    <?php foreach ($this->users as $user) { ?>
+        <div class="banners-price-table_body_static">
+            <div class="banners-price-table_item_first"><?= $user->id ?></div>
+            <div class="banners-price-table_item"><?= $user->email ?></div>
+            <div class="banners-price-table_item"><?= $user->password ?></div>
+            <div class="banners-price-table_item_delete"></div>
+        </div>
+    <?php } ?>
+</div>
+
+
+<?php
+$form = $this->form;
+$form->prepare();
+$form->setAttribute('action', '/admin/addUser');
+echo $this->form()->openTag($form);
+?>
+<div class="login-form-content">
+    <?php if (!empty($this->messages)): ?>
+        <div class="form-error"><?= $this->messages[0]; ?></div>
+    <?php endif; ?>
+
+    <?= $this->formLabel($form->get('email')); ?>
+    <div class="form-input"><?= $this->formElement($form->get('email')); ?></div>
+    <div class="form-error"><?= $this->formElementErrors($form->get('email')); ?></div>
+
+    <?= $this->formLabel($form->get('password')); ?>
+    <div class="form-input"><?= $this->formElement($form->get('password')); ?></div>
+    <div class="form-error"><?= $this->formElementErrors($form->get('password')); ?></div>
+
+    <div class="form-submit"><?= $this->formElement($form->get('submit')); ?></div>
+    <div class="form-error"><?= $this->formElementErrors($form->get('submit')); ?></div>	
+</div>
+
+<?php echo $this->form()->closeTag() ?>
+
+
+
+<script>
+    $(document).ready(function () {
+        $('body').on('click', '.banners-price-table_item_delete', function () {
+            var item = $(this).parent();
+            var id = $(this).parent().children('.banners-price-table_item_first').text();
+            if (confirm("Вы действительно хотите удалить этого юзера?")) {
+                $.ajax({
+                    type: "POST",
+                    url: "/admin/deleteUser",
+                    data: {"id": id},
+                    cache: false,
+                    success: function (response) {
+                        if (response && response.status === 'ok') {
+                            item.remove();
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+<style>
+    .banners-price-table_item {
+        width: 350px;
+        text-align: left;
+        margin-top: 5px;
+    }
+    .banners-price-table_item_first {
+        width: 50px;
+        float: left;
+        height: 20px;
+        line-height: 20px;
+        margin-top: 5px;
+    }
+    .banners-price-table_item_delete {
+        width: 50px;
+        float: left;
+        height: 20px;
+        line-height: 20px;
+        background-image: url('/img/delete.jpg');
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        margin-top: 5px;
+    }
+    .login-form {
+        width: 350px;
+        margin: 50px auto 0;
+    }
+    .login-form-content input {
+        width: 350px;
+    }
+    .login-form-content .form-submit input {
+        width: 200px;
+        background: #555555;
+        height: 30px;
+        color: white;
+        border: 1px solid #555555;
+        line-height: 30px;
+        font-size: 20px;
+        margin: 0;
+    }
+    .login-form-content {
+        text-align: center;
+    }
+</style>

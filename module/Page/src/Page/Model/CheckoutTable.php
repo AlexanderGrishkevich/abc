@@ -36,4 +36,10 @@ class CheckoutTable extends AbstractTableGateway {
         );
         $this->insert($data);
     }
+    
+    public function deleteCheckout($id) {
+        $id = (int) $id;
+        $rowset = $this->delete(array('id' => $id));
+        return $rowset;
+    }
 }

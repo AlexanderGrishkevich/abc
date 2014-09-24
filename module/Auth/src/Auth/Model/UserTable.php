@@ -29,38 +29,12 @@ class UserTable extends AbstractTableGateway {
 
 	public function saveUser(User $user) {
 		$data = array(
-            'username' => $user->username,
             'email' => $user->email,
             'password' => new Expression("md5(?)", $user->password),
-            'role_id' => $user->role_id,
-            'state' => $user->state,
-            'zip' => $user->zip,
-            'reg_type' => $user->reg_type,
-            'org_name' => $user->org_name,
-            'position' => $user->position,
-            'last_name' => $user->last_name,
-            'first_name' => $user->first_name,
-            'middle_name' => $user->middle_name,
-            'country' => $user->country,
-            'city' => $user->city,
-            'region' => $user->region,
-            'street' => $user->street,
-            'house' => $user->house,
-            'office' => $user->office,
-            'phone' => $user->phone,
-            'unp' => $user->unp,
-            'egr_org' => $user->egr_org,
-            'egr_num' => $user->egr_num,
-            'egr_date' => $user->egr_date,
-            'bank' => $user->bank,
-            'bank_code' => $user->bank_code,
-            'bank_address' => $user->bank_address,
-            'bank_acc' => $user->bank_acc,
 		);
 		$id = (int)$user->id;
 
         if ($id == 0) {
-            $data['create_date'] = time();
             $this->insert($data);
         } elseif ($this->getUser($id)) {
             $this->update(
@@ -134,5 +108,11 @@ class UserTable extends AbstractTableGateway {
                     'id' => $id,
                 )
             );
+    }
+    
+    public function deleteUser($id) {
+        $id = (int) $id;
+        $rowset = $this->delete(array('id' => $id));
+        return $rowset;
     }
 }

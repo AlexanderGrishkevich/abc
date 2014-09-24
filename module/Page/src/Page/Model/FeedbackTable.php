@@ -12,7 +12,7 @@ use Zend\Db\Adapter\Adapter,
 
 class FeedbackTable extends AbstractTableGateway {
 
-	protected $table = 'feedbacks';
+    protected $table = 'feedbacks';
 
     public function __construct(Adapter $adapter) {
         $this->adapter = $adapter;
@@ -35,4 +35,11 @@ class FeedbackTable extends AbstractTableGateway {
         );
         $this->insert($data);
     }
+
+    public function deleteFeedback($id) {
+        $id = (int) $id;
+        $rowset = $this->delete(array('id' => $id));
+        return $rowset;
+    }
+
 }

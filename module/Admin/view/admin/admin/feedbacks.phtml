@@ -1,0 +1,107 @@
+<div class="feedbacks-table">
+    <div class="feedbacks-table-head">
+        <div>Del</div>
+        <div>id</div>
+        <div>Username</div>
+        <div>phone</div>
+        <div>email</div>
+        <div>text</div>
+    </div>
+    <?php foreach ($this->feedbacks as $feedback) { ?>
+        <div class="feedbacks-table-item">
+            <div class="feedbacks-table_item_delete"></div>
+            <div class="feedbacks-table_item_id"><?= $feedback->id ?></div>
+            <div><?= $feedback->username ?></div>
+            <div><?= $feedback->phone ?></div>
+            <div><?= $feedback->email ?></div>
+            <div><?= $feedback->text ?></div>
+        </div>
+    <?php } ?>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('body').on('click', '.feedbacks-table_item_delete', function () {
+            var item = $(this).parent();
+            var id = $(this).parent().children('.feedbacks-table_item_id').text();
+            if (confirm("Вы действительно хотите удалить это сообщение?")) {
+                $.ajax({
+                    type: "POST",
+                    url: "/admin/deleteFeedback",
+                    data: {"id": id},
+                    cache: false,
+                    success: function (response) {
+                        if (response && response.status === 'ok') {
+                            item.remove();
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+<style>
+    body.feedbacks .content {
+        width: 1200px;
+    }
+    .feedbacks-table-head div {
+        float: left;
+        width: 210px;
+        font-weight: bold;
+        font-size: 18px;
+        text-align: center;
+    }
+    .feedbacks-table-item div {
+        float: left;
+        width: 200px;
+        word-wrap: break-word; 
+        padding: 10px 0;
+        padding-left: 10px;
+        border-right: 1px solid #dbdbdb;
+        height: 100%;
+    }
+    .feedbacks-table-head, .feedbacks-table-item {
+        overflow: hidden;
+    }
+    .feedbacks-table-head div:last-of-type {
+        width: 445px;
+    }
+    .feedbacks-table-item div:last-of-type {
+        width: 430px;
+        border-right: 0;
+    }
+    .feedbacks-table-head div:first-of-type {
+        width: 70px;
+    }
+    .feedbacks-table-item div:first-of-type {
+        width: 50px;
+    }
+    .feedbacks-table-head div:nth-of-type(2) {
+        width: 50px;
+    }
+    .feedbacks-table-item div:nth-of-type(2) {
+        width: 50px;
+    }
+    .feedbacks-table-head {
+        border-bottom: 2px solid #000000
+    }
+    .feedbacks-table-item {
+        overflow: hidden;
+        border-bottom: 1px solid #dbdbdb;
+        border-right: 1px solid #dbdbdb;
+        border-left: 1px solid #dbdbdb;
+    }
+    .feedbacks-table_item_delete {
+        width: 50px;
+        float: left;
+        height: 20px;
+        line-height: 20px;
+        background-image: url('/img/delete.jpg');
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        margin-top: 5px;
+    }
+</style>

@@ -20,7 +20,7 @@ class AuthController extends AbstractActionController {
 
     public function loginAction() {
         if ($this->getAuthService()->hasIdentity()) {
-            return $this->redirect()->toUrl('/admin');
+            return $this->redirect()->toUrl('/admin/index');
         }
 
         $form = new LoginForm();
@@ -54,7 +54,7 @@ class AuthController extends AbstractActionController {
                 }
 
                 if ($result->isValid()) {
-                    $redirect = '/';
+                    $redirect = '/admin/index';
                     $userDataArray = array('id' => $user->id, 'email' => $user->email);
                     $this->getAuthService()->getStorage()->write($userDataArray);
                 }
