@@ -22,6 +22,7 @@
         <!-- Scripts -->
         <?php
         echo $this->headScript()
+                ->prependFile($this->basePath() . '/js/dropzone.js')
                 ->prependFile($this->basePath() . '/js/jquery.autosize.min.js')
                 ->prependFile($this->basePath() . '/js/jquery.bxslider.min.js')
                 ->prependFile($this->basePath() . '/js/jquery.min.js')

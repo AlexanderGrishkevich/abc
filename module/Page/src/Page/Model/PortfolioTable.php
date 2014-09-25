@@ -22,19 +22,38 @@ class PortfolioTable extends AbstractTableGateway {
     }
 
     public function fetchAll() {
-        $select = new Select($this->table);
-        return $this->executeSelect($select);
+        return $this->select(array('active' => 1));
     }
 
-    public function save(Portfolio $portfolio) {
-//        $data = array(
-//            'username' => $checkout->username,
-//            'phone' => $checkout->site,
-//            'phone' => $checkout->phone,
-//            'email' => $checkout->email,
-//            'text' => $checkout->text,
-//        );
-//        $this->insert($data);
+    public function savePortfolio(Portfolio $portfolio) {
+        $data = array(
+        );
+
+        $id = (int) $portfolio->id;
+
+        if ($id == 0) {
+            $this->insert($data);
+            //return id of new post
+            $sql = "SELECT LAST_INSERT_ID() AS id FROM portfolio";
+            $rowset = $this->adapter->query($sql, array());
+            return $rowset->current();
+        } else {
+
+            $data = array(
+                'activity' => $portfolio->activity,
+                'site_link' => $portfolio->site_link,
+                'work' => $portfolio->work,
+                'review' => $portfolio->review,
+                'target' => $portfolio->target,
+                'active' => 1,
+            );
+
+            $this->update(
+                    $data, array(
+                'id' => $id,
+                    )
+            );
+        }
     }
     
     public function getPortfolioImagesById($id) {

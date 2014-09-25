@@ -9,7 +9,11 @@ use Auth\Model\UserTable,
     Admin\Form\UserFilter,
     Auth\Model\User,
     Page\Model\FeedbackTable,
-    Page\Model\CheckoutTable;
+    Page\Model\CheckoutTable,
+    Page\Model\PortfolioTable,
+    Page\Model\Portfolio,
+    Page\Model\PortfolioImagesTable,
+    Admin\Form\PortfolioForm;
 
 class AdminController extends AbstractActionController {
 
@@ -22,6 +26,10 @@ class AdminController extends AbstractActionController {
     }
 
     public function usersAction() {
+        $user = $this->getServiceLocator()->get('AuthService')->getIdentity();
+        if (!$user['id']) {
+            return $this->redirect()->toUrl('/auth/login');
+        }
         $userTable = new UserTable($this->getServiceLocator()->get('dbAdapter'));
         $users = $userTable->fetchAll();
         $form = new UserForm;
@@ -122,9 +130,107 @@ class AdminController extends AbstractActionController {
         $response->getHeaders()->addHeaders(array('Content-Type' => 'application/json'));
         return $response;
     }
-    
+
     public function addportfolioAction() {
-        return new ViewModel();
+        $portfolioTable = new PortfolioTable($this->getServiceLocator()->get('dbAdapter'));
+        $portfolio = new Portfolio();
+        $id = $portfolioTable->savePortfolio($portfolio);
+        $form = new PortfolioForm;
+        return new ViewModel(array('form' => $form, 'id' => $id->id));
+    }
+
+    public function addImageAction() {
+        $id = (int) $this->params()->fromRoute('id');
+        $sm = $this->getServiceLocator();
+        $dbAdapter = $sm->get('DbAdapter');
+        $request = $this->getRequest();
+        $portfolioImagesTable = new PortfolioImagesTable($dbAdapter);
+
+        if ($request->isPost()) {
+            $files = $request->getFiles()->toArray();
+            $file = $this->saveImage($files, $id);
+            if ($file) {
+                $portfolioImagesTable->save($file, $id);
+                $answer = array('status' => 'ok', 'src' => $file);
+            }
+        }
+
+        $response = $this->getResponse();
+        $response->setContent(\Zend\Json\Json::encode($answer));
+        $response->getHeaders()->addHeaders(array('Content-Type' => 'application/json'));
+        return $response;
+    }
+
+    public function saveImage($file, $id) {
+        $httpadapter = new \Zend\File\Transfer\Adapter\Http();
+        if ($httpadapter->isValid()) {
+            $pathdir = 'public/uploads/portfolio/' . md5($id);
+            if (!is_dir($pathdir)) {
+                mkdir($pathdir);
+            }
+
+            $httpadapter->setDestination($pathdir);
+            foreach ($httpadapter->getFileInfo() as $info) {
+                $httpadapter->addFilter('File\Rename', array(
+                    'target' => $httpadapter->getDestination() . '/' . str_replace(' ', '_', $file['file']['name']),
+                    'overwrite' => true,
+                    'randomize' => false
+                        )
+                );
+
+                if ($httpadapter->receive($info['name'])) {
+                    $newfile = $httpadapter->getFileName();
+                    return str_replace('\\', '/', $newfile);
+                }
+            }
+        }
+    }
+
+    public function deleteImageAction() {
+        $sm = $this->getServiceLocator();
+        $dbAdapter = $sm->get('DbAdapter');
+        $request = $this->getRequest();
+        $portfolioImagesTable = new PortfolioImagesTable($dbAdapter);
+        if ($request->isPost()) {
+            $postData = $request->getPost();
+            $src = 'public' . $postData->src;
+            $rowset = $portfolioImagesTable->deleteImage($src);
+            if ($rowset) {
+                if (file_exists($src)) {
+                unlink($src);
+            }
+                $status = 'ok';
+            } else {
+                $status = 'bad';
+            }
+        }
+
+        $response = $this->getResponse();
+        $answer = array('status' => $status);
+        $response->setContent(\Zend\Json\Json::encode($answer));
+        $response->getHeaders()->addHeaders(array('Content-Type' => 'application/json'));
+        return $response;
+    }
+
+    public function savePortfolioAction() {
+        $id = (int) $this->params()->fromRoute('id');
+
+        $sm = $this->getServiceLocator();
+        $dbAdapter = $sm->get('DbAdapter');
+        $portfolioTable = new PortfolioTable($dbAdapter);
+        $post = $this->request->getPost();
+
+        $portfolio = new Portfolio();
+        $form = new PortfolioForm();
+
+        $form->setData($post);
+        if ($form->isValid()) {
+            $data = $form->getData();
+            $portfolio->exchangeArray($data);
+            $portfolio->id = $id;
+            $portfolioTable->savePortfolio($portfolio);
+            return $this->redirect()->toUrl('/portfolio');
+        }
     }
 
 }

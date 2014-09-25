@@ -1,0 +1,144 @@
+<?php
+$form = $this->form;
+$form->prepare();
+$form->setAttribute('action', '/admin/savePortfolio/' . $this->id);
+echo $this->form()->openTag($form);
+?>
+
+<div class="portfolio-body-slider-item">
+    <div class="portfolio-body-slider-item_images" id="my-awesome-dropzone" style="height: 480px; width: 365px; float: left; background-color: #ccc;border:10px dotted #555;">
+    </div>
+    <div class="portfolio-body-slider-item_right">
+        <div class="portfolio-body-slider-item_right_activity">
+            <?= $this->formElement($form->get('activity')); ?>
+        </div>
+        <div class="portfolio-body-slider-item_right_target">
+            <?= $this->formElement($form->get('target')); ?>
+        </div>
+        <div class="portfolio-body-slider-item_right_sitelink">
+            <?= $this->formElement($form->get('site_link')); ?>
+        </div>
+        <div class="portfolio-body-slider-item_right_work"><b>Выполненные работы:</b><br/>
+            <?= $this->formElement($form->get('work')); ?>
+        </div>
+        <div class="portfolio-body-slider-item_right_review">
+            <?= $this->formElement($form->get('review')); ?>
+        </div>
+    </div>
+</div>
+
+<div class="addportfolio-images">
+
+</div>
+
+<?= $this->formElement($form->get('submit')); ?>
+
+<?php echo $this->form()->closeTag() ?>
+
+
+
+<script>
+    $(document).ready(function () {
+        Dropzone.options.myAwesomeDropzone = {
+            paramName: "file",
+            parallelUploads: 1,
+            maxFilesize: 2,
+            acceptedFiles: "image/*,",
+            maxFiles: 10,
+            autoProcessQueue: true,
+            accept: function (file, done) {
+                done();
+
+            },
+            success: function (file, response) {
+                var src = response.src.substring(6, response.src.length);
+                if (response && response.status === 'ok') {
+                    var div_x = $('<div/>').attr('class', 'addportfolio-image').attr('style', 'background-image: url(' + src + ');');
+                    var div_del_link = $('<div/>').attr('class', 'remove_link').attr('data-file', src);
+                    ;
+                    $('.portfolio-body-slider-item_images').append(div_x.append(div_del_link));
+                }
+            }
+        };
+
+        var myDropzone = new Dropzone("#my-awesome-dropzone", {url: "/admin/addImage/<?= $this->id ?>"});
+        
+        $('body').on('click', '.remove_link', function() {
+            var src = $(this).data('file');
+            $.ajax({
+                type: "POST",
+                url: "/admin/deleteImage",
+                data: {"src": src},
+                cache: false,
+                success: function(response) {
+                    if (response && response.status === 'ok') {
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+
+
+
+
+<style>
+    .remove_link {
+        width: 40px;
+        height: 40px;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-image: url('/img/delete_icon.png');
+        float: right;
+        cursor: pointer;
+    }
+    .addportfolio-image {
+        width: 73px;
+        height: 100px;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        float: left;
+        margin-left: 15px;
+        margin-bottom: 15px;
+    }
+    .portfolio-form  textarea {
+        padding: 0;
+        font-size: 16px;
+        resize: none;
+        overflow: hidden;
+        width: 315px;
+        border: 0;
+        line-height: 16px;
+    }
+
+    .portfolio-body-slider-item_right_activity textarea {
+        text-indent: 120px;
+        height: 80px;
+    }
+
+    .portfolio-body-slider-item_right_target textarea {
+        text-indent: 50px;
+        height: 48px;
+    }
+
+    .portfolio-body-slider-item_right_work textarea {
+        height: 192px;
+    }
+
+    .portfolio-body-slider-item_right_review textarea {
+        text-indent: 60px;
+        height: 96px;
+    }
+
+    .portfolio-body-slider-item_right_sitelink input {
+        height: 20px;
+        font-size: 16px;
+        width: 315px;
+        padding: 0;
+        border: 0;
+    }
+
+</style>

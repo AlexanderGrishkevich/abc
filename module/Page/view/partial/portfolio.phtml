@@ -6,7 +6,7 @@
                 <div class="portfolio-body-slider-item_left" style="background-image: url('/img/no_picture.gif')"></div>
             <?php } else { ?>
                 <?php foreach ($images as $image) { ?>
-                    <div class="portfolio-body-slider-item_left" style="background-image: url('<?= $image->filepath ?>')"></div>
+                <div class="portfolio-body-slider-item_left" style="background-image: url('<?= substr($image->filepath, 6) ?>')"></div>
                 <?php } ?>
             <?php } ?>
         </div>
