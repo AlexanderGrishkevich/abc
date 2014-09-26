@@ -65,6 +65,7 @@ echo $this->form()->openTag($form);
         
         $('body').on('click', '.remove_link', function() {
             var src = $(this).data('file');
+            var img = $(this).parent();
             $.ajax({
                 type: "POST",
                 url: "/admin/deleteImage",
@@ -72,6 +73,7 @@ echo $this->form()->openTag($form);
                 cache: false,
                 success: function(response) {
                     if (response && response.status === 'ok') {
+                        img.remove();
                     }
                 }
             });

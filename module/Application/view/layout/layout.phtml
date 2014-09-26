@@ -81,7 +81,7 @@
                         <br/>
                         <div class="menu-item_links">
                             <p><a href="#">Исследование покупательской<br/>способности</a></p>
-                            <p><a href="#">Меркетинговые исследования</a></p>
+                            <p><a href="#">Маркетинговые исследования</a></p>
                             <p><a href="#">Страницы товаров</a></p>
                         </div>
                     </div>
@@ -128,9 +128,14 @@
             $(document).ready(function () {
                 var speed = 1000,
                         originalHeight = 0,
-                        hoverHeight = 120;
+                        hoverHeight;
 
                 $('.menu').on('click', function () {
+                    if ($('.content').width() < 481 || screen.width < 481) {
+                        hoverHeight = 400;
+                    } else {
+                        hoverHeight = 120;
+                    }
                     if ($('.wrap-menu').height() == originalHeight) {
                         $('.wrap-menu').animate({height: hoverHeight}, speed);
                     } else {

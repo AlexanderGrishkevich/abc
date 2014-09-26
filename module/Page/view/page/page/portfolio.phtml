@@ -15,7 +15,14 @@
 
 <script>
     $(document).ready(function () {
-
+        var width;
+        
+        if ($('.content').width() < 481 || screen.width < 481) {
+                        width = screen.width;
+                    } else {
+                        width = 720;
+                    }
+        
 
         $('.portfolio-body-slider-item_images').bxSlider({
             slideWidth: 365,
@@ -27,7 +34,7 @@
         });
 
         $('.portfolio-body-slider').bxSlider({
-            slideWidth: 720,
+            slideWidth: width,
             moveSlides: 1,
             slideMargin: 0,
             controls: true,

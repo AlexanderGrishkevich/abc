@@ -1,6 +1,33 @@
 <div class="slider">
-    <div class="slider-big-text">Приветствуем вас на нашем сайте</div>
-    <div class="slider-small-text">Hello friend's</div>
+    <div class="slider-item">
+        <div class="slider-big-text">Желаете быть первыми в поисковых системах Яндекс и Google?</div>
+    </div>
+    <div class="slider-item">
+        <div class="slider-big-text">Продвижение сайтов в России, Беларуси, Европе и США.</div>
+        <div class="slider-small-text">Мы - мастера своего дела: 14 лет работы. Более 2000 успешных проектов.</div>
+        <div class="slider-small-text">Закажите рекламу Яндекс.директ или Google.adwords и вы получите новых клиентов уже на следующий день!</div>
+    </div>
+    <div class="slider-item">
+        <div class="slider-big-text">Мы создаем красивые и удобные сайты в которые вложена частичка души.</div>
+        <div class="slider-small-text">Интернет магазины которые продают.</div>
+        <div class="slider-small-text">Разработка НЕОБЫКНОВЕННЫХ сайтов для частных компаний.</div>
+        <div class="slider-small-text">Сайты которыми УДОБНО пользоваться с телефона.</div>
+    </div>
+    <div class="slider-item">
+        <div class="slider-big-text">Интернет - глобальный рынок всего.</div>
+        <div class="slider-small-text">Информация - основа принятия решений.</div>
+    </div>
+    <div class="slider-item">
+        <div class="slider-big-text">Забота о вашей репутации в интернете.</div>
+        <div class="slider-small-text">Маркетинговые исследования. От запуска пробных продуктов до комплексного анализа рынка.</div>
+        <div class="slider-small-text">Создание и популяризация вашего бренда.</div>
+    </div>
+    <div class="slider-item">
+        <div class="slider-big-text">Социальные сети</div>
+        <div class="slider-small-text">Создание и оформление страниц в соц. сетях</div>
+        <div class="slider-small-text">Привлечение посетителей из соц. сетей</div>
+        <div class="slider-small-text">Вирусная реклама</div>
+    </div>
 </div>
 
 <div class="main-navigation">
@@ -53,6 +80,15 @@
             mouseleave: function () {
                 $(this).find('.main-navigation-item_image').attr('src', src);
             }
+        });
+
+        $('.slider').bxSlider({
+            minSlides: 1,
+            moveSlides: 1,
+            auto: true,
+            pause: 6000,
+            controls: false,
+            pager: false,
         });
     });
 </script>
