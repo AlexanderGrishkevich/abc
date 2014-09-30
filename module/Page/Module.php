@@ -48,6 +48,12 @@ class Module {
                     $viewHelper = new View\Helper\PromotionHelper();
                     $viewHelper->setServiceLocator($serviceLocator);
                     return $viewHelper;
+                },
+                'Design' => function ($helperPluginManager) {
+                    $serviceLocator = $helperPluginManager->getServiceLocator();
+                    $viewHelper = new View\Helper\DesignHelper();
+                    $viewHelper->setServiceLocator($serviceLocator);
+                    return $viewHelper;
                 }
             )
         );

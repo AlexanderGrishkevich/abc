@@ -92,13 +92,49 @@
 </div>
 
 <script>
-   $(document).ready(function () {
-       $('.promotion .promotion-body-carusel').bxSlider({
-            slideWidth: 720,
+    $(document).ready(function () {
+        var pager,
+                controls;
+
+        var pager_controls = function () {
+            if ($(window).width() < 480) {
+                pager = true;
+                controls = false;
+            } else {
+                pager = false;
+                controls = true;
+            }
+        };
+
+        var delay = (function () {
+            var timer = 0;
+            return function (callback, ms) {
+                clearTimeout(timer);
+                timer = setTimeout(callback, ms);
+            };
+        })();
+
+        $(window).resize(function () {
+            delay(function () {
+                pager_controls();
+                promotionSlider.destroySlider();
+                promotionSlider.reloadSlider({
+                    slideWidth: $('.promotion .promotion-body-carusel').width(),
+                    moveSlides: 1,
+                    slideMargin: 0,
+                    controls: controls,
+                    pager: pager,
+                });
+            }, 100);
+        });
+
+        pager_controls();
+        var promotionSlider = $('.promotion .promotion-body-carusel').bxSlider({
+            slideWidth: $('.promotion .promotion-body-carusel').width(),
             moveSlides: 1,
             slideMargin: 0,
-            controls: true,
-            pager: false,
+            controls: controls,
+            pager: pager,
         });
-   });
+    });
 </script>

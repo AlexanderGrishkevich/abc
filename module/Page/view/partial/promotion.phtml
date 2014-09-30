@@ -1,7 +1,7 @@
 <?php foreach ($this->portfolios as $key => $portfolio) { ?>
 <div class="promotion-body-carusel-item" style="overflow: hidden;">
         <div class="promotion-body-carusel_first">
-            <div class="promotion-body-carusel_first_logo" style="background-image: url('<?= $portfolio['logo'] ?>')"></div>
+            <div class="promotion-body-carusel_first_logo" style="background-image: url('<?= substr($portfolio['logo'], 6) ?>')"></div>
             <div class="promotion-body-carusel_first_activity"><b>Деятельность: </b><?= $portfolio['activity'] ?> </div>
             <div class="promotion-body-carusel_first_target"><b>Цель: </b><?= $portfolio['target'] ?> </div>
         </div>

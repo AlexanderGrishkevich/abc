@@ -128,17 +128,8 @@
             $(document).ready(function () {
                 var speed = 1000,
                         originalHeight = 0,
-                        hoverHeight,
-                        slides = 4;
+                        hoverHeight;
 
-                var delay = (function () {
-                    var timer = 0;
-                    return function (callback, ms) {
-                        clearTimeout(timer);
-                        timer = setTimeout(callback, ms);
-                    };
-                })();
-                
                 $('.menu').on('click', function () {
                     if ($('.wrap-menu').width() < 698 || screen.width < 698) {
                         hoverHeight = 400;
@@ -155,43 +146,8 @@
                     }
                 });
 
-                $(window).resize(function () {
-                    delay(function () {
-                        if ($(window).width() < 375) {
-                            slides = 2;
-                        } else if ($(window).width() < 510) {
-                            slides = 3;
-                        } else {
-                            slides = 4;
-                        }
-                        slider.reloadSlider({
-                            slideWidth: 105,
-                            minSlides: 1,
-                            maxSlides: slides,
-                            moveSlides: 1,
-                            slideMargin: 30,
-                            auto: true,
-                            pause: 2000,
-                            controls: false,
-                            pager: false,
-                        });
-                    }, 300);
-                });
-
                 $('textarea').autosize();
-
-                var slider = $('.marketing-body-block_9').bxSlider({
-                    slideWidth: 105,
-                    minSlides: 1,
-                    maxSlides: slides,
-                    moveSlides: 1,
-                    slideMargin: 30,
-                    auto: true,
-                    pause: 2000,
-                    controls: false,
-                    pager: false,
-                });
-
+                
             });
         </script>
     </body>

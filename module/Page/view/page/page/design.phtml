@@ -76,6 +76,10 @@
     </div>
 </div>
 
+<div class="design-body-banners">
+    <?php echo $this->Design(); ?>
+</div>
+
 <div class="design-body-block_1">Вы можете связаться с нами через форму на сайте или заказать звонок менеджера</div>
 
 <div class="promotion-body-block_9">
@@ -83,3 +87,51 @@
         <div class="promotion-body-button_order">ОФОРМИТЬ ЗАКАЗ</div>
     </a>
 </div>
+
+<script>
+    $(document).ready(function () {
+        var pager;
+        var controls;
+
+        var pager_controls = function () {
+            if ($(window).width() < 480) {
+                pager = true;
+                controls = false;
+            } else {
+                pager = false;
+                controls = true;
+            }
+        };
+
+        var delay = (function () {
+            var timer = 0;
+            return function (callback, ms) {
+                clearTimeout(timer);
+                timer = setTimeout(callback, ms);
+            };
+        })();
+
+        pager_controls();
+        var bannerSlider = $('.design-body-banners').bxSlider({
+            slideWidth: $('.design-body-banners_row').width(),
+            minSlides: 1,
+            moveSlides: 1,
+            controls: controls,
+            pager: pager,
+        });
+
+        $(window).resize(function () {
+            delay(function () {
+                pager_controls();
+                bannerSlider.destroySlider();
+                bannerSlider.reloadSlider({
+                    slideWidth: $('.design-body-banners_row').width(),
+                    minSlides: 1,
+                    moveSlides: 1,
+                    controls: controls,
+                    pager: pager,
+                });
+            }, 100);
+        });
+    });
+</script>
