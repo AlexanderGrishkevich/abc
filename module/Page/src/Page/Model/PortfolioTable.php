@@ -12,7 +12,7 @@ use Zend\Db\Adapter\Adapter,
 
 class PortfolioTable extends AbstractTableGateway {
 
-	protected $table = 'portfolio';
+    protected $table = 'portfolio';
 
     public function __construct(Adapter $adapter) {
         $this->adapter = $adapter;
@@ -55,7 +55,7 @@ class PortfolioTable extends AbstractTableGateway {
             );
         }
     }
-    
+
     public function getPortfolioImagesById($id) {
         $id = (int) $id;
         $sql = "SELECT *
@@ -63,6 +63,32 @@ class PortfolioTable extends AbstractTableGateway {
                 WHERE portfolio_id = $id";
         $rowset = $this->adapter->query($sql, array());
         return $rowset;
-        
     }
+
+    public function saveLogo($src, $id) {
+        $id = (int) $id;
+        $data = array(
+            'logo' => $src,
+        );
+
+        $this->update(
+                $data, array(
+            'id' => $id,
+                )
+        );
+    }
+    
+    public function saveBanner($src, $id) {
+        $id = (int) $id;
+        $data = array(
+            'banner' => $src,
+        );
+
+        $this->update(
+                $data, array(
+            'id' => $id,
+                )
+        );
+    }
+
 }

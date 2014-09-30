@@ -128,14 +128,26 @@
             $(document).ready(function () {
                 var speed = 1000,
                         originalHeight = 0,
-                        hoverHeight;
+                        hoverHeight,
+                        slides = 4;
 
+                var delay = (function () {
+                    var timer = 0;
+                    return function (callback, ms) {
+                        clearTimeout(timer);
+                        timer = setTimeout(callback, ms);
+                    };
+                })();
+                
                 $('.menu').on('click', function () {
-                    if ($('.content').width() < 481 || screen.width < 481) {
+                    if ($('.wrap-menu').width() < 698 || screen.width < 698) {
                         hoverHeight = 400;
-                    } else {
+                    } else if ($('.wrap-menu').width() < 1166 || screen.width < 1166) {
+                        hoverHeight = 240;
+                    } else if ($('.wrap-menu').width() > 1184 || screen.width > 1184) {
                         hoverHeight = 120;
                     }
+
                     if ($('.wrap-menu').height() == originalHeight) {
                         $('.wrap-menu').animate({height: hoverHeight}, speed);
                     } else {
@@ -143,12 +155,35 @@
                     }
                 });
 
+                $(window).resize(function () {
+                    delay(function () {
+                        if ($(window).width() < 375) {
+                            slides = 2;
+                        } else if ($(window).width() < 510) {
+                            slides = 3;
+                        } else {
+                            slides = 4;
+                        }
+                        slider.reloadSlider({
+                            slideWidth: 105,
+                            minSlides: 1,
+                            maxSlides: slides,
+                            moveSlides: 1,
+                            slideMargin: 30,
+                            auto: true,
+                            pause: 2000,
+                            controls: false,
+                            pager: false,
+                        });
+                    }, 300);
+                });
+
                 $('textarea').autosize();
 
-                $('.marketing-body-block_9').bxSlider({
+                var slider = $('.marketing-body-block_9').bxSlider({
                     slideWidth: 105,
                     minSlides: 1,
-                    maxSlides: 4,
+                    maxSlides: slides,
                     moveSlides: 1,
                     slideMargin: 30,
                     auto: true,
@@ -156,6 +191,7 @@
                     controls: false,
                     pager: false,
                 });
+
             });
         </script>
     </body>

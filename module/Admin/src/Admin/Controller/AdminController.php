@@ -164,7 +164,7 @@ class AdminController extends AbstractActionController {
     public function saveImage($file, $id) {
         $httpadapter = new \Zend\File\Transfer\Adapter\Http();
         if ($httpadapter->isValid()) {
-            $pathdir = 'public/uploads/portfolio/' . md5($id);
+            $pathdir = 'public/uploads/portfolio/' . $id;
             if (!is_dir($pathdir)) {
                 mkdir($pathdir);
             }
@@ -231,6 +231,50 @@ class AdminController extends AbstractActionController {
             $portfolioTable->savePortfolio($portfolio);
             return $this->redirect()->toUrl('/portfolio');
         }
+    }
+    
+    public function addLogoAction() {
+        $id = (int) $this->params()->fromRoute('id');
+        $sm = $this->getServiceLocator();
+        $dbAdapter = $sm->get('DbAdapter');
+        $request = $this->getRequest();
+        $portfolioTable = new PortfolioTable($dbAdapter);
+        
+        if ($request->isPost()) {
+            $files = $request->getFiles()->toArray();
+            $file = $this->saveImage($files, $id);
+            if ($file) {
+                $portfolioTable->saveLogo($file, $id);
+                $answer = array('status' => 'ok', 'src' => $file);
+            }
+        }
+        
+        $response = $this->getResponse();
+        $response->setContent(\Zend\Json\Json::encode($answer));
+        $response->getHeaders()->addHeaders(array('Content-Type' => 'application/json'));
+        return $response;
+    }
+    
+    public function addBannerAction() {
+        $id = (int) $this->params()->fromRoute('id');
+        $sm = $this->getServiceLocator();
+        $dbAdapter = $sm->get('DbAdapter');
+        $request = $this->getRequest();
+        $portfolioTable = new PortfolioTable($dbAdapter);
+        
+        if ($request->isPost()) {
+            $files = $request->getFiles()->toArray();
+            $file = $this->saveImage($files, $id);
+            if ($file) {
+                $portfolioTable->saveBanner($file, $id);
+                $answer = array('status' => 'ok', 'src' => $file);
+            }
+        }
+        
+        $response = $this->getResponse();
+        $response->setContent(\Zend\Json\Json::encode($answer));
+        $response->getHeaders()->addHeaders(array('Content-Type' => 'application/json'));
+        return $response;
     }
 
 }

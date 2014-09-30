@@ -4,9 +4,9 @@ $form->prepare();
 $form->setAttribute('action', '/admin/savePortfolio/' . $this->id);
 echo $this->form()->openTag($form);
 ?>
-
+<div>Основные картинки</div>
 <div class="portfolio-body-slider-item">
-    <div class="portfolio-body-slider-item_images" id="my-awesome-dropzone" style="height: 480px; width: 365px; float: left; background-color: #ccc;border:10px dotted #555;">
+    <div class="portfolio-body-slider-item_images" id="my-awesome-dropzone">
     </div>
     <div class="portfolio-body-slider-item_right">
         <div class="portfolio-body-slider-item_right_activity">
@@ -27,9 +27,11 @@ echo $this->form()->openTag($form);
     </div>
 </div>
 
-<div class="addportfolio-images">
+<div class="my-awesome-dropzone2">Залить лого!!!</div>
+<div id="my-awesome-dropzone2"></div>
 
-</div>
+<div class="my-awesome-dropzone3">Залить баннер!!!</div>
+<div id="my-awesome-dropzone3"></div>
 
 <?= $this->formElement($form->get('submit')); ?>
 
@@ -55,15 +57,59 @@ echo $this->form()->openTag($form);
                 if (response && response.status === 'ok') {
                     var div_x = $('<div/>').attr('class', 'addportfolio-image').attr('style', 'background-image: url(' + src + ');');
                     var div_del_link = $('<div/>').attr('class', 'remove_link').attr('data-file', src);
-                    ;
                     $('.portfolio-body-slider-item_images').append(div_x.append(div_del_link));
                 }
             }
         };
 
-        var myDropzone = new Dropzone("#my-awesome-dropzone", {url: "/admin/addImage/<?= $this->id ?>"});
+        Dropzone.options.myAwesomeDropzone2 = {
+            paramName: "file",
+            maxFilesize: 2,
+            acceptedFiles: "image/*,",
+            maxFiles: 1,
+            autoProcessQueue: true,
+            uploadMultiple: false,
+            accept: function (file, done) {
+                done();
+            },
+            success: function (file, response) {
+                var src = response.src.substring(6, response.src.length);
+                if (response && response.status === 'ok') {
+                    $('.addportfolio-logo').remove();
+                    var div_x = $('<div/>').attr('class', 'addportfolio-logo').attr('style', 'background-image: url(' + src + ');');
+                    $('#my-awesome-dropzone2').append(div_x);
+                    this.removeFile(file);
+                }
+            }
+        };
         
-        $('body').on('click', '.remove_link', function() {
+        Dropzone.options.myAwesomeDropzone3 = {
+            paramName: "file",
+            maxFilesize: 2,
+            acceptedFiles: "image/*,",
+            maxFiles: 1,
+            autoProcessQueue: true,
+            uploadMultiple: false,
+            accept: function (file, done) {
+                done();
+            },
+            success: function (file, response) {
+                var src = response.src.substring(6, response.src.length);
+                if (response && response.status === 'ok') {
+                    $('.addportfolio-banner').remove();
+                    var div_x = $('<div/>').attr('class', 'addportfolio-banner').attr('style', 'background-image: url(' + src + ');');
+                    $('#my-awesome-dropzone3').append(div_x);
+                    this.removeFile(file);
+                }
+            }
+        };
+
+        var myDropzone = new Dropzone("#my-awesome-dropzone", {url: "/admin/addImage/<?= $this->id ?>"});
+        var myDropzone2 = new Dropzone("#my-awesome-dropzone2", {url: "/admin/addLogo/<?= $this->id ?>"});
+        var myDropzone3 = new Dropzone("#my-awesome-dropzone3", {url: "/admin/addBanner/<?= $this->id ?>"});
+
+
+        $('body').on('click', '.remove_link', function () {
             var src = $(this).data('file');
             var img = $(this).parent();
             $.ajax({
@@ -71,7 +117,7 @@ echo $this->form()->openTag($form);
                 url: "/admin/deleteImage",
                 data: {"src": src},
                 cache: false,
-                success: function(response) {
+                success: function (response) {
                     if (response && response.status === 'ok') {
                         img.remove();
                     }
@@ -86,6 +132,50 @@ echo $this->form()->openTag($form);
 
 
 <style>
+    .addportfolio-banner {
+        width: 300px;
+        height: 150px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    
+    .my-awesome-dropzone2, .my-awesome-dropzone3 {
+        width: 150px;
+    }
+    
+    #my-awesome-dropzone3 {
+        height: 150px; 
+        width: 300px; 
+        float: left; 
+        background-color: #ccc;
+        border:10px dotted #555;
+    }
+    
+    .addportfolio-logo {
+        width: 105px;
+        height: 30px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    
+    #my-awesome-dropzone {
+        height: 480px; 
+        width: 365px; 
+        float: left; 
+        background-color: #ccc;
+        border:10px dotted #555;
+    }
+
+    #my-awesome-dropzone2 {
+        height: 30px; 
+        width: 105px; 
+        float: left; 
+        background-color: #ccc;
+        border:10px dotted #555;
+    }
+
     .remove_link {
         width: 40px;
         height: 40px;

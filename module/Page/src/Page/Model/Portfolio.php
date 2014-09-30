@@ -11,6 +11,7 @@ class Portfolio {
     public $review;
     public $target;
     public $logo;
+    public $banner;
     public $active;
 
     public function exchangeArray($data) {
@@ -20,6 +21,8 @@ class Portfolio {
         $this->work = (isset($data['work'])) ? $data['work'] : NULL;
         $this->review = (isset($data['review'])) ? $data['review'] : NULL;
         $this->target = (isset($data['target'])) ? $data['target'] : NULL;
+        $this->logo = (isset($data['logo'])) ? $data['logo'] : NULL;
+        $this->banner = (isset($data['banner'])) ? $data['banner'] : NULL;
         $this->active = (isset($data['active'])) ? $data['active'] : NULL;
     }
 
