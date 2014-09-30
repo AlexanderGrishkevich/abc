@@ -87,14 +87,15 @@
     <a href="<?= $this->url('page', array('action' => 'checkout')) ?>">
         <div class="promotion-body-button_order">ОФОРМИТЬ ЗАКАЗ</div>
     </a>
-    <div class="promotion-body-button_price">РАСЧИТАТЬ ЦЕНУ</div>
-    <div class="promotion-body-button_analysis">АНАЛИЗ САЙТА</div>
+    <div class="promotion-body-button_order">РАСЧИТАТЬ ЦЕНУ</div>
+    <div class="promotion-body-button_order">АНАЛИЗ САЙТА</div>
 </div>
 
 <script>
     $(document).ready(function () {
         var pager,
-                controls;
+                controls,
+                start;
 
         var pager_controls = function () {
             if ($(window).width() < 480) {
@@ -117,9 +118,12 @@
         $(window).resize(function () {
             delay(function () {
                 pager_controls();
+                start = promotionSlider.getCurrentSlide();
+
                 promotionSlider.destroySlider();
                 promotionSlider.reloadSlider({
                     slideWidth: $('.promotion .promotion-body-carusel').width(),
+                    startSlide: start,
                     moveSlides: 1,
                     slideMargin: 0,
                     controls: controls,
@@ -131,6 +135,7 @@
         pager_controls();
         var promotionSlider = $('.promotion .promotion-body-carusel').bxSlider({
             slideWidth: $('.promotion .promotion-body-carusel').width(),
+            randomStart: true,
             moveSlides: 1,
             slideMargin: 0,
             controls: controls,

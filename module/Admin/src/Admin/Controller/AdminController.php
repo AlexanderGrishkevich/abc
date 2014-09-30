@@ -197,8 +197,8 @@ class AdminController extends AbstractActionController {
             $rowset = $portfolioImagesTable->deleteImage($src);
             if ($rowset) {
                 if (file_exists($src)) {
-                unlink($src);
-            }
+                    unlink($src);
+                }
                 $status = 'ok';
             } else {
                 $status = 'bad';
@@ -229,17 +229,17 @@ class AdminController extends AbstractActionController {
             $portfolio->exchangeArray($data);
             $portfolio->id = $id;
             $portfolioTable->savePortfolio($portfolio);
-            return $this->redirect()->toUrl('/portfolio');
+            return $this->redirect()->toUrl('/admin/portfolios');
         }
     }
-    
+
     public function addLogoAction() {
         $id = (int) $this->params()->fromRoute('id');
         $sm = $this->getServiceLocator();
         $dbAdapter = $sm->get('DbAdapter');
         $request = $this->getRequest();
         $portfolioTable = new PortfolioTable($dbAdapter);
-        
+
         if ($request->isPost()) {
             $files = $request->getFiles()->toArray();
             $file = $this->saveImage($files, $id);
@@ -248,20 +248,20 @@ class AdminController extends AbstractActionController {
                 $answer = array('status' => 'ok', 'src' => $file);
             }
         }
-        
+
         $response = $this->getResponse();
         $response->setContent(\Zend\Json\Json::encode($answer));
         $response->getHeaders()->addHeaders(array('Content-Type' => 'application/json'));
         return $response;
     }
-    
+
     public function addBannerAction() {
         $id = (int) $this->params()->fromRoute('id');
         $sm = $this->getServiceLocator();
         $dbAdapter = $sm->get('DbAdapter');
         $request = $this->getRequest();
         $portfolioTable = new PortfolioTable($dbAdapter);
-        
+
         if ($request->isPost()) {
             $files = $request->getFiles()->toArray();
             $file = $this->saveImage($files, $id);
@@ -270,8 +270,39 @@ class AdminController extends AbstractActionController {
                 $answer = array('status' => 'ok', 'src' => $file);
             }
         }
-        
+
         $response = $this->getResponse();
+        $response->setContent(\Zend\Json\Json::encode($answer));
+        $response->getHeaders()->addHeaders(array('Content-Type' => 'application/json'));
+        return $response;
+    }
+
+    public function portfoliosAction() {
+        return new ViewModel();
+    }
+
+    public function deletePortfolioAction() {
+
+        $sm = $this->getServiceLocator();
+        $dbAdapter = $sm->get('DbAdapter');
+        $request = $this->getRequest();
+        $portfolioTable = new PortfolioTable($dbAdapter);
+        if ($request->isPost()) {
+            $postData = $request->getPost();
+            $src = 'public/uploads/portfolio/' . $postData->id;
+            $rowset = $portfolioTable->deletePortfolio($postData->id);
+            if (!$rowset) {
+                $status = 'bad';
+            } else {
+                $status = 'ok';
+            }
+            foreach (glob($src . '/*') as $entry) {
+                unlink($entry);
+            }
+        }
+
+        $response = $this->getResponse();
+        $answer = array('status' => $status);
         $response->setContent(\Zend\Json\Json::encode($answer));
         $response->getHeaders()->addHeaders(array('Content-Type' => 'application/json'));
         return $response;

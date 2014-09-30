@@ -1,0 +1,72 @@
+<div class="portfolio-body-slider">
+    <?php echo $this->Portfolio(); ?>
+</div>
+
+<div class="promotion-body-block_9">
+    <div class="promotion-body-button_order delete">Удалить Портфолио</div>
+    <a href="<?= $this->url('admin', array('action' => 'addportfolio')) ?>">
+        <div class="promotion-body-button_order">Создать портфолио</div>
+    </a>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var width = 720;
+
+        if ($('.content').width() < 481 || screen.width < 481) {
+            width = screen.width;
+        } else if ($('.content').width() < 800 || screen.width < 800) {
+            width = 480;
+        } else {
+            width = 720;
+        }
+
+
+        $('.portfolio-body-slider-item_images').bxSlider({
+            slideWidth: 365,
+            mode: 'vertical',
+            moveSlides: 1,
+            slideMargin: 0,
+            controls: false,
+            pager: true,
+        });
+
+        var portfolioSlider = $('.portfolio-body-slider').bxSlider({
+            //startSlide: 3,
+            slideWidth: width,
+            moveSlides: 1,
+            slideMargin: 0,
+            controls: true,
+            pager: false,
+        });
+
+        $('.delete').on('click', function () {
+            var current = portfolioSlider.getCurrentSlide() + 1,
+                    id,
+                    item;
+                    
+            $('.portfolio-body-slider').children().each(function (index) {
+                if (current == index) {
+                    id = $(this).data('id');
+                    item = $(this);
+                }
+            });
+
+            if (id) {
+                $.ajax({
+                    type: "POST",
+                    url: "/admin/deletePortfolio",
+                    data: {"id": id},
+                    cache: false,
+                    success: function (response) {
+                        if (response && response.status === 'ok') {
+                            item.remove();
+                        }
+                    }
+                });
+            }
+
+        });
+    });
+</script>
+

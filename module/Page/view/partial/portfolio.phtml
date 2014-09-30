@@ -1,6 +1,6 @@
 <?php foreach ($this->portfolios as $key => $portfolio) { ?>
     <?php $images = $this->portfolioTable->getPortfolioImagesById($portfolio['id']) ?>
-    <div class="portfolio-body-slider-item">
+<div class="portfolio-body-slider-item" data-id="<?= $portfolio['id'] ?>">
         <div class="portfolio-body-slider-item_images" style="height: 500px; float: left;">
             <?php if (!$images->count()) {  ?>
                 <div class="portfolio-body-slider-item_left" style="background-image: url('/img/no_picture.gif')"></div>

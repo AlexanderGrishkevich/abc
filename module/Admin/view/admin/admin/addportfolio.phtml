@@ -37,7 +37,11 @@ echo $this->form()->openTag($form);
 
 <?php echo $this->form()->closeTag() ?>
 
-
+<div class="promotion-body-block_9">
+    <a href="<?= $this->url('admin', array('action' => 'index')) ?>">
+        <div class="promotion-body-button_order">Назад</div>
+    </a>
+</div>
 
 <script>
     $(document).ready(function () {
@@ -82,7 +86,7 @@ echo $this->form()->openTag($form);
                 }
             }
         };
-        
+
         Dropzone.options.myAwesomeDropzone3 = {
             paramName: "file",
             maxFilesize: 2,
@@ -139,11 +143,11 @@ echo $this->form()->openTag($form);
         background-repeat: no-repeat;
         background-size: contain;
     }
-    
+
     .my-awesome-dropzone2, .my-awesome-dropzone3 {
         width: 150px;
     }
-    
+
     #my-awesome-dropzone3 {
         height: 150px; 
         width: 300px; 
@@ -151,7 +155,7 @@ echo $this->form()->openTag($form);
         background-color: #ccc;
         border:10px dotted #555;
     }
-    
+
     .addportfolio-logo {
         width: 105px;
         height: 30px;
@@ -159,7 +163,7 @@ echo $this->form()->openTag($form);
         background-repeat: no-repeat;
         background-size: contain;
     }
-    
+
     #my-awesome-dropzone {
         height: 480px; 
         width: 365px; 
@@ -203,7 +207,7 @@ echo $this->form()->openTag($form);
         overflow: hidden;
         width: 315px;
         border: 0;
-        line-height: 16px;
+        line-height: 15px;
     }
 
     .portfolio-body-slider-item_right_activity textarea {
@@ -231,6 +235,7 @@ echo $this->form()->openTag($form);
         width: 315px;
         padding: 0;
         border: 0;
+        line-height: 15px;
     }
 
 </style>

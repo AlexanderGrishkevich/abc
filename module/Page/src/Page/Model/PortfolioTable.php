@@ -90,5 +90,11 @@ class PortfolioTable extends AbstractTableGateway {
                 )
         );
     }
+    
+    public function deletePortfolio($id) {
+        $id = (int) $id;
+        $rowset = $this->delete(array('id' => $id));
+        return $rowset;
+    }
 
 }
