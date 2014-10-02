@@ -7,6 +7,9 @@
     <a href="<?= $this->url('admin', array('action' => 'addportfolio')) ?>">
         <div class="promotion-body-button_order">Создать портфолио</div>
     </a>
+    <a href="<?= $this->url('admin', array('action' => 'index')) ?>">
+        <div class="promotion-body-button_order">Назад</div>
+    </a>
 </div>
 
 <script>
@@ -32,7 +35,6 @@
         });
 
         var portfolioSlider = $('.portfolio-body-slider').bxSlider({
-            //startSlide: 3,
             slideWidth: width,
             moveSlides: 1,
             slideMargin: 0,
