@@ -27,7 +27,7 @@ class PageController extends AbstractActionController {
         return new ViewModel();
     }
 
-    public function publicityAction() {
+    public function prAction() {
         return new ViewModel();
     }
 

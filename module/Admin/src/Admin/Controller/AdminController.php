@@ -18,18 +18,19 @@ use Auth\Model\UserTable,
 class AdminController extends AbstractActionController {
 
     public function indexAction() {
+        $this->auth();
+        return new ViewModel();
+    }
+    
+    public function auth() {
         $user = $this->getServiceLocator()->get('AuthService')->getIdentity();
         if (!$user['id']) {
             return $this->redirect()->toUrl('/auth/login');
-        }
-        return new ViewModel();
+        };
     }
 
     public function usersAction() {
-        $user = $this->getServiceLocator()->get('AuthService')->getIdentity();
-        if (!$user['id']) {
-            return $this->redirect()->toUrl('/auth/login');
-        }
+        $this->auth();
         $userTable = new UserTable($this->getServiceLocator()->get('dbAdapter'));
         $users = $userTable->fetchAll();
         $form = new UserForm;
@@ -37,6 +38,7 @@ class AdminController extends AbstractActionController {
     }
 
     public function deleteUserAction() {
+        $this->auth();
         $userTable = new UserTable($this->getServiceLocator()->get('dbAdapter'));
         $request = $this->getRequest();
         $response = $this->getResponse();
@@ -58,6 +60,7 @@ class AdminController extends AbstractActionController {
     }
 
     public function addUserAction() {
+        $this->auth();
         $userTable = new UserTable($this->getServiceLocator()->get('dbAdapter'));
         $request = $this->getRequest();
         $form = new UserForm();
@@ -78,12 +81,14 @@ class AdminController extends AbstractActionController {
     }
 
     public function feedbacksAction() {
+        $this->auth();
         $feedbackTable = new FeedbackTable($this->getServiceLocator()->get('dbAdapter'));
         $feedbacks = $feedbackTable->fetchAll();
         return new ViewModel(array('feedbacks' => $feedbacks));
     }
 
     public function deleteFeedbackAction() {
+        $this->auth();
         $feedbackTable = new FeedbackTable($this->getServiceLocator()->get('dbAdapter'));
         $request = $this->getRequest();
         $response = $this->getResponse();
@@ -105,12 +110,14 @@ class AdminController extends AbstractActionController {
     }
 
     public function checkoutsAction() {
+        $this->auth();
         $checkoutTable = new CheckoutTable($this->getServiceLocator()->get('dbAdapter'));
         $checkouts = $checkoutTable->fetchAll();
         return new ViewModel(array('checkouts' => $checkouts));
     }
 
     public function deleteCheckoutAction() {
+        $this->auth();
         $checkoutTable = new CheckoutTable($this->getServiceLocator()->get('dbAdapter'));
         $request = $this->getRequest();
         $response = $this->getResponse();
@@ -132,6 +139,7 @@ class AdminController extends AbstractActionController {
     }
 
     public function addportfolioAction() {
+        $this->auth();
         $portfolioTable = new PortfolioTable($this->getServiceLocator()->get('dbAdapter'));
         $portfolio = new Portfolio();
         $id = $portfolioTable->savePortfolio($portfolio);
@@ -140,6 +148,7 @@ class AdminController extends AbstractActionController {
     }
 
     public function addImageAction() {
+        $this->auth();
         $id = (int) $this->params()->fromRoute('id');
         $sm = $this->getServiceLocator();
         $dbAdapter = $sm->get('DbAdapter');
@@ -187,6 +196,7 @@ class AdminController extends AbstractActionController {
     }
 
     public function deleteImageAction() {
+        $this->auth();
         $sm = $this->getServiceLocator();
         $dbAdapter = $sm->get('DbAdapter');
         $request = $this->getRequest();
@@ -213,6 +223,7 @@ class AdminController extends AbstractActionController {
     }
 
     public function savePortfolioAction() {
+        $this->auth();
         $id = (int) $this->params()->fromRoute('id');
 
         $sm = $this->getServiceLocator();
@@ -234,6 +245,7 @@ class AdminController extends AbstractActionController {
     }
 
     public function addLogoAction() {
+        $this->auth();
         $id = (int) $this->params()->fromRoute('id');
         $sm = $this->getServiceLocator();
         $dbAdapter = $sm->get('DbAdapter');
@@ -256,6 +268,7 @@ class AdminController extends AbstractActionController {
     }
 
     public function addBannerAction() {
+        $this->auth();
         $id = (int) $this->params()->fromRoute('id');
         $sm = $this->getServiceLocator();
         $dbAdapter = $sm->get('DbAdapter');
@@ -278,11 +291,12 @@ class AdminController extends AbstractActionController {
     }
 
     public function portfoliosAction() {
+        $this->auth();
         return new ViewModel();
     }
 
     public function deletePortfolioAction() {
-
+        $this->auth();
         $sm = $this->getServiceLocator();
         $dbAdapter = $sm->get('DbAdapter');
         $request = $this->getRequest();

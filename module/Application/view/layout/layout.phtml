@@ -32,7 +32,7 @@
         ?>
 
     </head>
-    <body class="<?= $this->controllerName(); ?>">
+    <body class="<?= $this->controllerName()['controller'] . ' ' . $this->controllerName()['action']; ?>">
         <div class="wrapper">
             <nav> 
                 <p class="menu">Меню</p>
@@ -87,7 +87,7 @@
                     </div>
                     <div class="menu-item">
                         <h2>
-                            <a href="<?= $this->url('page', array('action' => 'publicity')) ?>">Реклама и PR</a>
+                            <a href="<?= $this->url('page', array('action' => 'pr')) ?>">Реклама и PR</a>
                         </h2>
                         <br/>
                         <div class="menu-item_links">
@@ -131,14 +131,7 @@
                         hoverHeight;
 
                 $('.menu').on('click', function () {
-                    if ($('.wrap-menu').width() < 698 || screen.width < 698) {
-                        hoverHeight = 400;
-                    } else if ($('.wrap-menu').width() < 1166 || screen.width < 1166) {
-                        hoverHeight = 240;
-                    } else if ($('.wrap-menu').width() > 1184 || screen.width > 1184) {
-                        hoverHeight = 120;
-                    }
-
+                    hoverHeight = $('.wrap-menu-items').height();
                     if ($('.wrap-menu').height() == originalHeight) {
                         $('.wrap-menu').animate({height: hoverHeight}, speed);
                     } else {
@@ -147,7 +140,7 @@
                 });
 
                 $('textarea').autosize();
-                
+
             });
         </script>
     </body>

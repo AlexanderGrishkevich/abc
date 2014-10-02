@@ -58,7 +58,7 @@ body.index .content {
 }
 
 body.portfolio .content, body.process-checkout .content, body.checkout .content,
-body.support .content, body.contacts .content, body.publicity .content,
+body.support .content, body.contacts .content, body.pr .content,
 body.marketing .content, body.design .content, body.promotion .content,
 body.process-feedback .content{
     max-width: 800px;
@@ -109,9 +109,10 @@ nav {
 .nav-right {
     padding-right: 10px;
     float: right;
-    width: 250px;
+    /* width: 250px; */
     height: 60px;
     font-family: euroRegular !important;
+    display: table;
 }
 
 .icon-phone {
@@ -124,7 +125,7 @@ nav {
 
 .phones {
     float: left;
-    width: 193px;
+    /* width: 193px; */
     height: 60px;
 }
 .phone-skype {
@@ -298,6 +299,7 @@ body.index .bx-viewport {
     margin: 0 auto;
     left: 0;
     right: 0;
+    overflow: hidden;
 }
 
 .menu-item {
@@ -349,7 +351,7 @@ body.index .bx-viewport {
 }
 
 .publicity_static {
-    background-image: url(/img/publicity_static.png);
+    background-image: url(/img/pr_static.png);
 }
 
 .promotion_static {
@@ -365,7 +367,7 @@ body.index .bx-viewport {
 }
 
 .publicity_static:hover {
-    background-image: url(/img/publicity_static_hover.png);
+    background-image: url(/img/pr_static_hover.png);
 }
 
 .promotion_static:hover {
@@ -401,7 +403,7 @@ body.index .bx-viewport {
 }
 
 .page_publicity {
-    background-image: url(/img/publicity_hover.png);
+    background-image: url(/img/pr_hover.png);
 }
 
 .title-icon_main {
@@ -1275,7 +1277,7 @@ and (max-width : 480px) {
         border: 0;
         border-bottom: 1px solid #000000;
         padding: 0;
-        min-height: 50px;
+        min-height: 30px;
         height: auto;
     }
 

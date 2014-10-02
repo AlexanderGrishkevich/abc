@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zend Framework (http://framework.zend.com/)
  *
@@ -12,23 +13,20 @@ namespace Application;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
-class Module
-{
-    public function onBootstrap(MvcEvent $e)
-    {
+class Module {
+
+    public function onBootstrap(MvcEvent $e) {
         $this->setDefaultTranslator($e);
-        $eventManager        = $e->getApplication()->getEventManager();
+        $eventManager = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
     }
 
-    public function getConfig()
-    {
+    public function getConfig() {
         return include __DIR__ . '/config/module.config.php';
     }
 
-    public function getAutoloaderConfig()
-    {
+    public function getAutoloaderConfig() {
         return array(
             'Zend\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
@@ -37,19 +35,26 @@ class Module
             ),
         );
     }
-    
+
     public function getViewHelperConfig() {
         return array(
             'factories' => array(
                 'ControllerName' => function ($sm) {
-                   $match = $sm->getServiceLocator()->get('application')->getMvcEvent()->getRouteMatch();
-                   $viewHelper = new \Application\View\Helper\ControllerName($match);
-                   return $viewHelper;
-                },           
+                    $match = $sm->getServiceLocator()->get('application')->getMvcEvent()->getRouteMatch();
+                    $viewHelper = new \Application\View\Helper\ControllerName($match);
+                    return $viewHelper;
+                },
+                'MetaHelper' => function ($helperPluginManager) {
+                    $serviceLocator = $helperPluginManager->getServiceLocator();
+                    $match = $serviceLocator->get('application')->getMvcEvent()->getRouteMatch();
+                    $viewHelper = new View\Helper\MetaHelper($match);
+                    $viewHelper->setServiceLocator($serviceLocator);
+                    return $viewHelper;
+                }
             )
-        );  
+        );
     }
-    
+
     protected function setDefaultTranslator($e) {
         $translator = $e->getApplication()->getServiceManager()->get('translator');
 
@@ -62,4 +67,5 @@ class Module
 
         \Zend\Validator\AbstractValidator::setDefaultTranslator($translator);
     }
+
 }
