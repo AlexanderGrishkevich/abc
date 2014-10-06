@@ -7,6 +7,13 @@ echo $this->form()->openTag($form);
 <div>Основные картинки</div>
 <div class="portfolio-body-slider-item">
     <div class="portfolio-body-slider-item_images" id="my-awesome-dropzone">
+        <?php if ($this->images->count()) { ?>
+            <?php foreach ($this->images as $image) { ?>
+                <div class="addportfolio-image" style="background-image: url('<?= substr($image->filepath, 6); ?>');">
+                    <div class="remove_link" data-file="<?= substr($image->filepath, 6); ?>"></div>
+                </div>
+            <?php } ?>
+        <?php } ?>
     </div>
     <div class="portfolio-body-slider-item_right">
         <div class="portfolio-body-slider-item_right_activity">
@@ -28,18 +35,26 @@ echo $this->form()->openTag($form);
 </div>
 
 <div class="my-awesome-dropzone2">Залить лого!!!</div>
-<div id="my-awesome-dropzone2"></div>
+<div id="my-awesome-dropzone2">
+    <?php if ($this->portfolio) { ?>
+        <div class="addportfolio-logo" style="background-image: url('<?= substr($this->portfolio->logo, 6); ?>');"></div>
+    <?php } ?>
+</div>
 
 <div class="my-awesome-dropzone3">Залить баннер!!!</div>
-<div id="my-awesome-dropzone3"></div>
+<div id="my-awesome-dropzone3">
+    <?php if ($this->portfolio) { ?>
+        <div class="addportfolio-banner" style="background-image: url('<?= substr($this->portfolio->banner, 6); ?>');"></div>
+    <?php } ?>
+</div>
 
 <?= $this->formElement($form->get('submit')); ?>
 
 <?php echo $this->form()->closeTag() ?>
 
-<div class="promotion-body-block_9">
+<div class="body-block_7">
     <a href="<?= $this->url('admin', array('action' => 'index')) ?>">
-        <div class="promotion-body-button_order">Назад</div>
+        <div class="body-button">Назад</div>
     </a>
 </div>
 
@@ -201,13 +216,14 @@ echo $this->form()->openTag($form);
         margin-bottom: 15px;
     }
     .portfolio-form  textarea {
+        font-family: Conv_niveaLight !important;
         padding: 0;
         font-size: 16px;
         resize: none;
         overflow: hidden;
         width: 315px;
         border: 0;
-        line-height: 15px;
+        line-height: 16px;
     }
 
     .portfolio-body-slider-item_right_activity textarea {
@@ -221,7 +237,7 @@ echo $this->form()->openTag($form);
     }
 
     .portfolio-body-slider-item_right_work textarea {
-        height: 192px;
+        height: 180px;
     }
 
     .portfolio-body-slider-item_right_review textarea {
@@ -230,12 +246,13 @@ echo $this->form()->openTag($form);
     }
 
     .portfolio-body-slider-item_right_sitelink input {
+        font-family: Conv_niveaLight !important;
         height: 20px;
         font-size: 16px;
         width: 315px;
         padding: 0;
         border: 0;
-        line-height: 15px;
+        line-height: 16px;
     }
 
 </style>

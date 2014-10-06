@@ -82,13 +82,23 @@
             }
         });
 
-        $('.slider').bxSlider({
+        var slider = $('.slider').bxSlider({
             minSlides: 1,
             moveSlides: 1,
             auto: true,
             pause: 6000,
             controls: false,
-            pager: false,
+            pager: true,
         });
+
+        $('.slider').on({
+            mouseenter: function () {
+                slider.stopAuto();
+            },
+            mouseleave: function () {
+                slider.startAuto();
+            }
+        });
+
     });
 </script>

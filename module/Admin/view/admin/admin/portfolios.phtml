@@ -2,13 +2,14 @@
     <?php echo $this->Portfolio(); ?>
 </div>
 
-<div class="promotion-body-block_9">
-    <div class="promotion-body-button_order delete">Удалить Портфолио</div>
+<div class="body-block_7">
     <a href="<?= $this->url('admin', array('action' => 'addportfolio')) ?>">
-        <div class="promotion-body-button_order">Создать портфолио</div>
+        <div class="body-button">Создать новое</div>
     </a>
+    <div class="body-button delete">Удалить</div>
+    <div class="body-button edit">Редактировать</div>
     <a href="<?= $this->url('admin', array('action' => 'index')) ?>">
-        <div class="promotion-body-button_order">Назад</div>
+        <div class="body-button">Назад</div>
     </a>
 </div>
 
@@ -16,16 +17,14 @@
     $(document).ready(function () {
         var width = 720;
 
-        if ($('.content').width() < 481 || screen.width < 481) {
-            width = screen.width;
-        } else if ($('.content').width() < 800 || screen.width < 800) {
-            width = 480;
+        if ($('.content').width() < 800 || screen.width < 800) {
+            width = 320;
         } else {
             width = 720;
         }
 
 
-        $('.portfolio-body-slider-item_images').bxSlider({
+        $('.portfolio-body-slider-item_left').bxSlider({
             slideWidth: 365,
             mode: 'vertical',
             moveSlides: 1,
@@ -40,6 +39,19 @@
             slideMargin: 0,
             controls: true,
             pager: false,
+        });
+        
+        $('.edit').on('click', function () {
+            var current = portfolioSlider.getCurrentSlide() + 1,
+                    id;
+                    
+            $('.portfolio-body-slider').children().each(function (index) {
+                if (current == index) {
+                    id = $(this).data('id');
+                }
+            });
+            
+            document.location.href = "/admin/addportfolio/" + id;
         });
 
         $('.delete').on('click', function () {

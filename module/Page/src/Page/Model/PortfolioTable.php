@@ -96,5 +96,10 @@ class PortfolioTable extends AbstractTableGateway {
         $rowset = $this->delete(array('id' => $id));
         return $rowset;
     }
+    
+    public function getPortfolioById($id) {
+        $id = (int) $id;
+        return $this->select(array('id' => $id))->current();
+    }
 
 }

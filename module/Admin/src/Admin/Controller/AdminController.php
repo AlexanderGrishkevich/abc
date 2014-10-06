@@ -21,7 +21,7 @@ class AdminController extends AbstractActionController {
         $this->auth();
         return new ViewModel();
     }
-    
+
     public function auth() {
         $user = $this->getServiceLocator()->get('AuthService')->getIdentity();
         if (!$user['id']) {
@@ -140,11 +140,19 @@ class AdminController extends AbstractActionController {
 
     public function addportfolioAction() {
         $this->auth();
+        $id = (int) $this->params()->fromRoute('id');
         $portfolioTable = new PortfolioTable($this->getServiceLocator()->get('dbAdapter'));
-        $portfolio = new Portfolio();
-        $id = $portfolioTable->savePortfolio($portfolio);
         $form = new PortfolioForm;
-        return new ViewModel(array('form' => $form, 'id' => $id->id));
+        if (!$id) {
+            $portfolio = new Portfolio();
+            $portfolio = $portfolioTable->savePortfolio($portfolio);
+            return new ViewModel(array('form' => $form, 'id' => $portfolio->id));
+        } else {
+            $portfolio = $portfolioTable->getPortfolioById($id);
+            $form->bind($portfolio);
+            $images = $portfolioTable->getPortfolioImagesById($id);
+            return new ViewModel(array('form' => $form, 'id' => $id, 'images' => $images, 'portfolio' => $portfolio));
+        }
     }
 
     public function addImageAction() {
