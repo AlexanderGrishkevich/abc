@@ -1,12 +1,12 @@
 <?php foreach ($this->portfolios as $key => $portfolio) { ?>
     <?php $images = $this->portfolioTable->getPortfolioImagesById($portfolio['id']) ?>
 <div class="portfolio-body-slider-item" data-id="<?= $portfolio['id'] ?>">
-        <div class="portfolio-body-slider-item_images" style="height: 500px; float: left;">
+        <div class="portfolio-body-slider-item_left">
             <?php if (!$images->count()) {  ?>
-                <div class="portfolio-body-slider-item_left" style="background-image: url('/img/no_picture.gif')"></div>
+                <div class="portfolio-body-slider-item_image" style="background-image: url('/img/no_picture.gif')"></div>
             <?php } else { ?>
                 <?php foreach ($images as $image) { ?>
-                <div class="portfolio-body-slider-item_left" style="background-image: url('<?= substr($image->filepath, 6) ?>')"></div>
+                <div class="portfolio-body-slider-item_image" style="background-image: url('<?= substr($image->filepath, 6) ?>')"></div>
                 <?php } ?>
             <?php } ?>
         </div>

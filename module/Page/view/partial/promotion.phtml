@@ -1,17 +1,17 @@
 <?php foreach ($this->portfolios as $key => $portfolio) { ?>
-<div class="promotion-body-carusel-item" style="overflow: hidden;">
-        <div class="promotion-body-carusel_first">
-            <div class="promotion-body-carusel_first_logo" style="background-image: url('<?= substr($portfolio['logo'], 6) ?>')"></div>
-            <div class="promotion-body-carusel_first_activity"><b>Деятельность: </b><?= $portfolio['activity'] ?> </div>
-            <div class="promotion-body-carusel_first_target"><b>Цель: </b><?= $portfolio['target'] ?> </div>
+<div class="promotion-body-slider-item" style="overflow: hidden;">
+        <div class="promotion-body-slider_first">
+            <div class="promotion-body-slider_first_logo" style="background-image: url('<?= substr($portfolio['logo'], 6) ?>')"></div>
+            <div class="promotion-body-slider_first_activity"><b>Деятельность: </b><?= $portfolio['activity'] ?> </div>
+            <div class="promotion-body-slider_first_target"><b>Цель: </b><?= $portfolio['target'] ?> </div>
         </div>
-        <div class="promotion-body-carusel_second">
-            <div class="promotion-body-carusel_second_review_title">Отзыв</div>
-            <div class="promotion-body-carusel_second_review_text"><?= $portfolio['review'] ?> </div>
-            <div class="promotion-body-carusel_second_sitelink">
+        <div class="promotion-body-slider_second">
+            <div class="promotion-body-slider_second_review_title">Отзыв</div>
+            <div class="promotion-body-slider_second_review_text"><?= $portfolio['review'] ?> </div>
+            <div class="promotion-body-slider_second_sitelink">
                 <a href="<?= $portfolio['site_link'] ?>"><?= $portfolio['site_link'] ?></a>
             </div>
-            <div class="promotion-body-carusel_second_portfolio_link">
+            <div class="promotion-body-slider_second_portfolio_link">
                 <a href="<?= $this->url('page', array('action' => 'portfolio')) ?>">Подробнее...</a>
             </div>
         </div>
