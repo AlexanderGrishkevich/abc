@@ -67,15 +67,16 @@ body, html {
     margin: 0 auto;
 }
 
-.content {
-    max-width: 1350px;
-}
-
 body.portfolio .content, body.process-checkout .content, body.checkout .content,
 body.support .content, body.contacts .content, body.pr .content,
 body.marketing .content, body.design .content, body.promotion .content,
-body.auth .content, body.admin .content, body.process-feedback .content {
+body.auth .content, body.admin .content, body.process-feedback .content,
+body.brend .content {
     max-width: 800px;
+}
+
+body.checkouts .content, body.feedbacks .content {
+    max-width: 1350px;
 }
 
 .content {
@@ -87,6 +88,15 @@ body.auth .content, body.admin .content, body.process-feedback .content {
 
 body.index .content{
     max-width: 935px;
+}
+
+.headmeta {
+    position: absolute;
+    top: 67%;
+}
+
+.headmeta label {
+    font-weight: bold;
 }
 
 /* END BODY */
@@ -234,9 +244,13 @@ a {
 }
 
 .menu {
+    background-image: url(/img/menu.png);
+    background-repeat: no-repeat;
+    height: 25px;
+    background-position-x: right;
     font-family: Conv_introRegular !important;
     position: absolute;
-    width: 100px;
+    width: 115px;
     font-size: 24px;
     top: 25px;
     text-align: center;
@@ -348,35 +362,35 @@ footer {
     background-size: contain;
 }
 
-.twitter {
+.twitter:hover {
     background-image: url(/img/twitter.png);
 }
 
-.facebook {
+.facebook:hover {
     background-image: url(/img/facebook.png);
 }
 
-.google {
+.google:hover {
     background-image: url(/img/google.png);
 }
 
-.vk {
+.vk:hover {
     background-image: url(/img/vk.png);
 }
 
-.twitter:hover {
+.twitter {
     background-image: url(/img/twitter_hover.png);
 }
 
-.facebook:hover {
+.facebook {
     background-image: url(/img/facebook_hover.png);
 }
 
-.google:hover {
+.google {
     background-image: url(/img/google_hover.png);
 }
 
-.vk:hover {
+.vk {
     background-image: url(/img/vk_hover.png);
 }
 
@@ -486,7 +500,7 @@ footer {
 
 .body-block_1 {
     text-align: center;
-    font-size: 20px;
+    font-size: 19px;
 }
 
 .body-block_2 {
@@ -529,7 +543,7 @@ footer {
 }
 
 .body-block_6 {
-    font-size: 17px;
+    font-size: 16px;
 }
 
 .body-block_7 {
@@ -646,6 +660,37 @@ footer {
 .body-table3-item_text {
     text-align: justify;
     margin-bottom: 15px;
+}
+
+.body-table4 {
+    /* background: #e8e8e8; */
+    text-align: left;
+    font-family: Conv_niveaBook !important;
+    overflow: hidden;
+}
+
+.body-table4-cell {
+    padding: 10px;
+    float: left;
+    width: 245px;
+    font-size: 17px;
+    color: #072154;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.body-table4-cell_number {
+    border-right: 2px solid #bdb8b8;
+    padding-right: 3px;
+    float: left;
+    width: 10px;
+    height: 40px;
+}
+
+.body-table4-cell_text {
+    padding-left: 3px;
+    float: left;
+    width: 210px;
 }
 
 /* END BODY TABLES */
@@ -842,7 +887,7 @@ body.design .bx-controls-direction a {
 /* CONTACTS */
 
 .title-contacts {
-    width: 340px;
+    width: 415px;
     margin: 20px 0;
     font-weight: bold;
     font-size: 35px;
@@ -937,6 +982,15 @@ body.design .bx-controls-direction a {
     cursor: pointer;
 }
 
+.feedback-form-content textarea:focus,
+.feedback-form-content input:focus {
+    outline: #072154 auto;
+}
+
+.feedback-form-content .form-submit input:hover {
+    background: #072154;
+}
+
 .feedback-form-content pre {
     text-align: center;
     font-size: 10px;
@@ -964,7 +1018,7 @@ body.design .bx-controls-direction a {
 
 .title-line {
     height: 10px;
-    width: 225px;
+    width: 185px;
     display: inline-block;
     border-top: 1px solid #dadada;
 }
@@ -1116,6 +1170,66 @@ body.design .bx-controls-direction a {
 
 /* END PORTFOLIO */
 
+
+/* BREND */
+
+.brend-images-part-1 {
+    width: 260px;
+    display: inline-block;
+    margin-left: 20px;
+    height: 152px;
+}
+
+.brend-images-part-2 {
+    width: 330px;
+    display: inline-block;
+    height: 152px;
+}
+
+.brend-images-part-3 {
+    width: 170px;
+    display: inline-block;
+    height: 152px;
+}
+
+.brend-images-part-1_image {
+    background-image: url(/img/brend_part_1.png);
+    background-position: left center;
+    background-repeat: no-repeat;
+    height: 100px;
+}
+
+.brend-images-part-2_image {
+    background-image: url(/img/brend_part_2.png);
+    background-position: left center;
+    background-repeat: no-repeat;
+    height: 100px;
+    margin-left: 30px;
+}
+
+.brend-images-part-3_image {
+    background-image: url(/img/brend_part_3.png);
+    background-position: left center;
+    background-repeat: no-repeat;
+    height: 100px;
+    margin-left: 30px;
+}
+
+.brend-images-part-text {
+    float: left;
+}
+
+.brend-arrow {
+    background-image: url(/img/arrow_right.png);
+    background-position: left center;
+    background-repeat: no-repeat;
+    height: 12px;
+    width: 85px;
+    float: left;
+}
+
+/* END BREND */
+
 @media only screen 
 and (max-width : 816px) {
 
@@ -1259,6 +1373,45 @@ and (max-width : 816px) {
     }
 
     /* END PORTFOLIO */
+
+    /* BREND */
+
+    .body-table4-cell {
+        float: none;
+    }
+
+    .body-table4 {
+        display: table;
+        margin: 20px auto 0;
+    }
+
+    .brend-images-part-1, .brend-images-part-2, .brend-images-part-3 {
+        display: block;
+        margin: 0 auto;
+        overflow: hidden;
+        height: inherit;
+        width: 300px;
+    }
+
+    .brend-images-part-1_image, .brend-images-part-2_image, .brend-images-part-3_image {
+        background-position: center center;
+        margin: 0;
+    }
+
+    .brend-images-part-text {
+        float: none;
+        text-align: center;
+    }
+
+    .brend-arrow {
+        height: 85px;
+        width: 12px;
+        margin: 0 auto;
+        float: none;
+        background-image: url(/img/arrow_down.png);
+    }
+    
+    /* END BREND */
 }
 
 @media only screen 
@@ -1267,7 +1420,7 @@ and (max-width : 640px) {
     /* NAV AND MAIN MENU */ 
 
     nav {
-        height: 140px;
+        height: 150px;
         padding: 0;
     }
 
@@ -1284,11 +1437,11 @@ and (max-width : 640px) {
     }
 
     .wrap-menu {
-        top: 139px;
+        top: 149px;
     }
 
     .menu {
-        top: 115px;
+        top: 118px;
         font-size: 22px;
     }
 

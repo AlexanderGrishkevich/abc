@@ -7,7 +7,7 @@ echo $this->form()->openTag($form);
 <div>Основные картинки</div>
 <div class="portfolio-body-slider-item">
     <div class="portfolio-body-slider-item_images" id="my-awesome-dropzone">
-        <?php if ($this->images->count()) { ?>
+        <?php if ($this->images) { ?>
             <?php foreach ($this->images as $image) { ?>
                 <div class="addportfolio-image" style="background-image: url('<?= substr($image->filepath, 6); ?>');">
                     <div class="remove_link" data-file="<?= substr($image->filepath, 6); ?>"></div>

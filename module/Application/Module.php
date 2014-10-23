@@ -50,7 +50,13 @@ class Module {
                     $viewHelper = new View\Helper\MetaHelper($match);
                     $viewHelper->setServiceLocator($serviceLocator);
                     return $viewHelper;
-                }
+                },
+                'UserHelper' => function ($helperPluginManager) {
+                    $serviceLocator = $helperPluginManager->getServiceLocator();
+                    $viewHelper = new View\Helper\UserHelper();
+                    $viewHelper->setServiceLocator($serviceLocator);
+                    return $viewHelper;
+                },
             )
         );
     }

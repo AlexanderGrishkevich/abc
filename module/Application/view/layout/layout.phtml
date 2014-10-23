@@ -3,14 +3,17 @@
 <html lang="ru">
     <head>
         <meta charset="utf-8">
+        <?php $meta = $this->MetaHelper() ?>
+
+        <?php echo $this->headTitle($meta['title']) ?>
 
         <?php
         echo $this->headMeta()
                 ->appendName('viewport', 'width=device-width, height=device-height, initial-scale=1.0')
-                ->appendName('description', 'abc mediagroup')// и это и кеуворды
+                ->appendName('keywords', $meta['keywords'])
+                ->appendName('description', $meta['description'])// и это и кеуворды
                 ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
         ?>
-
         <!-- Le styles -->
         <?php
         echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.jpg'))
@@ -34,7 +37,7 @@
     <body class="<?= $this->controllerName()['controller'] . ' ' . $this->controllerName()['action']; ?>">
         <div class="wrapper">
             <nav> 
-                <p class="menu">Меню</p>
+                <div class="menu"></div>
                 <div class="nav-left">
                     <a class="main-logo" href="/">
                     </a>
@@ -61,7 +64,7 @@
                         <div class="menu-item_links">
                             <p><a href="#">Привлечение целевых клиентов</a></p>
                             <p><a href="#">Старт быстрых продаж</a></p>
-                            <p><a href="#">Узнаваемость бренда</a></p>
+                            <p><a href="#">Юзабилити-аудит сайта</a></p>
                         </div>
                     </div>
                     <div class="menu-item">
@@ -92,6 +95,7 @@
                         <div class="menu-item_links">
                             <p><a href="#">Привлечение аудитории</a></p>
                             <p><a href="#">Баннерная реклама</a></p>
+                            <p><a href="<?= $this->url('page', array('action' => 'brend')) ?>">Узнаваемость бренда</a></p>
                         </div>
                     </div>
                     <div class="menu-item">
@@ -105,6 +109,37 @@
                 </div>
             </div>
             <div class="container">
+                <?php if ($meta['form']) { ?>
+                    <?php
+                    $form = $meta['form'];
+                    $form->prepare();
+                    $form->setAttribute('action', $this->url('admin', array('action' => 'saveHeadmeta')));;
+                    echo $this->form()->openTag($form);
+                    ?>
+
+
+                    <div class="headmeta feedback-form-content">
+                        <?= $this->formLabel($form->get('controller')); ?>
+                        <div class="form-input"><?= $this->formElement($form->get('controller')); ?></div>
+                        
+                        <?= $this->formLabel($form->get('action')); ?>
+                        <div class="form-input user-data"><?= $this->formElement($form->get('action')); ?></div>
+
+                        <?= $this->formLabel($form->get('title')); ?>
+                        <div class="form-input user-data"><?= $this->formElement($form->get('title')); ?></div>
+
+                        <?= $this->formLabel($form->get('description')); ?>
+                        <div class="form-input"><?= $this->formElement($form->get('description')); ?></div>
+                        
+                        <?= $this->formLabel($form->get('keywords')); ?>
+                        <div class="form-input"><?= $this->formElement($form->get('keywords')); ?></div>
+
+                        <div class="form-submit"><?= $this->formElement($form->get('submit')); ?></div>	
+
+                    </div>
+                    <?php echo $this->form()->closeTag(); ?>
+                <?php } ?>
+
                 <div class="content">
                     <?php echo $this->content; ?>
                 </div>
@@ -133,12 +168,18 @@
                     hoverHeight = $('.wrap-menu-items').height();
                     if (parseInt($('.wrap-menu').height()) == originalHeight) {
                         $('.wrap-menu').animate({height: hoverHeight}, speed);
+                        $('.menu').css('background-image', 'url(img/menu_active.png)');
                     } else {
                         $('.wrap-menu').animate({height: originalHeight}, speed);
+                        $('.menu').css('background-image', 'url(img/menu.png)');
                     }
                 });
 
                 $('textarea').autosize();
+                
+                $('.form-submit').on('click', function() {
+                    
+                });
 
             });
         </script>

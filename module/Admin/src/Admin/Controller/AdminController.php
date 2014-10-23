@@ -13,13 +13,37 @@ use Auth\Model\UserTable,
     Page\Model\PortfolioTable,
     Page\Model\Portfolio,
     Page\Model\PortfolioImagesTable,
-    Admin\Form\PortfolioForm;
+    Admin\Form\PortfolioForm,
+    Application\Model\Headmeta,
+    Application\Form\HeadmetaForm,
+    Application\Model\HeadmetaTable;
 
 class AdminController extends AbstractActionController {
 
     public function indexAction() {
         $this->auth();
         return new ViewModel();
+    }
+
+    public function saveHeadmetaAction() {
+        $request = $this->getRequest();
+        $headmetaTable = new HeadmetaTable($this->getServiceLocator()->get('dbAdapter'));
+        if ($request->isPost()) {
+            $postData = $request->getPost();
+
+            $headmeta = new Headmeta();
+            $form = new HeadmetaForm();
+
+            $form->setData($postData);
+            if ($form->isValid()) {
+                $data = $form->getData();
+                $headmeta->exchangeArray($data);
+                $headmetaTable->saveHeadMeta($headmeta);
+            }
+        }
+        
+
+        return $this->redirect()->toUrl($_SERVER['HTTP_REFERER']);
     }
 
     public function auth() {

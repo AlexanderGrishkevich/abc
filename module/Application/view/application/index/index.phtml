@@ -24,8 +24,8 @@
     </div>
     <div class="slider-item">
         <div class="slider-big-text">Социальные сети</div>
-        <div class="slider-small-text">Создание и оформление страниц в соц. сетях</div>
-        <div class="slider-small-text">Привлечение посетителей из соц. сетей</div>
+        <div class="slider-small-text">Создание и оформление страниц в социальных сетях</div>
+        <div class="slider-small-text">Привлечение посетителей из социальных сетей</div>
         <div class="slider-small-text">Вирусная реклама</div>
     </div>
 </div>
@@ -33,7 +33,7 @@
 <div class="main-navigation">
     <div class="main-navigation-item">
         <a href="<?= $this->url('page', array('action' => 'promotion')) ?>">
-            <img class="main-navigation-item_image promotion right-align" alt="Продвижение в поисковых системах" src="/img/promotion.png">
+            <img class="main-navigation-item_image promotion right-align" alt="Продвижение в поисковых системах" src="/img/promotion_hover.png">
             <div class="caption right-align">
                 <h3>Продвижение</h3>
                 <p>В поисковых<br/> системах</p>
@@ -42,7 +42,7 @@
     </div>
     <div class="main-navigation-item">
         <a href="<?= $this->url('page', array('action' => 'design')) ?>">
-            <img class="main-navigation-item_image design right-align" alt="WEB Design" src="/img/design.png">
+            <img class="main-navigation-item_image design right-align" alt="WEB Design" src="/img/design_hover.png">
             <div class="caption right-align">
                 <h3>WEB Design</h3>
                 <p>Создание<br/> сайтов</p>
@@ -51,7 +51,7 @@
     </div>
     <div class="main-navigation-item">
         <a href="<?= $this->url('page', array('action' => 'marketing')) ?>">
-            <img class="main-navigation-item_image marketing left-align" alt="WEB маркетинг" src="/img/marketing.png">
+            <img class="main-navigation-item_image marketing left-align" alt="WEB маркетинг" src="/img/marketing_hover.png">
             <div class="caption left-align">
                 <h3>WEB маркетинг</h3>
                 <p>и управлние <br/> репутацией</p>
@@ -60,7 +60,7 @@
     </div>
     <div class="main-navigation-item">
         <a href="<?= $this->url('page', array('action' => 'pr')) ?>">
-            <img class="main-navigation-item_image publicity left-align" alt="Реклама" src="/img/pr.png">
+            <img class="main-navigation-item_image publicity left-align" alt="Реклама" src="/img/pr_hover.png">
             <div class="caption left-align">
                 <h3>Реклама и PR</h3>
                 <p>В социальных <br/> сетях</p>
@@ -75,7 +75,7 @@
         $(".main-navigation-item").on({
             mouseenter: function () {
                 src = $(this).find('.main-navigation-item_image').attr('src');
-                $(this).find('.main-navigation-item_image').attr('src', src.substring(0, src.length - 4) + '_hover.png');
+                $(this).find('.main-navigation-item_image').attr('src', src.substring(0, src.length - 10) + '.png');
             },
             mouseleave: function () {
                 $(this).find('.main-navigation-item_image').attr('src', src);
@@ -86,7 +86,7 @@
             minSlides: 1,
             moveSlides: 1,
             auto: true,
-            pause: 6000,
+            pause: 3000,
             controls: false,
             pager: true,
         });

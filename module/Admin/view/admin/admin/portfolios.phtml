@@ -75,6 +75,7 @@
                     success: function (response) {
                         if (response && response.status === 'ok') {
                             item.remove();
+                            portfolioSlider.reloadSlider();
                         }
                     }
                 });
