@@ -21,9 +21,9 @@ return array(
                 ),
             ),
             // The following is a route to simplify getting started creating
-            // new controllers and actions without needing to create a new
-            // module. Simply drop new controllers in, and you can access them
-            // using the path /application/:controller/:action
+// new controllers and actions without needing to create a new
+// module. Simply drop new controllers in, and you can access them
+// using the path /application/:controller/:action
             'application' => array(
                 'type' => 'Literal',
                 'options' => array(
@@ -44,13 +44,101 @@ return array(
                                 'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                             ),
-                            'defaults' => array(
-                            ),
+                            'defaults' => array(),
                         ),
                     ),
                 ),
             ),
         ),
+    ),
+    'navigation' => array(
+        'default' => array(
+            array(
+                'label' => 'Продвижение',
+                'route' => 'page',
+                'action' => 'promotion',
+                'resource' => 'page',
+                'pages' => array(
+                    array(
+                        'label' => 'Старт быстрых продаж',
+                        'route' => 'page',
+                        'action' => 'fast-sales',
+                    ),
+                    array(
+                        'label' => 'Пакетные решения',
+                        'route' => 'page',
+                        'action' => 'services',
+                    ),
+                    array(
+                        'label' => 'Массовое привлечение клиентов',
+                        'route' => 'page',
+                        'action' => 'landing',
+                    )
+                )
+            ),
+            array(
+                'label' => 'WEB Design',
+                'route' => 'page',
+                'action' => 'design',
+                'resource' => 'page',
+                'pages' => array(
+                    array(
+                        'label' => 'Портфолио',
+                        'route' => 'page',
+                        'action' => 'portfolio',
+                    )
+                )
+            ),
+            array(
+                'label' => 'WEB Маркетинг',
+                'route' => 'page',
+                'action' => 'marketing',
+                'resource' => 'page',
+                'pages' => array(
+                    array(
+                        'label' => 'Маркетинговые исследования',
+                        'route' => 'page',
+                        'action' => 'm-research',
+                    ),
+                    array(
+                        'label' => 'Продающие страницы',
+                        'route' => 'page',
+                        'action' => 'sell-pages',
+                    )
+                )
+            ),
+            array(
+                'label' => 'Реклама и PR',
+                'route' => 'page',
+                'action' => 'pr',
+                'resource' => 'page',
+                'pages' => array(
+                    array(
+                        'label' => 'Узнаваемость бренда',
+                        'route' => 'page',
+                        'action' => 'brend',
+                    )
+                )
+            ),
+            array(
+                'label' => 'Контакты',
+                'route' => 'page',
+                'action' => 'contacts',
+                'resource' => 'page',
+                'pages' => array(
+                    array(
+                        'label' => '+375 29 615-27-93',
+                        'route' => 'page',
+                        'action' => 'contacts',
+                    ),
+                    array(
+                        'label' => '+375 33 615-27-93',
+                        'route' => 'page',
+                        'action' => 'contacts',
+                    )
+                )
+            )
+        )
     ),
     'service_manager' => array(
         'abstract_factories' => array(
@@ -60,6 +148,9 @@ return array(
         'aliases' => array(
             'translator' => 'MvcTranslator',
         ),
+        'factories' => array(
+            'Navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory'
+        )
     ),
     'translator' => array(
         'locale' => 'ru_RU',

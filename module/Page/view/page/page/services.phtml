@@ -1,0 +1,129 @@
+<div class="title-line"></div>
+<div class="title-contacts"><h1>Услуги</h1></div>
+<div class="title-line"></div>
+
+<div class="body-block_6 magrin_top_10">
+    Мы заботимся о том, чтобы созданные сайты легко находились целевыми
+    пользователями в интернете, поэтому мы комплексно подходим к их созданию,
+    планируя методы продвижения уже на этапе проектирования    
+</div>
+
+<div class="services-table">
+    <div class="services-table-title_big services-table-title services-table-title-active" data-category="1">БОЛЬШИЕ ПАКЕТЫ</div>
+    <div class="services-table-title_small services-table-title" data-category="2">МАЛЕНЬКИЕ ПАКЕТЫ</div>
+    <div class="services-table-title_other services-table-title" data-category="3">ПРОЧЕЕ</div>
+
+    <?php for ($i = 1; $i < 4; $i++) { ?>
+        <div class="services-table-content <?= 'navi_' . $i ?>">
+            <ul class="services-table-content-navigation">
+                <?php for ($j = 0; $j < count($this->services); $j++) { ?>
+                    <?php if ($i == $this->services[$j]['category']) { ?>
+                        <li class="services-table-content-navigation_item" data-id="<?= $this->services[$j]['id']; ?>"><?= $this->services[$j]['title'] ?></li>
+                    <?php } ?>
+                <?php } ?>
+            </ul>
+
+            <?php for ($j = 0; $j < count($this->services); $j++) { ?>
+                <?php if ($i == $this->services[$j]['category']) { ?>
+                    <div class="services-table-content-tabs <?= 'tabs_' . $this->services[$j]['id'] ?>">
+                        <div class="services-table-column">
+                            <div class="services-table-column-title">Краткое описание</div>
+                            <div class="services-table-column-text"><?= $this->services[$j]['description']; ?></div>
+                            <div class="services-table-column-title">Срок выполнения</div>
+                            <div class="services-table-column-text"><?= $this->services[$j]['completion_date']; ?></div>
+                            <div class="services-table-column-title">Отчет</div>
+                            <div class="services-table-column-text"><?= $this->services[$j]['report']; ?></div>
+                        </div>
+                        <div class="services-table-column">
+                            <div class="services-table-column-title">Для кого услуга</div>
+                            <div class="services-table-column-text"><?= $this->services[$j]['services_for']; ?></div>
+                            <div class="services-table-column-title">Бонус</div>
+                            <div class="services-table-column-text"><?= $this->services[$j]['bonus']; ?></div>
+                            <div class="services-table-column-title">Цена</div>
+                            <div class="services-table-column-text"><?= $this->services[$j]['price']; ?></div>
+                        </div>
+                    </div>
+                <?php } ?>
+            <?php } ?>
+        </div>
+    <?php } ?>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var speed = 500,
+                flag = false,
+                left = 268;
+
+        var delay = (function () {
+            var timer = 0;
+            return function (callback, ms) {
+                clearTimeout(timer);
+                timer = setTimeout(callback, ms);
+            };
+        })();
+
+        $(window).resize(function () {        
+            var id = $('.services-table-title-active').data('category');
+            delay(function () {
+                if ($(window).width() >= 800) {
+                    var cool_left = 0;
+                    $('.services-table-title').each(function (index) {
+                        if($(this).data('category') !== id ) {
+                            cool_left += left;
+                            $(this).css('left', cool_left + 'px');
+                        }
+                    });
+                }
+            }, 50);
+        });
+ 
+        //first show
+        $('.navi_1').css('display', 'block');
+        $('.tabs_' + $('.navi_1').find('.services-table-content-navigation_item').data('id')).show();
+        $('.services-table-content-navigation_item:first-of-type').addClass('navigation-active');
+
+        $('.services-table-title').on('click', function () {
+            if (flag) {
+                return false;
+            }
+            flag = true;
+            var first_div = $('.services-table-title-active'),
+                    click_div = $(this),
+                    category = $(this).data('category');
+            if (parseInt($(this).css('left')) || parseInt($('body').width()) < 800) {
+                first_div.removeClass('services-table-title-active');
+                click_div.addClass('services-table-title-active');
+                $('.services-table-content').fadeOut(500).promise().done(function () {
+                    $('.navi_' + category).fadeIn(500);
+                    $('.services-table-content-tabs').hide();
+                    $('.tabs_' + $('.navi_' + category).find('.services-table-content-navigation_item').data('id')).show();
+                    $('.services-table-content-navigation_item').removeClass('navigation-active');
+                    $('.services-table-content-navigation_item:first-of-type').addClass('navigation-active');
+                });
+
+                if (parseInt($('body').width()) >= 800) {
+                    click_div.animate({'left': '0px'}, speed);
+                    first_div.animate({'left': click_div.css('left')}, speed, function () {
+                        flag = false;
+                    });
+                } else {
+                    click_div.css('left', '0');
+                    first_div.css('left', click_div.css('left'));
+                    flag = false;
+                }
+            }
+        });
+
+        $('.services-table-content-navigation_item').on('click', function () {
+            $('.services-table-content-navigation_item').removeClass('navigation-active');
+            $(this).addClass('navigation-active');
+            var id = $(this).data('id');
+            $('.services-table-content-tabs').fadeOut(500).promise().done(function () {
+                $('.tabs_' + id).fadeIn(500);
+            });
+        });
+    });
+</script>
+
+

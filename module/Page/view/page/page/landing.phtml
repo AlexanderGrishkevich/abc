@@ -1,0 +1,1263 @@
+<section class="landing-header">
+    <div class="landing-header-left">
+        <div class="landing-header-left-logo"></div>
+    </div>
+    <div class="landing-header-center">
+        <div class="landing-header-center-phones">
+            <div class="landing-header-center-phone-icon"></div>
+            <div class="landing-header-center-phone-number">+375 29 615-27-97</div>
+            <div class="landing-header-center-phone-icon"></div>
+            <div class="landing-header-center-phone-number">+375 33 615-27-97</div>
+        </div>
+        <div class="landing-header-center-button">ЗАКАЗАТЬ ЗВОНОК</div>
+        <div class="landing-header-center-working_time">
+            Время работы с 9:00 до 18:00 <br/>
+            Суббота, воскресенье - выходной.
+        </div>
+    </div>
+</section>
+
+<section class="landing-home">
+    <div class="landing-home-content">
+        <div class="landing-home-content-big_text" data-uk-scrollspy="{cls:'uk-animation-slide-top', repeat: true}">
+            От 100 до 1000 новых клиентов <br/>
+            за один месяц работы –  <br/>
+            для Вас!
+        </div>
+        <div class="landing-home-content-price_text" data-uk-scrollspy="{cls:'uk-animation-slide-top', repeat: true}">
+            Всего за 999$!
+        </div>
+        <div class="landing-home-content-small_text" data-uk-scrollspy="{cls:'uk-animation-slide-bottom', repeat: true}">
+            Хотите узнать, сколько клиентов придет<br/>
+            к Вам за первый месяц? <br/>
+            Узнайте это, оставив нам заявку!
+        </div>
+
+        <?php
+        $form = $this->form;
+        $form->prepare();
+        $form->setAttribute('action', 'landingForm');
+        echo $this->form()->openTag($form);
+        ?>
+
+        <div class="landing-home-content-form landing-form" data-uk-scrollspy="{cls:'uk-animation-slide-bottom', repeat: true}">
+            <?= $this->formLabel($form->get('phone')); ?>
+            <div class="form-input"><?= $this->formElement($form->get('phone')); ?></div>
+
+            <?= $this->formLabel($form->get('business')); ?>
+            <div class="form-input user-data"><?= $this->formElement($form->get('business')); ?></div>
+
+            <div class="form-submit"><?= $this->formElement($form->get('submit')); ?></div>
+            <div class="form-error"></div>
+        </div>
+        <?php echo $this->form()->closeTag() ?>
+
+    </div>
+</section>
+
+<section class="landing-section_1">
+    <div class="landing-section-title" data-uk-scrollspy="{cls:'uk-animation-slide-top', repeat: true}">
+        Работать с нашей компанией<br/>выгодно и эффективно
+    </div>
+    <div class="landing-section_1-title_2">
+        Азбука Медиа Групп - лидер в сфере Интернет-маркетинга! 
+    </div>
+    <div class="landing-section_1-table">
+        <div class="landing-section_1-table-cell" data-uk-scrollspy="{cls:'uk-animation-slide-left', delay: 800, repeat: true}">
+            <div class="landing-section_1-table-cell-icon landing-section_1-icon_1"></div>
+            <div class="landing-section_1-table-cell-title ">
+                Сводим к минимуму риски!
+            </div>
+            <div class="landing-section_1-table-cell-text">
+                Мы гарантируем выгодность сотрудничества с нами. Вы заранее
+                можете узнать, насколько полезными для Вас будут наши услуги
+                и выбрать оптимальный способ сотрудничества.
+            </div>
+        </div>
+        <div class="landing-section_1-table-cell" data-uk-scrollspy="{cls:'uk-animation-slide-left', delay: 400, repeat: true}">
+            <div class="landing-section_1-table-cell-icon landing-section_1-icon_2"></div>
+            <div class="landing-section_1-table-cell-title">
+                Ваши цели для нас важнее собственных!
+            </div>
+            <div class="landing-section_1-table-cell-text">
+                Мы работаем на Ваш успех. Результат нашей работы – увеличение
+                потока клиентов и рост Вашей прибыли. 
+            </div>
+        </div>
+        <div class="landing-section_1-table-cell" data-uk-scrollspy="{cls:'uk-animation-slide-right', delay: 400, repeat: true}">
+            <div class="landing-section_1-table-cell-icon landing-section_1-icon_3"></div>
+            <div class="landing-section_1-table-cell-title">
+                Конкуренты останутся позади!
+            </div>
+            <div class="landing-section_1-table-cell-text">
+                Мы работаем с максимально возможной скоростью. Вы получаете
+                результаты и применяете их, когда конкуренты только задумываются
+                о продвижении в Интернете!
+            </div>
+        </div>
+        <div class="landing-section_1-table-cell" data-uk-scrollspy="{cls:'uk-animation-slide-right', delay: 800, repeat: true}">
+            <div class="landing-section_1-table-cell-icon landing-section_1-icon_4"></div>
+            <div class="landing-section_1-table-cell-title">
+                Четко соблюдаем сроки!
+            </div>
+            <div class="landing-section_1-table-cell-text">
+                С нами Вы получаете готовый проект всегда точно в срок. С нами
+                Вам не придется ждать и волноваться!
+            </div>
+        </div>
+    </div>
+
+    <div class="landing-section_1-form-title" data-uk-scrollspy="{cls:'uk-animation-slide-top', repeat: true}">
+        Сколько новых клиентов Вы хотите получить за месяц?
+    </div>
+    <?php
+    $form = $this->form;
+    $form->prepare();
+    $form->setAttribute('action', 'landingForm');
+    echo $this->form()->openTag($form);
+    ?>
+
+    <div class="landing-section_1-form landing-form">
+        <div class="form-wrap" data-uk-scrollspy="{cls:'uk-animation-slide-left', repeat: true}">
+            <?= $this->formLabel($form->get('phone')); ?>
+            <div class="form-input"><?= $this->formElement($form->get('phone')); ?></div>
+        </div>
+        <div class="form-wrap" data-uk-scrollspy="{cls:'uk-animation-slide-right', repeat: true}">
+            <?= $this->formLabel($form->get('business')); ?>
+            <div class="form-input user-data"><?= $this->formElement($form->get('business')); ?></div>
+        </div>
+
+        <div class="form-submit" data-uk-scrollspy="{cls:'uk-animation-slide-bottom', repeat: true}"><?= $this->formElement($form->get('submit')); ?></div>
+        <div class="form-error"></div>
+        <div class="landing-section_1-form-ps" data-uk-scrollspy="{cls:'uk-animation-slide-bottom', repeat: true}">
+            *- это число мы укажем в договоре
+        </div>
+    </div>
+    <?php echo $this->form()->closeTag() ?>
+</section>
+
+<section class="landing-section_2">
+    <div class="landing-section_1-end">
+        <a class="landing-section_1-end-down">&#62</a>
+        <a class="landing-section_1-end-up">&#60</a>
+        <div class="landing-section_1-end-line"></div>
+    </div>
+
+    <div class="landing-section-title" data-uk-scrollspy="{cls:'uk-animation-slide-top', repeat: true}">
+        Примеры наших работ!
+    </div>
+    <div class="landing-section_2-table" data-uk-scrollspy="{cls:'uk-animation-slide-bottom hello', repeat: true}">
+        <div class="landing-section_2-table-cell" data-uk-check-display>
+            <div class="landing-section_2-table-cell-icon landing-section_2-icon_1"></div>
+            <div class="landing-section_2-table-cell-title ">
+                172 реализованных проекта
+            </div>
+        </div>
+        <div class="landing-section_2-table-cell">
+            <div class="landing-section_2-table-cell-icon landing-section_2-icon_2"></div>
+            <div class="landing-section_2-table-cell-title">
+                86% наших клиентов обращаются к нам снова
+            </div>
+        </div>
+        <div class="landing-section_2-table-cell">
+            <div class="landing-section_2-table-cell-icon landing-section_2-icon_3"></div>
+            <div class="landing-section_2-table-cell-title">
+                9 специалистов работают над каждым проектом
+            </div>
+        </div>
+    </div>
+    <div class="landing-section_2-image_table" data-uk-modal="{target:'#myModal'}">
+        <img class="landing-section_2-image_table-row-cell-image" src="/img/landing/image_2.jpg" data-id="5_port">
+        <img class="landing-section_2-image_table-row-cell-image" src="/img/landing/image_3.jpg" data-id="1_port">
+        <img class="landing-section_2-image_table-row-cell-image" src="/img/landing/image_5.jpg" data-id="6_port">
+        <img class="landing-section_2-image_table-row-cell-image" src="/img/landing/image_7.jpg" data-id="3_port">
+        <img class="landing-section_2-image_table-row-cell-image" src="/img/landing/image_1.jpg" data-id="7_port">
+        <img class="landing-section_2-image_table-row-cell-image" src="/img/landing/image_4.jpg" data-id="4_port">
+        <img class="landing-section_2-image_table-row-cell-image" src="/img/landing/image_6.jpg" data-id="2_port">
+        <img class="landing-section_2-image_table-row-cell-image" src="/img/landing/image_8.jpg" data-id="8_port">
+    </div>
+</section>
+
+<section class="landing-section_3">
+    <div class="landing-section_1-end">
+        <a class="landing-section_1-end-down">&#62</a>
+        <a class="landing-section_1-end-up">&#60</a>
+        <div class="landing-section_1-end-line"></div>
+    </div>
+    <div class="landing-section-title" data-uk-scrollspy="{cls:'uk-animation-slide-top', repeat: true}">
+        Подарок для Вас!
+    </div>
+    <div class="landing-section_3-text" data-uk-scrollspy="{cls:'uk-animation-slide-top', repeat: true}">
+        Станьте первыми клиентами на этой неделе и получите бесплатно<br/>доменное имя, хостинг и A/B тестирование сайта! 
+    </div>
+    <?php
+    $form = $this->form2;
+    $form->prepare();
+    $form->setAttribute('action', 'landingForm2');
+    echo $this->form()->openTag($form);
+    ?>
+
+    <div class="landing-section_3-form landing-form">
+        <div class="form-input" data-uk-scrollspy="{cls:'uk-animation-slide-left', repeat: true}"><?= $this->formElement($form->get('email')); ?></div>
+        <div class="form-submit" data-uk-scrollspy="{cls:'uk-animation-slide-right', repeat: true}"><?= $this->formElement($form->get('submit')); ?></div>
+        <div class="form-error"></div>
+    </div>
+    <?php echo $this->form()->closeTag() ?>
+</section>
+
+<!--<section class="landing-section_4">
+    <div class="landing-section_1-end">
+        <a class="landing-section_1-end-down">&#62</a>
+        <a class="landing-section_1-end-up">&#60</a>
+        <div class="landing-section_1-end-line"></div>
+    </div>
+    <div class="landing-section-title" data-uk-scrollspy="{cls:'uk-animation-slide-top', repeat: true}">
+        Лучшие работы этого месяца
+    </div>
+    <div class="landing-section_4-text">
+        Две наиболее успешные наши работы за этот месяц
+    </div>
+    <div class="landing-section_4-content">
+        <div class="landing-section_4-content-left landing-section_4-img_1" data-uk-scrollspy="{cls:'uk-animation-slide-left', repeat: true}"></div>
+        <div class="landing-section_4-content-right" data-uk-scrollspy="{cls:'uk-animation-fade', repeat: true}">
+            <div class="landing-section_4-content-right-name">
+                Автошкола
+            </div>
+            <div class="landing-section_4-content-right-addres">
+                www.ABV-azbyka.by
+            </div>
+            <div class="landing-section_4-content-right-conversion">
+                Конверсия 34,5%
+            </div>
+            <div class="landing-section_4-content-right-text">
+                <span class="landing-section_4-content-right-text-big">
+                    ФИО: 
+                </span>
+                Иванов Иван
+            </div>
+            <div class="landing-section_4-content-right-text">
+                <span class="landing-section_4-content-right-text-big">
+                    Было: 
+                </span>
+                80-100 заявок в месяц
+            </div>
+            <div class="landing-section_4-content-right-text">
+                <span class="landing-section_4-content-right-text-big">
+                    Стало: 
+                </span>
+                результат работы за первый месяц 950
+                заявок. Открыты 2 новые автошколы.
+            </div>
+            <div class="landing-section_4-content-right-text">
+                <span class="landing-section_4-content-right-text-big">
+                    Отзыв о совместной работе: <br/>
+                </span>
+                «Компания Азбука Медиа Груп со всей серьезностью и
+                ответственностью относится к клиентами выполняет
+                поставленные задачи быстро и в срок.»
+            </div>
+        </div>
+        <div class="landing-section_4-divider-right">
+            Узнайте сколько новых клиенто вы можете получить в месяц
+        </div>
+    </div>
+
+    <div class="landing-section_4-content">
+        <div class="landing-section_4-content-right" data-uk-scrollspy="{cls:'uk-animation-fade', repeat: true}">
+            <div class="landing-section_4-content-right-name">
+                Автошкола
+            </div>
+            <div class="landing-section_4-content-right-addres">
+                www.ABV-azbyka.by
+            </div>
+            <div class="landing-section_4-content-right-conversion">
+                Конверсия 34,5%
+            </div>
+            <div class="landing-section_4-content-right-text">
+                <span class="landing-section_4-content-right-text-big">
+                    ФИО: 
+                </span>
+                Иванов Иван
+            </div>
+            <div class="landing-section_4-content-right-text">
+                <span class="landing-section_4-content-right-text-big">
+                    Было: 
+                </span>
+                80-100 заявок в месяц
+            </div>
+            <div class="landing-section_4-content-right-text">
+                <span class="landing-section_4-content-right-text-big">
+                    Стало: 
+                </span>
+                результат работы за первый месяц 950
+                заявок. Открыты 2 новые автошколы.
+            </div>
+            <div class="landing-section_4-content-right-text">
+                <span class="landing-section_4-content-right-text-big">
+                    Отзыв о совместной работе: <br/>
+                </span>
+                «Компания Азбука Медиа Груп со всей серьезностью и
+                ответственностью относится к клиентами выполняет
+                поставленные задачи быстро и в срок.»
+            </div>
+        </div>
+        <div class="landing-section_4-content-left landing-section_4-img_2" data-uk-scrollspy="{cls:'uk-animation-slide-right', repeat: true}"></div>
+        <div class="landing-section_4-divider-left">
+            Оставьте заявку и мы побьем этот рекорд
+        </div>
+    </div>
+</section>-->
+
+<section class="landing-section_5">
+    <div class="landing-section_1-end">
+        <a class="landing-section_1-end-down">&#62</a>
+        <a class="landing-section_1-end-up">&#60</a>
+        <div class="landing-section_1-end-line"></div>
+    </div>
+    <div class="landing-section-title" data-uk-scrollspy="{cls:'uk-animation-slide-top', repeat: true}">
+        НАШИ ПРЕДЛОЖЕНИЯ
+    </div>
+    <div class="landing-section_5-text">
+        4 самых популярных кейса, из которых Вы выбираете подходящий именно Вам.
+    </div>
+    <div class="landing-section_5-table">
+        <div class="landing-section_5-table-cell" data-uk-scrollspy="{cls:'uk-animation-slide-bottom', delay: 800, repeat: true}">
+            <div class="landing-section_5-table-cell-title">
+                ЭКСПРЕСС
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Определение перспектив бизнеса в выбранной сфере
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Составление списка рекомендаций по оптимизации сайта
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Экспертная оценка уже существующей рекламы
+            </div>
+            <div class="landing-section_5-table-cell-price">$0</div>
+            <div class="landing-section_5-table-cell-button">
+                ОСТАВИТЬ ЗАЯВКУ
+            </div>
+        </div>
+        <div class="landing-section_5-table-cell" data-uk-scrollspy="{cls:'uk-animation-slide-bottom', delay: 600, repeat: true}">
+            <div class="landing-section_5-table-cell-title">
+                СТАНДАРТ
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Маркетинговое исследование
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Анализ рекламы конкурентов
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Создание«под ключ» продающего сайта
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                A/B тестирование сайта (90 дней)
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Техническая поддержка ресурса(90 дней)
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Настройка рекламы в Яндекс.Директ
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Настройка РСЯ (Рекламная сеть Яндекс)
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Разработка и проведение рекламной компании в Яндекс
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Снижение цены клика (до 10%)
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Рекламный бюджет всего от 300$
+            </div>
+            <div class="landing-section_5-table-cell-price">$999</div>
+            <div class="landing-section_5-table-cell-button">
+                ОСТАВИТЬ ЗАЯВКУ
+            </div>
+        </div>
+        <div class="landing-section_5-table-cell" data-uk-scrollspy="{cls:'uk-animation-slide-bottom', delay: 800, repeat: true}">
+            <div class="landing-section_5-table-cell-title">
+                БИЗНЕС
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Углубленное маркетинговое исследование
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Анализ рекламы конкурентов
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Создание «под ключ» продающего сайта
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                A/B тестирование сайта (90 дней)
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Техническая поддержка ресурса(90 дней)
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Настройка рекламы в Яндекс.Директ
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Настройка РСЯ (Рекламная сеть Яндекс)
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Разработка и проведение рекламной компании в Яндекс
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Снижение цены клика (до 30%)
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Разработка и проведение рекламной компании в Google
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Мультилендинг
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Экспертная оценка работы отдела продаж
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Доменное имя на 1 год
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Хостинг сроком на 1 год
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Сжатые сроки разработки проекта (до 1 месяца)
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Рекламный бюджет от 1000$
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Система CRM для контроля за заявками и звонками
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Личный менеджер 
+            </div>
+            <div class="landing-section_5-table-cell-price">$2999</div>
+            <div class="landing-section_5-table-cell-button">
+                ОСТАВИТЬ ЗАЯВКУ
+            </div>
+        </div>
+        <div class="landing-section_5-table-cell" data-uk-scrollspy="{cls:'uk-animation-slide-bottom', delay: 700, repeat: true}">
+            <div class="landing-section_5-table-cell-title">
+                PREMIUM
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Углубленное маркетинговое исследование 
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Анализ рекламы конкурентов 
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Создание «под ключ» продающего сайта 
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                A/B тестирование сайта (90 дней)
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Техническая поддержка ресурса(90 дней)
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Настройка рекламы в Яндекс.Директ
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Настройка РСЯ (Рекламная сеть Яндекс)
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Разработка и проведение рекламной компании в Яндекс
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Снижение цены клика (до 50%)
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Настройка рекламы в контекстно-медийной сети Google
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Разработка и проведение рекламной компании в Google
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Видеофиксация отзывов 
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Фотосъемка 
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Мультилендинг 
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Геотаргетинг
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Экспертная оценка работы отдела продаж
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Доменное имя сроком на 2 года
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Хостинг сроком на 1 год 
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Сжатые сроки разработки проекта (до 1,5 месяцев)
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Система CRM для контроля за заявками и звонками
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Личный менеджер
+            </div>
+            <div class="landing-section_5-table-cell-text">
+                Эксклюзивные права на выбранную область рынка
+            </div>
+            <div class="landing-section_5-table-cell-price">$9999</div>
+            <div class="landing-section_5-table-cell-button">
+                ОСТАВИТЬ ЗАЯВКУ
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="landing-section_6">
+    <div class="landing-section_1-end">
+        <a class="landing-section_1-end-down">&#62</a>
+        <a class="landing-section_1-end-up">&#60</a>
+        <div class="landing-section_1-end-line"></div>
+    </div>
+    <div class="landing-section-title" data-uk-scrollspy="{cls:'uk-animation-slide-top', repeat: true}">
+        МГНОВЕННЫЙ РОСТ КОНВЕРСИИ САЙТОВ
+    </div>
+    <div class="landing-section-text">
+        При изначальной конверсии сайта в 1,2%, <br/>
+        мы добиваемся показателей в 27,3% по окончании работ!
+    </div>
+    <div class="landing-section_6-conversion" >
+        Работа выполнена на <span class="landing-section_6-conversion_number">0</span> %
+    </div>
+    <div class="landing-section_6-conversion_display" data-uk-scrollspy="{cls:'uk-animation-fade', delay: 800, repeat: true}">
+        <div class="display-background-img conversion-image_2"></div>
+        <div class="landing-section_6-conversion_display-background">
+            <div class="display-background-img conversion-image_1"></div>
+        </div>
+    </div>
+</section>
+
+<section class="landing-section_7">
+    <div class="landing-section_1-end">
+        <a class="landing-section_1-end-down">&#62</a>
+        <a class="landing-section_1-end-up">&#60</a>
+        <div class="landing-section_1-end-line"></div>
+    </div>
+    <div class="landing-section-title" data-uk-scrollspy="{cls:'uk-animation-slide-top', repeat: true}">
+        ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
+    </div>
+    <div class="landing-section-text">
+        Надеемся этот раздел поможет Вам ответить на многие вопросы,<br/>
+        касаемые интернет маркетинга
+    </div>
+    <div class="landing-section_7-table">
+        <div class="landing-section_7-table-left">
+            <div class="landing-section_7-table-left-row landing-section_7-table-left-row-active">
+                <a href="#">Зачем вообще нужна продающая страница?</a>
+            </div>
+            <div class="landing-section_7-table-left-row">
+                <a href="#">Что такое landingpage?</a>
+            </div>
+            <div class="landing-section_7-table-left-row">
+                <a href="#">Сколько стоит разработка landingpage?</a>
+            </div>
+            <div class="landing-section_7-table-left-row">
+                <a href="#">Что дает маркетинговое исследование?</a>
+            </div>
+        </div>
+        <div class="landing-section_7-table-right landing-section_7-table-right-active">
+            <div class="landing-section_7-table-right-title">
+                Зачем вообще нужна продающая страница?
+            </div>
+            <div class="landing-section_7-table-right-text">
+                Для тех, кто никогда не сталкивался с продающими страницами,
+                их необходимость может выглядеть надуманной. Однако целевая
+                страница имеет серьезные отличия от обычных сайтов: она
+                призвана убедить пользователя совершить какое-то действие.
+                Это может быть покупка или заказ товара, размещение контактных
+                данных, участие в опросе и т.д. Реализация этих функций в
+                рамках обычного сайта, как правило, невозможна или значительно
+                затруднена.Чаще всего landingpage создается для продажи товаров
+                и услуг. И если вероятность совершения покупки в классическом
+                Интернет-магазине составляет от 1% до 3%, то на продающей
+                странице этот показатель вырастает до 13%!
+            </div>
+        </div>
+        <div class="landing-section_7-table-right">
+            <div class="landing-section_7-table-right-title">
+                Что такое landingpage?
+            </div>
+            <div class="landing-section_7-table-right-text">
+                Landingpage (или продающая страница, целевая страница,
+                посадочная страница и т.д.) – место, где пользователь
+                предпринимает нужные Вам действия. На примере Интернет-магазина
+                продающей страницей будет страница с формой заказа товара.
+                Кроме сайтов для торговли, продающая страница востребована
+                для получения контактных данных пользователей, подписки их
+                на рассылку и т.д. 
+            </div>
+        </div>
+        <div class="landing-section_7-table-right">
+            <div class="landing-section_7-table-right-title">
+                Сколько стоит разработка landingpage?
+            </div>
+            <div class="landing-section_7-table-right-text">
+                Окончательная стоимость продающей страницы зависит от
+                множества факторов. В среднем цены начинаются от 999$. Вы
+                можете узнать ориентировочную стоимость пакета услуг
+                в разделе «Наши предложения»
+            </div>
+        </div>
+        <div class="landing-section_7-table-right">
+            <div class="landing-section_7-table-right-title">
+                Что дает маркетинговое исследование?
+            </div>
+            <div class="landing-section_7-table-right-text">
+                Вывод на рынок нового товара – всегда риск. Он может стать
+                невероятно успешным, но может и вовсе не заинтересовать
+                покупателей. В рамках маркетингового исследования изучается
+                мнение потенциальных потребителей: как они относятся к новому
+                товару, будут ли они его покупать, что им нравится в новом
+                продукте, а что не устраивает и т.д. Маркетинговое исследование
+                показывает сильные и слабые стороны товара и помогает Вам
+                изменить его в сторону высказанных потребителями пожеланий еще
+                до запуска на рынке. Таким образом, маркетинговые исследования
+                значительно повышают шансы товара на успех и сводят к нулю риски.
+            </div>
+        </div>
+    </div>
+
+    <div class="landing-button-wrap">
+        <div class="landing-section_7-button">
+            Заказать продающую страницу
+        </div>
+    </div>
+</section>
+
+<section class="landing-section_8">
+    <div class="landing-section_1-end">
+        <a class="landing-section_1-end-down">&#62</a>
+        <a class="landing-section_1-end-up">&#60</a>
+        <div class="landing-section_1-end-line"></div>
+    </div>
+    <div class="landing-section-title" data-uk-scrollspy="{cls:'uk-animation-slide-top', repeat: true}">
+        6 шагов к успеху
+    </div>
+    <div class="landing-section-text">
+        Схема нашей работы прозрачная и эффективная:
+    </div>
+    <div class="landing-section_8-steps">
+        <div class="landing-section_8-steps-items">
+            <div class="landing-section_8-steps-item-right landing-section_8-steps-item landing-section_8-steps-active">
+                Маркетинг и анализ: изучаем специфику рынка
+                <div class="landing-section_8-steps-item-right-arrow"></div>
+            </div>
+            <div class="landing-section_8-steps-item-right landing-section_8-steps-item">
+                А/В тестирование сайта
+                <div class="landing-section_8-steps-item-right-arrow"></div>
+            </div>
+            <div class="landing-section_8-steps-item-right landing-section_8-steps-item">
+                Старт проекта и проведение рекламных кампани
+                <div class="landing-section_8-steps-item-right-arrow"></div>
+            </div>
+        </div>
+        <div class="landing-section_8-steps-center">
+            <a class="landing-section_8-steps-center-circle landing-section_8-steps-active">1</a>
+            <a class="landing-section_8-steps-center-circle">2</a>
+            <a class="landing-section_8-steps-center-circle">3</a>
+            <a class="landing-section_8-steps-center-circle">4</a>
+            <a class="landing-section_8-steps-center-circle">5</a>
+            <a class="landing-section_8-steps-center-circle">6</a>
+            <div class="landing-section_1-end-line"></div>
+        </div>
+        <div class="landing-section_8-steps-items">
+            <div class="landing-section_8-steps-item-left landing-section_8-steps-item">
+                Создание одностраничного сайта и визуальных материалов 
+                <div class="landing-section_8-steps-item-left-arrow"></div>
+            </div>
+            <div class="landing-section_8-steps-item-left landing-section_8-steps-item">
+                Привлечение клиентов на сайт
+                <div class="landing-section_8-steps-item-left-arrow"></div>
+            </div>
+            <div class="landing-section_8-steps-item-left landing-section_8-steps-item">
+                Анализ полученных результатов и корректировка веб-ресурса
+                <div class="landing-section_8-steps-item-left-arrow"></div>
+            </div>
+        </div>
+    </div>
+    <div class="landing-section_8-slider">
+        <div class="landing-section_8-slider-item">
+            <div class="landing-section_8-slider-item_1-left">
+                <div class="landing-section_8-slider-item_1-left-title">
+                    Маркетинг и анализ: изучаем специфику рынка
+                </div>
+                <div class="landing-section_8-slider-item_1-left-text">
+                    Проведение маркетингового исследования рынка, определение
+                    сильных и слабых сторон Вашего предложения, изучение рекламы
+                    конкурентов. Это – необходимая база, на основе которой будет
+                    строиться разработка уникального торгового предложения 
+                </div>
+                <div class="landing-section_8-slider-item_1-left-button">
+                    Оставить заявку
+                </div>
+            </div>
+            <div class="landing-section_8-slider-item_1-right landing-section_8-slider-image_1"></div>
+        </div>
+        <div class="landing-section_8-slider-item landing-section_8-slider-image_2">
+            <div class="landing-section_8-slider-item_2-title">
+                Создание одностраничного сайта и визуальных материалов
+            </div>
+            <div class="landing-section_8-slider-item_2-text">
+                Разработка уникального торгового предложения, продумывание
+                акций, составление схемы сайта. Профессиональная фото- и
+                видеосъемка товаров или услуг для дальнейшего размещения
+                на сайте.  
+            </div>
+            <a href="#" class="landing-section_8-slider-item_2-button slider-button">
+                Заказать бесплатный аудит
+            </a>
+            <a href="#" class="landing-section_8-slider-item_2-button slider-button">
+                Закажите маркетинговое исследование
+            </a>
+        </div>
+        <div class="landing-section_8-slider-item landing-section_8-slider-image_3">
+            <div class="landing-section_8-slider-item_3-title">
+                А/В тестирование сайта
+            </div>
+            <div class="landing-section_8-slider-item_3-text">
+                «Игра со шрифтами», корректировка цветов, небольшие изменения
+                элементов сайта могут существенно менять восприятие сайта.
+                А/В-тестирование позволяет найти оптимальный вариант оформления
+                сайта.
+            </div>
+            <a href="#" class="landing-section_8-slider-item_3-button slider-button">
+                Заказать лендинг
+            </a>
+            <a href="#" class="landing-section_8-slider-item_3-button slider-button">
+                Создать рекламную компанию
+            </a>
+        </div>
+        <div class="landing-section_8-slider-item landing-section_8-slider-image_4">
+            <div class="landing-section_8-slider-item_4-title">
+                Привлечение клиентов на сайт
+            </div>
+            <div class="landing-section_8-slider-item_4-text">
+                В арсенале нашей компании баннерная, медийная, контекстная и
+                тизерная реклама, а также SMM-продвижение. Эти и другие
+                рекламные средства используются для привлечения на сайт
+                целевой аудитории. 
+            </div>
+            <a href="#" class="landing-section_8-slider-item_2-button slider-button">
+                Заказать продающий сайт
+            </a>
+        </div>
+        <div class="landing-section_8-slider-item">
+            <div class="landing-section_8-slider-item_1-left">
+                <div class="landing-section_8-slider-item_1-left-title">
+                    Старт проекта и проведение рекламных кампани
+                </div>
+                <div class="landing-section_8-slider-item_1-left-text">
+                    Финальное тестирование сайта и его запуск с одновременным применением<br/>
+                    разработанной ранее рекламной стратегии. Первые клиенты появляются уже в день начала работы сайта! 
+                </div>
+                <a class="landing-section_8-slider-item_1-left-button slider-button">
+                    Заказать лендинг
+                </a>
+            </div>
+            <div class="landing-section_8-slider-item_1-right landing-section_8-slider-image_5"></div>
+        </div>
+        <div class="landing-section_8-slider-item landing-section_8-slider-image_6">
+            <div class="landing-section_8-slider-item_6-title">
+                Анализ полученных результатов и корректировка веб-ресурса
+            </div>
+            <div class="landing-section_8-slider-item_6-text">
+                Оценив полученные результаты, мы предложим корректировки, если
+                это необходимо. Улучшение сайта, ведение статистики и полная
+                техническая поддержка позволяют добиться ежемесячного прироста
+                количества пользователей на 10-15%.
+            </div>
+            <a href="#" class="landing-section_8-slider-item_6-button">
+                Закажите маркетинговое исследование
+            </a>
+        </div>
+    </div>
+</section>
+
+<!--<section class="landing-section_9">
+    <div class="landing-section_1-end">
+        <a class="landing-section_1-end-down">&#62</a>
+        <a class="landing-section_1-end-up">&#60</a>
+        <div class="landing-section_1-end-line"></div>
+    </div>
+    <div class="landing-section-title" data-uk-scrollspy="{cls:'uk-animation-slide-top', repeat: true}">
+        Отзывы о компании Азбука Медиа Групп
+    </div>
+    <div class="landing-section-text">
+        Клиенты о нас и нашей работе:
+    </div>
+    <div class="landing-section_9-slider"></div>
+</section>-->
+
+<section class="landing-section_10">
+    <div class="landing-section_1-end">
+        <a class="landing-section_1-end-down">&#62</a>
+        <a class="landing-section_1-end-up">&#60</a>
+        <div class="landing-section_1-end-line"></div>
+    </div>
+    <div class="landing-section-title" data-uk-scrollspy="{cls:'uk-animation-slide-top', repeat: true}">
+        Что еще заказывают наши клиенты?
+    </div>
+    <div class="landing-section-text">
+        Веб-разработка включает в себя множество услуг. Ниже представлены наши<br/> 
+        предложения, которые наиболее популярны и востребованы у наших клиентов:
+    </div>
+    <div class="landing-section_10-table">
+        <div class="landing-section_10-table-cell" data-uk-scrollspy="{cls:'uk-animation-slide-left', delay: 700, repeat: true}">
+            <div class="landing-section_10-table-cell-icon promotion_icon"></div>
+            <div class="landing-section_10-table-cell-title">
+                SEO продвижение
+            </div>
+            <div class="landing-section_10-table-cell-text">
+                Комплексное SEO-продвижение обеспечивает сайту первые места
+                в результатах поиска. Мы занимаемся внутренней и внешней
+                оптимизацией под две самые известные поисковые системы – Google
+                и Яндекс. Результаты SEO-продвижения появляются уже спустя
+                несколько месяцев после начала оптимизации.
+            </div>
+            <div class="landing-section_10-table-cell-button">
+                ОСТАВИТЬ ЗАЯВКУ
+            </div>
+        </div>
+        <div class="landing-section_10-table-cell" data-uk-scrollspy="{cls:'uk-animation-slide-bottom', delay: 400, repeat: true}">
+            <div class="landing-section_10-table-cell-icon email_icon"></div>
+            <div class="landing-section_10-table-cell-title">
+                Почтовая рассылка
+            </div>
+            <div class="landing-section_10-table-cell-text">
+                Рассылка по e-mail не обязательно является спамом. Мы предлагаем
+                быструю рассылку по электронной почте важной для Ваших клиентов
+                информации: сведений об акциях, новых услугах, изменениях в
+                графике работы и т.д.
+            </div>
+            <div class="landing-section_10-table-cell-button">
+                УЗНАТЬ ПОДРОБНЕЕ
+            </div>
+        </div>
+        <div class="landing-section_10-table-cell" data-uk-scrollspy="{cls:'uk-animation-slide-bottom', delay: 600, repeat: true}">
+            <div class="landing-section_10-table-cell-icon pen_icon"></div>
+            <div class="landing-section_10-table-cell-title">
+                Копирайтинг
+            </div>
+            <div class="landing-section_10-table-cell-text">
+                Актуальная и интересная информация на сайте – гарантия того,
+                что пользователи будут посещать веб-ресурс намного чаще.
+                Мы предлагаем грамотные и увлекательные статьи на любые темы,
+                а также качественный тематический контент для Вашего сайта от
+                профессиональных журналистов.
+            </div>
+            <div class="landing-section_10-table-cell-button">
+                УЗНАТЬ ПОДРОБНЕЕ
+            </div>
+        </div>
+        <div class="landing-section_10-table-cell" data-uk-scrollspy="{cls:'uk-animation-slide-right', delay: 600, repeat: true}">
+            <div class="landing-section_10-table-cell-icon design_icon"></div>
+            <div class="landing-section_10-table-cell-title">
+                Дизайн
+            </div>
+            <div class="landing-section_10-table-cell-text">
+                Услуги профессиональных дизайнеров по разработке макета сайта,
+                логотипа, буклета, листовки, баннера, каталога и т.д. Создание
+                детального логобука и фирменного стиля.
+            </div>
+            <div class="landing-section_10-table-cell-button">
+                УЗНАТЬ ПОДРОБНЕЕ
+            </div>
+        </div>
+    </div>
+    <div class="landing-button-wrap">
+        <div class="landing-section_10-button">
+            ВСЕ НАШИ ПРЕДЛОЖЕНИЯ
+        </div>
+    </div>
+</section>
+
+<section class="landing-section_11">
+    <div class="landing-section_1-end">
+        <a class="landing-section_1-end-down">&#62</a>
+        <a class="landing-section_1-end-up">&#60</a>
+        <div class="landing-section_1-end-line"></div>
+    </div>
+    <div class="landing-section-title" data-uk-scrollspy="{cls:'uk-animation-slide-top', repeat: true}">
+        Остались вопросы? Мы с радостью ответим на них!
+    </div>
+    <div class="landing-section-text">
+        Звоните нам!<br/>
+        Пишите нам!
+    </div>
+    <?php
+    $form = $this->form3;
+    $form->prepare();
+    $form->setAttribute('action', 'landingForm3');
+    echo $this->form()->openTag($form);
+    ?>
+
+    <div class="landing-section_11-form landing-form">
+        <div class="form-input" data-uk-scrollspy="{cls:'uk-animation-slide-right', repeat: true}"><?= $this->formElement($form->get('name')); ?></div>
+
+        <div class="form-input" data-uk-scrollspy="{cls:'uk-animation-slide-left', repeat: true}"><?= $this->formElement($form->get('email')); ?></div>
+
+        <div class="form-input user-data" data-uk-scrollspy="{cls:'uk-animation-slide-bottom', repeat: true}"><?= $this->formElement($form->get('question')); ?></div>
+
+        <div class="form-submit" data-uk-scrollspy="{cls:'uk-animation-slide-bottom', repeat: true}"><?= $this->formElement($form->get('submit')); ?></div>
+        <div class="form-error"></div>
+    </div>
+    <?php echo $this->form()->closeTag() ?>
+</section>
+
+<section class="landing-section_12">
+    <div class="landing-section_1-end">
+        <a class="landing-section_1-end-up">&#60</a>
+        <div class="landing-section_1-end-line"></div>
+    </div>
+    <div class="landing-section-title" data-uk-scrollspy="{cls:'uk-animation-slide-top', repeat: true}">
+        Сколько новых клиентов Вы хотите получить за месяц?
+    </div>
+    <?php
+    $form = $this->form;
+    $form->prepare();
+    $form->setAttribute('action', 'landingForm');
+    echo $this->form()->openTag($form);
+    ?>
+
+    <div class="landing-section_1-form landing-form">
+        <div class="form-wrap">
+            <?= $this->formLabel($form->get('phone')); ?>
+            <div class="form-input user-data"><?= $this->formElement($form->get('phone')); ?></div>
+        </div>
+        <div class="form-wrap" data-uk-scrollspy="{cls:'uk-animation-slide-right', repeat: true}">
+            <?= $this->formLabel($form->get('business')); ?>
+            <div class="form-input user-data"><?= $this->formElement($form->get('business')); ?></div>
+        </div>
+
+        <div class="form-submit" data-uk-scrollspy="{cls:'uk-animation-slide-bottom', repeat: true}"><?= $this->formElement($form->get('submit')); ?></div>
+        <div class="form-error"></div>
+        <div class="landing-section_1-form-ps">
+            * Это количество мы юридически пропишем в договоре
+        </div>
+    </div>
+    <?php echo $this->form()->closeTag() ?>
+
+    <div class="social-icons">
+        <div class="social-icon twitter"></div>
+        <div class="social-icon vk"></div>
+        <div class="social-icon google"></div>
+        <div class="social-icon facebook"></div>
+    </div>
+</section>
+
+<ul class="landing-navigation-menu">
+    <li class="landing-navigation-menu-home"></li>
+</ul>
+
+<div class="uk-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="uk-modal-dialog">
+        <div class="modal-content">
+            <a href class="uk-modal-close close">×</a>
+            <div class="modal-content-image-wrap">
+                <img class="modal-content-image">
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .close {
+        font: 400 14px / 20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+        padding: 10px;
+        cursor: pointer;
+        background: 0 0;
+        border: 0;
+        -webkit-appearance: none;
+        margin-top: -2px;
+        float: right;
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 1;
+        color: #000;
+        text-shadow: 0 1px 0 #fff;
+        opacity: .2;
+        filter: alpha(opacity=20);
+    }
+
+    .close:hover {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+        opacity: .5;
+        filter: alpha(opacity=50);
+    }
+
+    #myModal .uk-modal-dialog {
+        width: 950px;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .modal-content-image-wrap {
+        position: relative;
+        width: 100%;
+        height: 550px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    .modal-content-image {
+        background-size: contain;
+        background-position-x: center;
+        background-repeat: no-repeat;
+    }
+
+    .display-background-img {
+        position: absolute;
+        background-size: cover;
+        top: 0px;
+        left: 0px;
+        height: 573px;
+        width: 768px;
+    }
+
+    .conversion-image_1 {
+        background-image: url(/img/landing/koala.jpg);
+    }
+
+    .conversion-image_2 {
+        background-image: url(/img/landing/pen.jpg);
+        left: 93px;
+    }
+
+    .landing-section_7-table-left-row-active {
+        background: #072154;
+    }
+
+    .landing-section_7-table-left-row-active a{
+        color: #fff;
+    }
+
+    .landing-section_1-form .form-submit {
+        clear: both;
+    }
+</style>
+
+
+<script>
+    $(document).ready(function () {
+        //MENU
+        var mobile = (/iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
+        if (!mobile) {
+            var cssId = 'uikitCss';
+            var head  = document.getElementsByTagName('head')[0];
+            var link  = document.createElement('link');
+            link.id   = cssId;
+            link.rel  = 'stylesheet';
+            link.type = 'text/css';
+            link.href = '/css/uikit.docs.min.css';
+            link.media = 'all';
+            head.insertBefore(link, document.getElementsByTagName('link')[0]);
+        }
+        
+        $('body').css('height', 'auto');
+            
+        jQuery(window).load(function() {
+            jQuery("#status").fadeOut();
+            jQuery("#preloader").delay(1000).fadeOut("slow");
+        });
+
+        if (screen.width < 480) {
+            $('*').removeAttr('data-uk-scrollspy');
+            $('*').removeClass('uk-scrollspy-init-inview');
+            $('*').removeClass('uk-animation-slide-top');
+            $('*').removeClass('uk-animation-slide-left');
+            $('*').removeClass('uk-animation-slide-right');
+            $('*').removeClass('uk-animation-slide-bottom');
+            $('*').removeClass('uk-scrollspy-inview');
+        }
+
+        $(window).resize(function () {
+            delay(function () {
+                bannerSlider.destroySlider();
+                bannerSlider.reloadSlider({
+                    slideWidth: $('.landing-section_8-slider-item').width(),
+                    minSlides: 1,
+                    moveSlides: 1,
+                    controls: false,
+                    pager: false
+                });
+            }, 50);
+        });
+        
+
+        var delay = (function () {
+            var timer = 0;
+            return function (callback, ms) {
+                clearTimeout(timer);
+                timer = setTimeout(callback, ms);
+            };
+        })();
+        var offSet;
+        var index;
+        $('.landing-navigation-menu li').on('click', function () {
+            offSet = $('.landing-header').offset();
+            $("body,html").animate({"scrollTop": offSet.top}, "slow");
+        });
+        $('.landing-section_1-end-up').on('click', function () {
+            index = $(this).parents('section').index() - 1;
+            offSet = $('section:eq(' + index + ')').offset();
+            $("body,html").animate({"scrollTop": offSet.top - 25}, "slow");
+        });
+        $('.landing-section_1-end-down').on('click', function () {
+            index = $(this).parents('section').index() + 1;
+            offSet = $('section:eq(' + index + ')').offset();
+            $("body,html").animate({"scrollTop": offSet.top - 25}, "slow");
+        });
+        var interval_display;
+        var intervel_flag = true;
+        $('.landing-section_6-conversion_display').on('uk.scrollspy.inview', conversion_display = function () {
+            if (screen.width > 950) {
+                delay(function () {
+                    var angle = 0;
+                    var max_height = parseInt($('.display-background-img').height());
+                    interval_display = setInterval(function () {
+                        angle += 1;
+                        $('.landing-section_6-conversion_display-background').height(max_height * angle / 100);
+                        $('.landing-section_6-conversion_number').text(angle);
+                        if (angle == 100) {
+                            clearInterval(interval_display);
+                            delay(function () {
+                                $('.landing-section_6-conversion_display-background').height(0);
+                                $('.landing-section_6-conversion_number').text(0);
+                                conversion_display();
+                            }, 2000);
+                        }
+                    }, 60);
+                }, 800);
+            } else {
+                $('.landing-section_6-conversion_number').text(100);
+                $('.landing-section_6-conversion_display-background').height(parseInt($('.display-background-img').height()));
+            }
+        });
+        $('.landing-section_6-conversion_display').on('uk.scrollspy.outview', function () {
+            if (screen.width > 950) {
+                clearInterval(interval_display);
+                delay(function () {
+                    clearInterval(interval_display);
+                    $('.landing-section_6-conversion_display-background').height(0);
+                    $('.landing-section_6-conversion_number').text(0);
+                }, 3000);
+            }
+        });
+        // ACTIVE
+        $('.landing-section_7-table-right-active >*').show();
+        $('.landing-section_7-table-left-row').on('click', function (e) {
+            e.preventDefault();
+            var index = $(this).index();
+            $('.landing-section_7-table-left-row-active').removeClass('landing-section_7-table-left-row-active');
+            $(this).addClass('landing-section_7-table-left-row-active');
+            $('.landing-section_7-table-right-active').children().fadeOut(400, function () {
+                $('.landing-section_7-table-right-active').removeClass('landing-section_7-table-right-active');
+                $('.landing-section_7-table-right:nth-child(' + (index + 2) + ')').addClass('landing-section_7-table-right-active');
+                $('.landing-section_7-table-right:nth-child(' + (index + 2) + ')').children().fadeIn(400, function () {
+                });
+            });
+            $('.landing-section_7-table-left-row-active').index();
+        });
+        
+        $('.landing-section_2-table').on('uk.scrollspy.inview', function () {
+            var wrap = $('.landing-section_2-table-cell-icon');
+            var angle = 0;
+            var interval = setInterval(function () {
+                angle += 2;
+                $(wrap).css({'-webkit-transform': 'rotateY(' + angle + 'deg)'});
+                if (angle == 360) {
+                    clearInterval(interval);
+                }
+            }, 1);
+        });
+        //Slider
+        var bannerSlider = $('.landing-section_8-slider').bxSlider({
+            slideWidth: $('.landing-section_8-slider-item').width(),
+            minSlides: 1,
+            moveSlides: 1,
+            controls: false,
+            pager: false
+        });
+        $('.landing-section_8-steps-center-circle').on('click', function () {
+            bannerSlider.goToSlide($(this).index())
+            $('.landing-section_8-steps-center-circle').removeClass('landing-section_8-steps-active');
+            $(this).addClass('landing-section_8-steps-active');
+            $('.landing-section_8-steps-item').removeClass('landing-section_8-steps-active');
+            if ($(this).index() % 2 == 0 || $(this).index() == 0) {
+                $('.landing-section_8-steps-item-right:eq(' + ($(this).index() / 2) + ')').addClass('landing-section_8-steps-active');
+            } else {
+                $('.landing-section_8-steps-item-left:eq(' + (($(this).index() - 1) / 2) + ')').addClass('landing-section_8-steps-active');
+            }
+        });
+        $('.landing-section_8-steps-item-right').on('click', function () {
+            bannerSlider.goToSlide($(this).index() * 2);
+            $('.landing-section_8-steps-item').removeClass('landing-section_8-steps-active');
+            $('.landing-section_8-steps-center-circle').removeClass('landing-section_8-steps-active');
+            $(this).addClass('landing-section_8-steps-active');
+            $('.landing-section_8-steps-center-circle:eq(' + ($(this).index() * 2) + ')').addClass('landing-section_8-steps-active');
+        });
+        $('.landing-section_8-steps-item-left').on('click', function () {
+            bannerSlider.goToSlide($(this).index() * 2 + 1);
+            $('.landing-section_8-steps-item').removeClass('landing-section_8-steps-active');
+            $('.landing-section_8-steps-center-circle').removeClass('landing-section_8-steps-active');
+            $(this).addClass('landing-section_8-steps-active');
+            $('.landing-section_8-steps-center-circle:eq(' + ($(this).index() * 2 + 1) + ')').addClass('landing-section_8-steps-active');
+        });
+        $('.landing-section_2-image_table-row-cell-image').on('click', function () {
+            $('.modal-content-image').attr('src', '/img/landing/' + $(this).data('id') + '.jpg');
+        });
+        $('.form-submit input').on('click', function (e) {
+            e.preventDefault();
+            var name = $(this).parents('.client-form').find('#form-name').val();
+            var type = $(this).val();
+            var email = $(this).parents('.client-form').find('#form-email').val();
+            var phone = $(this).parents('.client-form').find('#form-phone').val();
+            var business = $(this).parents('.client-form').find('#form-business').val();
+            var dataString = 'type=' + type;
+            if (name) {
+                dataString += '&name=' + name;
+            }
+            if (email) {
+                dataString += '&email=' + email;
+            }
+            if (phone) {
+                dataString += '&phone=' + phone;
+            }
+            if (business) {
+                dataString += '&business=' + business;
+            }
+
+            var submit = $(this);
+            $.ajax({
+                type: "POST",
+                url: "/landing" + $(this).data('form'),
+                data: dataString,
+                cache: false,
+                success: function (response) {
+                    if (response.status !== 'ok') {
+                        submit.parents('.landing-form').find('.form-error').text('Вы не верно заполнили обязательные поля!');
+                    }
+                }
+            });
+        });
+    });
+</script>

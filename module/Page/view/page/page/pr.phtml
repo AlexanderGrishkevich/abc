@@ -1,19 +1,17 @@
-<div class="title-icons">
-    <a href="<?= $this->url('page', array('action' => 'marketing')) ?>">
-        <div class="title-icon marketing_static"></div>
-    </a>
+<div class="title">
     <div class="title-icon_main page_publicity"></div>
-    <a href="<?= $this->url('page', array('action' => 'promotion')) ?>">
-        <div class="title-icon promotion_static"></div>
-    </a>
+    <h1 class="title_text">Реклама и PR</h1>
+    <p class="description-text">
+        Это - комплекс мер, направленый на увеличение посещения ресурса
+        целевой аудиторий. Работа над повышением узнаваемости бренда: люди знают о Вас
+        и ищут не разные компании, предлагающие подобные услуги, а именно Вас
+    </p>
 </div>
-<div class="title_text">Реклама и PR</div>
 
-<div class="body-block_1 magrin_top_10">
-    <p>Это - комплекс мер, направленый на увеличение посещения ресурса<br/>
-        целевой аудиторий. Работа над повышением узнаваемости бренда: люди знают о Вас<br/>
-        и ищут не разные компании, предлагающие подобные услуги, а именно Вас</p>
+<div class="separator-line">
+    <div class="separator"></div>
 </div>
+
 
 <div class="pr-body-image magrin_top_20">
 </div>
@@ -23,7 +21,7 @@
         PR и рекламе в социальных сетях:</p>
 </div>
 
-<ul class="body-ul_1 magrin_top_20">
+<ul class="body-ul_1 padding_35 magrin_top_20">
     <li>Раскрутка групп в социальных сетях</li>
     <li>Увеличение узнаваемости вашего бренда</li>
     <li>Раскрутка в социальных сетях</li>
@@ -31,7 +29,7 @@
     <li>Целевая реклама с продающими объявлениями, имеющими высокое соотношение<br/>Просмотр – заявка</li>
 </ul>
 
-<div class="body-table magrin_top_20">
+<div class="body-table body-background2 magrin_top_20">
     <div class="body-table_title"></div>
     <div class="body-table-cell">
         <div class="body-table-cell_number">1 </div>
@@ -59,12 +57,70 @@
     **Пожалуйста воспользуйтесь формой онлайн связи на сайте, позвоните нам или оставьте свой номер - наш менеджер свяжется с вами в ближайшее время
 </div>
 
+<div class="marketing-body-slider">
+    <?php echo $this->Marketing(); ?>
+</div>
+
 <div class="body-block_7 magrin_top_20">
     <a href="<?= $this->url('page', array('action' => 'checkout')) ?>">
         <div class="body-button">ОФОРМИТЬ ЗАКАЗ</div>
     </a>
-    <a href="<?= $this->url('page', array('action' => 'contacts')) ?>">
-    <div class="body-button">РАСЧИТАТЬ ЦЕНУ</div>
-    </a>
-    <div class="body-button">АНАЛИЗ САЙТА</div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        var slides = 4;
+        var delay = (function () {
+            var timer = 0;
+            return function (callback, ms) {
+                clearTimeout(timer);
+                timer = setTimeout(callback, ms);
+            };
+        })();
+
+        if ($(window).width() < 375) {
+            slides = 2;
+        } else if ($(window).width() < 510) {
+            slides = 3;
+        } else {
+            slides = 4;
+        }
+
+        var slider = $('.marketing-body-slider').bxSlider({
+            slideWidth: 105,
+            minSlides: 1,
+            maxSlides: slides,
+            moveSlides: 1,
+            slideMargin: 30,
+            auto: true,
+            pause: 2000,
+            controls: false,
+            pager: false,
+        });
+
+        $(window).resize(function () {
+            delay(function () {
+                if ($(window).width() < 375) {
+                    slides = 2;
+                } else if ($(window).width() < 510) {
+                    slides = 3;
+                } else {
+                    slides = 4;
+                }
+                slider.destroySlider();
+                slider.reloadSlider({
+                    slideWidth: 105,
+                    minSlides: 1,
+                    maxSlides: slides,
+                    moveSlides: 1,
+                    slideMargin: 30,
+                    randomStart: true,
+                    auto: true,
+                    pause: 2000,
+                    controls: false,
+                    pager: false,
+                });
+            }, 300);
+        });
+    });
+</script>
