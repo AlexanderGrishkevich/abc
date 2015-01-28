@@ -199,6 +199,7 @@ nav {
     position: relative;
     width: 250px;
     float: left;
+    padding-top: 5px;
     z-index: 1;
 }
 
@@ -238,7 +239,7 @@ nav {
 }
 
 nav .navigation {
-    height: 60px;
+    height: 61px;
     text-align: left;
     line-height: 26px;
     display: table;
@@ -250,8 +251,8 @@ nav .navigation {
 nav .navigation > li {
     text-align: center;
     display: inline-block;
-    padding: 0 10px;
-    margin: 0 5px;
+    /* padding: 0 10px; */
+    margin: 0 15px;
 }
 
 nav .navigation > li > a {
@@ -260,7 +261,7 @@ nav .navigation > li > a {
 
 nav .navigation > li:hover,
 nav .navigation > .active {
-    border-bottom: 4px solid #072154;
+    /* border-bottom: 4px solid #072154; */
 }
 
 nav .navigation ul {
@@ -268,7 +269,7 @@ nav .navigation ul {
     font-family: Conv_niveaBook !important;
     z-index: 0;
     left: 0;
-    top: 32px;
+    top: 37px;
     margin-left: 15px;
     display: none;
 }
@@ -304,8 +305,10 @@ nav .menu-line {
     width: 100%;
     border-bottom: 2px solid #072154;
     position: absolute;
+    padding-top: 5px;
     top: 40px;
     left: 108px;
+    box-sizing: border-box;
 }
 
 #nav-menu-icon {
@@ -317,6 +320,20 @@ nav .menu-line {
     position: absolute;
     top: 60px;
     left: calc(50% - 20px);
+    display: none;
+}
+
+#navigation-active-logo {
+    background: #fff;
+    background-image: url(/img/navigation-active-logo.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 17px;
+    width: 30px;
+    z-index: 1;
+    top: 32px;
     display: none;
 }
 
@@ -3543,7 +3560,6 @@ and (max-width : 1000px) {
         padding-top: 10px;
         height: 0;
         overflow: hidden;
-        display: block;
     }
     
     nav .navigation li {

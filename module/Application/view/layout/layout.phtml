@@ -42,6 +42,7 @@
         </div>
         <div class="wrapper">
             <nav> 
+                <div id="navigation-active-logo"></div>
                 <div class="nav-left">
                     <a class="main-logo" href="/">
                     </a>
@@ -67,29 +68,29 @@
 
 
                     <div class="headmeta feedback-form-content">
-    <?= $this->formLabel($form->get('controller')); ?>
+                        <?= $this->formLabel($form->get('controller')); ?>
                         <div class="form-input"><?= $this->formElement($form->get('controller')); ?></div>
 
-    <?= $this->formLabel($form->get('action')); ?>
+                        <?= $this->formLabel($form->get('action')); ?>
                         <div class="form-input user-data"><?= $this->formElement($form->get('action')); ?></div>
 
-    <?= $this->formLabel($form->get('title')); ?>
+                        <?= $this->formLabel($form->get('title')); ?>
                         <div class="form-input user-data"><?= $this->formElement($form->get('title')); ?></div>
 
-    <?= $this->formLabel($form->get('description')); ?>
+                        <?= $this->formLabel($form->get('description')); ?>
                         <div class="form-input"><?= $this->formElement($form->get('description')); ?></div>
 
-    <?= $this->formLabel($form->get('keywords')); ?>
+                        <?= $this->formLabel($form->get('keywords')); ?>
                         <div class="form-input"><?= $this->formElement($form->get('keywords')); ?></div>
 
                         <div class="form-submit"><?= $this->formElement($form->get('submit')); ?></div>	
 
                     </div>
                     <?php echo $this->form()->closeTag(); ?>
-<?php } ?>
+                <?php } ?>
 
                 <div class="content">
-<?php echo $this->content; ?>
+                    <?php echo $this->content; ?>
                 </div>
             </div>  
         </div>
@@ -111,42 +112,76 @@
 
         <script type="text/javascript">
             $(document).ready(function () {
-                var window_width,
-                        active_index,
-                        index_now;
+                var li_offset,
+                        li_width,
+                        nav_div = $('#navigation-active-logo'),
+                        flag,
+                        li = $('nav .navigation > li.active');
 
-                window_width = $(window).width();
+                var delay = (function () {
+                    var timer = 0;
+                    return function (callback, ms) {
+                        clearTimeout(timer);
+                        timer = setTimeout(callback, ms);
+                    };
+                })();                
+
+                jQuery(window).on('load', function () {
+                    active_li();
+                });
+
                 $(window).resize(function () {
-                    if ($(window).width() < 984) {
-                        $('nav .navigation li:not(:last-of-type) ul').fadeIn();
-                    } else {
-                        $('nav .navigation ul').hide();
-                        $('nav .navigation .active:not(:last-of-type) ul').fadeIn();
-                    }
+                    active_li();
                 });
-                
-                
+
                 //MENU
-                active_index = $('nav .navigation > .active').index();
-                index_now = active_index;
-
-                $('nav .navigation > li > a').on('mouseenter', function () {
-                    index_now = $(this).parent().index();
-                    if ($(window).width() > 984) {
-                        $('nav .navigation ul').animate().stop();
+                var active_li = function () {
+                    if ($(window).width() > 983) {
+                        li = $('nav .navigation > li.active');
+                        li_width = li.width();
+                        li_offset = li.offset().left;
+                        nav_div.offset({left: li_offset + li_width / 2 - 15});
+                        nav_div.show();
                         $('nav .navigation ul').hide();
-                        $(this).parent().children('ul').fadeIn(300);
+                        li = $('nav .navigation > li.active ul').fadeIn();
+                    } else {
+                        nav_div.offset({left: 0});
+                        nav_div.hide();
+                        $('nav .navigation ul').fadeIn();
                     }
-                });
+                };
+                
+                flag = true;
+                $('nav .navigation > li > a').hover(function () {
+                    
+                    if (flag && (li.width() !== $(this).parent().width())) {
+                        flag = false;
+                        li = $(this).parent();
 
-                $('nav').on('mouseleave', function () {
-                    if ((active_index != index_now || index_now == 4) && $(window).width() > 984) {
-                        $('nav .navigation ul:eq(' + index_now + ')').hide();
-                        $('nav .navigation .active:not(:last-child) ul').fadeIn(300);
+                        li_offset = li.offset().left;
+                        li_width = li.width();
+
+                        nav_div.animate({left: li_offset + li_width / 2 - 15}, {duration: 500,
+                            specialEasing: {
+                                width: "linear",
+                                height: "easeOutBounce"
+                            },
+                            progress: function () {
+                                $('nav .navigation ul').fadeOut();
+                            },
+                            start: function () {
+                                delay(function () {
+                                    flag = true;
+                                }, 200);
+                            },
+                            complete: function () {
+                                li.children('ul').fadeIn();
+                            }
+                        });
                     }
                 });
                 //END MENU
-                
+
                 var height;
                 $('#nav-menu-icon').on('click', function () {
                     height = $('nav .navigation > li:last-of-type').offset().top - 50;
@@ -156,7 +191,6 @@
                         $('nav .navigation').stop().animate({height: 0}, "slow");
                     }
                 });
-
                 $('textarea').autosize();
             });
         </script>
