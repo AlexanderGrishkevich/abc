@@ -124,17 +124,17 @@
                         clearTimeout(timer);
                         timer = setTimeout(callback, ms);
                     };
-                })();                
+                })();  
 
-                jQuery(window).on('load', function () {
+                //MENU
+                delay(function () {
                     active_li();
-                });
-
+                }, 200);
+                
                 $(window).resize(function () {
                     active_li();
                 });
-
-                //MENU
+                
                 var active_li = function () {
                     if ($(window).width() > 983) {
                         li = $('nav .navigation > li.active');
@@ -160,7 +160,7 @@
 
                         li_offset = li.offset().left;
                         li_width = li.width();
-
+                        nav_div.show();
                         nav_div.animate({left: li_offset + li_width / 2 - 15}, {duration: 500,
                             specialEasing: {
                                 width: "linear",
