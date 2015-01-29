@@ -167,12 +167,11 @@
                                 height: "easeOutBounce"
                             },
                             progress: function () {
-                                $('nav .navigation ul').fadeOut();
+                                $('nav .navigation ul').hide();
                             },
                             start: function () {
-                                delay(function () {
                                     flag = true;
-                                }, 200);
+                                
                             },
                             complete: function () {
                                 li.children('ul').fadeIn();

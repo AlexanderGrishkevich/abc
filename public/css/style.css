@@ -1486,70 +1486,53 @@ body.design .bx-controls-direction a {
 /* SERVICES */
 
 .services-table {
-    width: 800px;
+    width: 565px;
+    margin: 0 auto;
     background-color: #e8e8e8;
     position: relative;
+    min-height: 820px;
+    overflow: hidden;
 }
 
-.services-table-title_big,
-.services-table-title_small,
-.services-table-title_other {
+
+.services-table-title {
     font-size: 20px;
     height: 40px;
     line-height: 40px;
     background-color: gray;
     text-align: center;
     color: #fff;
-    position: absolute;
-    width: 264px;
+    position: relative;
+    width: 290px;
+    /* float: left; */
     cursor: pointer;
-    z-index: 10000;
 }
 
 .navigation-active {
-    width: 268px!important;
     color: #071f4e!important;
     font-weight: bold;
+    width: 295px !important;
 }
 
-.services-table-title_big:hover,
-.services-table-title_small:hover,
-.services-table-title_other:hover {
+.services-table-title-active,
+.services-table-title:hover {
     background-color: #071f4e;
-}
-.services-table-title_big {
-    left: 0;
-}
-
-.services-table-title_small {
-    left: 268px;
-}
-
-.services-table-title_other {
-    left: 536px;
-}
-
-.services-table-title-active {
-    background-color: #071f4e;
-    z-index: 10001;
 }
 
 .services-table-content {
-    padding-top: 40px;
-    width: 100%;
-    overflow: hidden;
-    padding-bottom: 5px;
-    min-height: 400px;
-    display: none;
+    float: left;
+    width: 294px;
 }
 
 .services-table-content-navigation {
-    width: 268px;
-    float: left;
+    width: 295px;
+    /* float: left; */
+    margin-bottom: 10px;
+    overflow: hidden;
 }
 
 .services-table-content-navigation_item {
-    width: 264px;
+    width: 290px;
     height: 40px;
     line-height: 40px;
     text-align: center;
@@ -1561,14 +1544,13 @@ body.design .bx-controls-direction a {
 
 .services-table-content-tabs {
     overflow: hidden;
-    width: 532px;
+    width: 270px;
     float: right;
     display: none;
+    margin-bottom: 5px;
 }
 
 .services-table-column:last-of-type {
-    width: 262px;
-    margin-right: 2px;
 }
 
 .services-table-column .services-table-column-text:last-of-type {
@@ -1580,7 +1562,6 @@ body.design .bx-controls-direction a {
     overflow: hidden;
     background-color: #fff;
     margin-right: 4px;
-    float: left;
     margin-top: 5px;
 }
 
@@ -1588,8 +1569,9 @@ body.design .bx-controls-direction a {
     line-height: 40px;
     color: #071f4e;
     font-weight: bold;
-    padding-left: 20px;
+    padding-left: 10px;
     position: relative;
+    min-height: 50px;
 }
 
 .services-table-column-text {
@@ -1600,19 +1582,6 @@ body.design .bx-controls-direction a {
     border-bottom: 2px solid #e8e8e8;
 }
 
-.services-table-column-title:before {
-    position: absolute;
-    top: 12px;
-    left: 8px;
-    display: block;
-    width: 0px;
-    height: 0px;
-    border-width: 8px 0 8px 8px;
-    border-style: solid;
-    border-color: transparent transparent transparent #071f4e;
-    content: '';
-    -webkit-transform: rotate(360deg);
-}
 
 /* END SERVICES */
 
@@ -3808,23 +3777,20 @@ and (max-width : 800px) {
 
     /* SERVICES */
 
-    .services-table-title_big,
-    .services-table-title_small,
-    .services-table-title_other {
+    .services-table-title {
         width: 300px;
         position: static;
         margin: 0 auto;
-        margin-bottom: 5px;
     }
 
     .services-table-content-navigation {
         float: none;
-        margin: 0 auto; 
-        width: 264px;
+        margin: 0 auto 5px; 
+        width: 290px;
     }
 
     .navigation-active {
-        width: 264px!important;
+        width: 290px!important;
     }
 
     .services-table-content-tabs {

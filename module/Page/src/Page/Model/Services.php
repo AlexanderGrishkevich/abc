@@ -6,6 +6,7 @@ class Services {
 
     public $id;
     public $category;
+    public $category_title;
     public $title;
     public $description;
     public $completion_date;
@@ -17,6 +18,7 @@ class Services {
     public function exchangeArray($data) {
         $this->id = (isset($data['id'])) ? $data['id'] : NULL;
         $this->category = (isset($data['category'])) ? $data['category'] : NULL;
+        $this->category_title = (isset($data['category_title'])) ? $data['category_title'] : NULL;
         $this->title = (isset($data['title'])) ? $data['title'] : NULL;
         $this->description = (isset($data['description'])) ? $data['description'] : NULL;
         $this->completion_date = (isset($data['completion_date'])) ? $data['completion_date'] : NULL;
