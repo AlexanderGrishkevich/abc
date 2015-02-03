@@ -90,22 +90,119 @@ class PageController extends AbstractActionController {
         $form = new CheckoutForm();
         $form->setInputFilter(new CheckoutFilter());
         $form->setData($post);
-
         if (!$form->isValid()) {
             $model = new ViewModel(array('error' => true, 'form' => $form));
             $model->setTemplate('page/page/checkout');
             return $model;
         }
-
-        $data = $form->getData();
-
-        $sm = $this->getServiceLocator();
-        $dbAdapter = $sm->get('DbAdapter');
-        $checkout = new Checkout();
-        $checkoutTable = new CheckoutTable($dbAdapter);
-        $checkout->exchangeArray($data);
-        $checkoutTable->save($checkout);
+       
+        $message = $this->sendMail($post);
+//        $sm = $this->getServiceLocator();
+//        $dbAdapter = $sm->get('DbAdapter');
+//        $checkout = new Checkout();
+//        $checkoutTable = new CheckoutTable($dbAdapter);
+//        $checkout->exchangeArray($data);
+//        $checkoutTable->save($checkout);
         return $this->redirect()->toRoute(NULL, array('controller' => 'page', 'action' => 'confirm-checkout'));
+    }
+    
+    public function sendMail($post) {     
+        
+        $message = array();
+        
+        $ch1 = $post->checkbox1;
+        $message[] = 'Отметьте пункты соответствующие интересам вашей компании:';
+        if (is_array($ch1)) {
+            foreach ($ch1 as $chItem) {
+                $message[] = $chItem;
+            }
+        } else {
+            $message[] = $ch1;
+        }
+        
+        $message[] = '';
+        $message[] = 'Пожалуйста, предоставьте нам ссылку на ваш веб-сайт:';
+        $message[] = $post->site ? : '-';
+        
+        $ch2 = $post->checkbox2;
+        $message[] = '';
+        $message[] = 'Отметьте пункты соответствующие вашей рекламной политике:';
+        if (is_array($ch2)) {
+            foreach ($ch2 as $chItem) {
+                $message[] = $chItem;
+            }
+        } else {
+            $message[] = $ch2;
+        }
+        
+        $message[] = '';
+        $message[] = 'Пожалуйста, предоставьте нам список ключевых слов, при поиске которых вы хотите занять место в Google/Yandex.';
+        $message[] = $post->keys ? : '-';
+        
+        $ch3 = $post->checkbox3;
+        $message[] = '';
+        $message[] = 'Отметьте на каких социальных ресурсах представлена ваша компания:';
+        if (is_array($ch3)) {
+            foreach ($ch3 as $chItem) {
+                $message[] = $chItem;
+            }
+        } else {
+            $message[] = $ch3;
+        }
+        
+        $message[] = '';
+        $message[] = 'Пожалуйста, предоставьте нам ссылки для каждой из Ваших учетных записей в социальных сетях, перечисленных в предыдущем вопросе.';
+        $message[] = $post->links ? : '-';
+        
+        $message[] = '';
+        $message[] = 'Пожалуйста, предоставьте нам любую дополнительную информацию о Вашем бизнесе, которая по вашему мнению может быть полезной';
+        $message[] = $post->info ? : '-';
+        
+        $message[] = '';
+        $message[] = 'Ваше Имя:';
+        $message[] = $post->name ? : '-';
+        
+        $message[] = '';
+        $message[] = 'Ваш адрес:';
+        $message[] = $post->adress_street ? : ' ' . ' - улица';
+        $message[] = $post->adress_city ? : ' ' . ' - город';
+        $message[] = $post->adress_region ? : ' ' . ' - область';
+        $message[] = $post->adress_index ? : ' ' . ' - индекс';
+        $message[] = $post->adress_country ? : ' ' . ' - страна';
+        
+        $message[] = '';
+        $message[] = 'Email:';
+        $message[] = $post->email;
+        
+        $message[] = '';
+        $message[] = 'Phone:';
+        $message[] = $post->phone;
+        
+        $htmlPart = new \Zend\Mime\Part(implode("<br>",$message));
+        $htmlPart->type = "text/html";
+
+        $body = new \Zend\Mime\Message();
+        $body->setParts(array($htmlPart));
+
+        $msg = new \Zend\Mail\Message();
+        $msg->setFrom('no-reply@abcmedia.by');
+        $msg->addTo('Soulmar@mail.by');
+        $msg->setSubject('Новый заказ');
+        $msg->setEncoding('UTF-8');
+        $msg->setBody($body);
+        
+        $headers = $msg->getHeaders();
+        $headers->removeHeader('Content-Type');
+        $headers->addHeaderLine('Content-Type', 'text/html; charset=UTF-8');
+
+        $transport = new \Zend\Mail\Transport\Sendmail();
+        try {
+            $transport->send($msg);
+        } catch (Exception $e) {
+
+        }
+        
+        return $message;
     }
 
     public function confirmCheckoutAction() {

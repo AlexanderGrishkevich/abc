@@ -1,6 +1,8 @@
-<div class="title-line"></div>
 <div class="title-contacts"><h1>Оформить заказ</h1></div>
-<div class="title-line"></div>
+
+<div class="separator-line">
+    <div class="separator"></div>
+</div>
 
 <?php
 $form = $this->form;
@@ -9,28 +11,61 @@ $form->setAttribute('action', '/process-checkout');
 echo $this->form()->openTag($form);
 ?>
 
-<div class="feedback-form-content">
-    <div class="form-input"><?= $this->formElement($form->get('username')); ?></div>
-    <div class="form-error"><?= $this->formElementErrors($form->get('username')); ?></div>
 
-    <div class="form-input user-data"><?= $this->formElement($form->get('site')); ?></div>
+<div class="checkout-form-content-left">
+    <?= $this->formLabel($form->get('checkbox1')); ?>
+    <div class="form-checkbox"><?= $this->formElement($form->get('checkbox1')); ?></div>
+    <div class="form-error"><?= $this->formElementErrors($form->get('checkbox1')); ?></div>
+
+    <?= $this->formLabel($form->get('site')); ?>
+    <?= $this->formElement($form->get('site')); ?>
     <div class="form-error"><?= $this->formElementErrors($form->get('site')); ?></div>
-    
-    <div class="form-input user-data"><?= $this->formElement($form->get('phone')); ?></div>
-    <div class="form-error"><?= $this->formElementErrors($form->get('phone')); ?></div>
-    
-    <div class="form-input user-data"><?= $this->formElement($form->get('email')); ?></div>
-    <div class="form-error"><?= $this->formElementErrors($form->get('email')); ?></div>
-    
-    <div class="form-input"><?= $this->formElement($form->get('text')); ?></div>
-    <div class="form-error"><?= $this->formElementErrors($form->get('text')); ?></div>
-   
-    <?= $this->formCaptcha($form->get('captcha')); ?>
-    <div class="form-error"><?= $this->formElementErrors($form->get('captcha')); ?></div>
 
-    <div class="form-submit"><?= $this->formElement($form->get('submit')); ?></div>
-    <div class="form-error"><?= $this->formElementErrors($form->get('submit')); ?></div>	
+    <?= $this->formLabel($form->get('checkbox2')); ?>
+    <div class="form-checkbox"><?= $this->formElement($form->get('checkbox2')); ?></div>
+    <div class="form-error"><?= $this->formElementErrors($form->get('checkbox2')); ?></div>
 
+    <?= $this->formLabel($form->get('keys')); ?>
+    <?= $this->formElement($form->get('keys')); ?>
+    <div class="form-error"><?= $this->formElementErrors($form->get('keys')); ?></div>
 </div>
+
+<div class="checkout-form-content-right">
+    <?= $this->formLabel($form->get('checkbox3')); ?>
+    <div class="form-checkbox3"><?= $this->formElement($form->get('checkbox3')); ?></div>
+    <div class="form-error"><?= $this->formElementErrors($form->get('checkbox3')); ?></div>
+
+    <?= $this->formLabel($form->get('links')); ?>
+    <?= $this->formElement($form->get('links')); ?>
+    <div class="form-error"><?= $this->formElementErrors($form->get('links')); ?></div>
+
+    <?= $this->formLabel($form->get('info')); ?>
+    <?= $this->formElement($form->get('info')); ?>
+    <div class="form-error"><?= $this->formElementErrors($form->get('info')); ?></div>
+
+    <?= $this->formLabel($form->get('name')); ?>
+    <?= $this->formElement($form->get('name')); ?>
+    <div class="form-error"><?= $this->formElementErrors($form->get('name')); ?></div>
+
+    <?= $this->formLabel($form->get('adress_street')); ?>
+    <div class="form-inputs">
+        <?= $this->formElement($form->get('adress_street')); ?>
+        <?= $this->formElement($form->get('adress_city')); ?>
+        <?= $this->formElement($form->get('adress_region')); ?>
+        <?= $this->formElement($form->get('adress_index')); ?>
+        <?= $this->formElement($form->get('adress_country')); ?>
+    </div>
+
+    <?= $this->formLabel($form->get('email')); ?>
+    <?= $this->formElement($form->get('email')); ?>
+    <div class="form-error"><?= $this->formElementErrors($form->get('email')); ?></div>
+
+    <?= $this->formLabel($form->get('phone')); ?>
+    <?= $this->formElement($form->get('phone')); ?>
+    <div class="form-error"><?= $this->formElementErrors($form->get('phone')); ?></div>
+</div>
+
+<?= $this->formElement($form->get('submit')); ?>
+<div class="form-error"><?= $this->formElementErrors($form->get('submit')); ?></div>	
 
 <?php echo $this->form()->closeTag() ?>

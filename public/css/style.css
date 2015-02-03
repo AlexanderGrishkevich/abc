@@ -149,7 +149,7 @@ a:hover {
     background-color: #fefefe;
     z-index: 1000099;
     height: 100%;
-    }
+}
 
 .landing #status  {
     width: 200px;
@@ -166,22 +166,103 @@ a:hover {
 
 /* CHECKOUT */
 
-body.checkout .feedback-form {
-    float: none;
+.checkout-form-content {
+    width: 100%;
+}
+
+.checkout-form-content input {
+    padding-left: 3px;
+}
+
+.checkout-form-content-left {
+    width: 50%;
+    max-width: 400px;
+    float: left;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.checkout-form-content-right {
+    width: 50%;
+    max-width: 400px;
+    float: right;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.checkout-form-content label {
+    display: block;
+}
+
+.checkout-form-content .form-error {
+    clear: both;
+}
+
+.checkout-form-content-left > label,
+.checkout-form-content-right > label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.checkout-form-content-left > input,
+.checkout-form-content-right > input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.checkout-form-content textarea {
+    width: 100%;
+    min-height: 90px;
+    box-sizing: border-box;
+}
+
+.form-checkbox label {
+    font-size: 12px;
+    margin: 4px 0 4px 23px;
+    text-indent: -23px; 
+}
+
+.form-checkbox input {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.form-checkbox3 label {
+    font-size: 12px;
+    width: 50%;
+    margin: 2px 0;
+    float: left;
+}
+
+.form-inputs {
+    margin-bottom: 5px;
+}
+
+.form-inputs input {
+    margin-bottom: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.checkout-submit {
+    width: 200px;
+    padding: 0;
+    background: #072154;
+    height: 30px;
+    color: white;
+    border: 0;
+    line-height: 30px;
+    font-size: 20px;
     margin: 0 auto;
+    cursor: pointer;
+    display: block;
+    clear: both;
 }
 
-body.process-checkout .feedback-form {
-    float: none;
-    margin: 0 auto;
-}
-
-body.checkout .form-submit, body.process-checkout .form-submit {
-    text-align: center;
-}
-
-body.checkout .form-submit input, body.process-checkout .form-submit input {
-    float: none;
+.checkout-submit:hover {
+    background: #555555;
+    border: 0;
 }
 
 /* END CHECKOUT */
@@ -1112,12 +1193,10 @@ body.design .bx-controls-direction a {
 /* CONTACTS */
 
 .title-contacts {
-    width: 415px;
-    margin: 20px 0;
     font-weight: bold;
-    font-size: 33px;
+    padding-bottom: 10px;
+    font-size: 30px;
     text-align: center;
-    display: inline-block;
 }
 
 .contacts-right-column_address {
@@ -1487,7 +1566,7 @@ body.design .bx-controls-direction a {
 
 .services-table {
     width: 565px;
-    margin: 0 auto;
+    margin: 15px auto 0;
     background-color: #e8e8e8;
     position: relative;
     min-height: 820px;
@@ -3458,7 +3537,7 @@ and (max-width : 950px) {
         position: relative;
         margin: 20px auto 0;
     }
-    
+
     .landing-section_8-steps-item-right,
     .landing-section_8-steps-item-left {
         margin: 10px auto 0;
@@ -3482,16 +3561,16 @@ and (max-width : 950px) {
         padding-bottom: 5px;
         width: 100%;
     }
-    
+
     .landing-navigation-menu {
         bottom: 20px;
         top: inherit;
     }
-    
+
     .landing-section_2-table-cell {
         float: none;
     }    
-    
+
     .landing-section_8-steps-item-right-arrow:before,
     .landing-section_8-steps-item-right-arrow:after,
     .landing-section_8-steps-item-left-arrow:before,
@@ -3505,16 +3584,16 @@ and (max-width : 950px) {
 
 @media only screen 
 and (max-width : 1220px) {
-    
+
     nav .navigation {
         width: auto;
         margin: 0;
     }
-    
+
     nav .navigation  li  a {
         font-size: 13px;
     }
-    
+
     nav .navigation li ul li a {
         font-size: 12px;
     }
@@ -3530,42 +3609,42 @@ and (max-width : 1000px) {
         height: 0;
         overflow: hidden;
     }
-    
+
     nav .navigation li {
         display: block;
         height: auto;
     }
-    
+
     nav .navigation > li > a {
         font-size: 15px;
         display: initial;
     }
-    
+
     nav .navigation > li > a:hover {
         border: 0;
     }
-    
+
     nav .navigation ul {
         display: block;
         margin: 0;
         position: relative;
         top: 0;
     }
-    
+
     nav .navigation li:last-child ul {
         display: none;
     }
-    
+
     nav .navigation > li:hover,
     nav .navigation > .active {
         border-bottom: 0;
     }
-    
+
     nav .navigation > li > a:hover,
     nav .navigation > .active > a {
         border-bottom: 4px solid #072154;
     }
-    
+
     #nav-menu-icon {
     }
 }
@@ -3580,6 +3659,17 @@ and (max-width : 800px) {
         border-left: 0;
         border-bottom: 1px solid #072154;
     }
+    
+    /* CHECKOUT */
+    
+    .checkout-form-content-left,
+    .checkout-form-content-right {
+        width: 100%;
+        margin: 0 auto;
+        float: none;
+    }
+    
+    /* END CHECKOUT */
 
     /* PROMOTION SLIDER */
     .promotion-body-slider_first {
@@ -3888,15 +3978,15 @@ and (max-width : 640px) {
     }
 
     /* END SELL-PAGES  */
-    
+
     /* FOOTER MENU */
-    
+
     footer .navigation > li {
         display: inline-table;
         width: 180px;
         margin-bottom: 10px;
     }
-    
+
     /* END FOOTER MENU */
 }
 
@@ -3906,11 +3996,11 @@ and (max-width : 480px) {
         width: 40px;
         height: 30px;
     }
-    
+
     .promotion-table-cell-text {
         width: 260px;
     }
-    
+
     .padding_70 {
         padding: 35px;
     }
@@ -4051,6 +4141,15 @@ and (max-width : 480px) {
     .landing-section_8-slider-item_4-text {
         width: 70%;
     }
+    
+    /* CHECKOUT */
+    
+    .checkout-form-content-left,
+    .checkout-form-content-right {
+        max-width: 320px;
+    }
+    
+    /* END CHECKOUT */
 
     /* END LANDING */
 }
