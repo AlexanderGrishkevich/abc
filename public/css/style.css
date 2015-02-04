@@ -207,6 +207,7 @@ a:hover {
 
 .checkout-form-content-left > input,
 .checkout-form-content-right > input {
+    margin-bottom: 2px;
     width: 100%;
     box-sizing: border-box;
 }

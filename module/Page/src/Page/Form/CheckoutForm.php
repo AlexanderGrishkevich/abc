@@ -135,20 +135,23 @@ class CheckoutForm extends Form {
             ),
         ));
 
-
         $this->add(array(
-            'name' => 'keys',
-            'type' => 'Zend\Form\Element\Textarea',
+            'name' => 'theme',
+            'type' => 'text',
             'options' => array(
                 'label' => 'Пожалуйста, предоставьте нам список ключевых слов, при поиске которых вы хотите занять место в Google/Yandex. Например:',
             ),
             'attributes' => array(
-                'placeholder' =>
-                'Тематика: автозапчасти
-Ключи:
-купить радиатор
-купить переднюю панель
-купить решетку радиатора',
+                'placeholder' => 'Тематика: автозапчасти',
+            ),
+        ));
+
+
+        $this->add(array(
+            'name' => 'keys',
+            'type' => 'Zend\Form\Element\Textarea',
+            'attributes' => array(
+                'placeholder' => 'Ключи: купить радиатор, купить переднюю панель, купить решетку радиатора',
             ),
         ));
 

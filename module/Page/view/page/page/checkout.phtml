@@ -25,7 +25,9 @@ echo $this->form()->openTag($form);
     <div class="form-checkbox"><?= $this->formElement($form->get('checkbox2')); ?></div>
     <div class="form-error"><?= $this->formElementErrors($form->get('checkbox2')); ?></div>
 
-    <?= $this->formLabel($form->get('keys')); ?>
+    <?= $this->formLabel($form->get('theme')); ?>
+    <?= $this->formElement($form->get('theme')); ?>
+    
     <?= $this->formElement($form->get('keys')); ?>
     <div class="form-error"><?= $this->formElementErrors($form->get('keys')); ?></div>
 </div>

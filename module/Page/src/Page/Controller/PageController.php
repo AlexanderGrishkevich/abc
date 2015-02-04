@@ -21,6 +21,7 @@ use Page\Form\FeedbackForm,
     Page\Model\LandingTable,
     Page\Form\SharePricesFilter,
     Page\Form\QuestionFilter;
+use Zend\Mail\Transport\Sendmail as SendmailTransport;
 
 class PageController extends AbstractActionController {
 
@@ -108,6 +109,16 @@ class PageController extends AbstractActionController {
     
     public function sendMail($post) {     
         
+        $options = new \Zend\Mail\Transport\SmtpOptions(array(
+            "name" => "localhost",
+            "host" => "localhost",
+            "connection_class" => "login",
+            "connection_config" => array(
+                "username" => "checkout@abcmedia.by",
+                "password" => "QHuMxhQQ"
+            )
+        ));
+        
         $message = array();
         
         $ch1 = $post->checkbox1;
@@ -137,7 +148,8 @@ class PageController extends AbstractActionController {
         
         $message[] = '';
         $message[] = 'Пожалуйста, предоставьте нам список ключевых слов, при поиске которых вы хотите занять место в Google/Yandex.';
-        $message[] = $post->keys ? : '-';
+        $message[] = 'Тематика:' . $post->theme ? : '-';
+        $message[] = 'Ключи:' . $post->keys ? : '-';
         
         $ch3 = $post->checkbox3;
         $message[] = '';
@@ -185,7 +197,7 @@ class PageController extends AbstractActionController {
         $body->setParts(array($htmlPart));
 
         $msg = new \Zend\Mail\Message();
-        $msg->setFrom('no-reply@abcmedia.by');
+        $msg->setFrom('noreply@open.by');
         $msg->addTo('Soulmar@mail.by');
         $msg->setSubject('Новый заказ');
         $msg->setEncoding('UTF-8');
@@ -195,13 +207,13 @@ class PageController extends AbstractActionController {
         $headers->removeHeader('Content-Type');
         $headers->addHeaderLine('Content-Type', 'text/html; charset=UTF-8');
 
-        $transport = new \Zend\Mail\Transport\Sendmail();
+        $transport = new \Zend\Mail\Transport\Smtp();
+        $transport->setOptions($options);
         try {
             $transport->send($msg);
         } catch (Exception $e) {
 
         }
-        
         return $message;
     }
 
