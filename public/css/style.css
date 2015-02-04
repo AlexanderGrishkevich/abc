@@ -77,24 +77,17 @@ body.portfolio .content, body.process-checkout .content, body.checkout .content,
 body.support .content, body.contacts .content, body.pr .content,
 body.marketing .content, body.promotion .content,
 body.auth .content, body.admin .content, body.process-feedback .content,
-body.brend .content, body.fast-sales .content, body.sell-pages .content,
+body.brend .content, body.fast-sales .content,
 body.services .content, body.m-research .content {
     max-width: 800px;
 }
 
-body.design .content {
+body.design .content, body.sell-pages .content {
     max-width: 100%;
 }
 
-.design-content {
+.content-wrap {
     max-width: 800px;
-    overflow: hidden;
-    padding: 5px 5px 0 5px;
-    margin: 20px auto 0;
-}
-
-.design-content-end {
-    width: 800px;
     overflow: hidden;
     padding: 5px 5px 0 5px;
     margin: 20px auto 0;
@@ -1120,12 +1113,14 @@ footer .navigation ul a {
     max-width: 1200px;
     width: 100%;
     margin: 0 20px;
+    box-sizing: border-box;
 }
 
 .design-body-slider_link {
     overflow: hidden;
     display: block;
     max-width: 1240px;
+    box-sizing: border-box;
 }
 
 body.design .bx-controls-direction a {
@@ -1550,17 +1545,6 @@ body.design .bx-controls-direction a {
 /* END FAST-SALES  */
 
 /* SELL-PAGES  */
-
-.sell-pages-body-image {
-    background-image: url(/img/sell-shema.png);
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 100%;
-    height: 340px;
-    margin: 20px auto 0;
-}
-
 /* END SELL-PAGES  */
 
 /* SERVICES */
@@ -2155,26 +2139,41 @@ body.design .bx-controls-direction a {
     display: table;
 }
 
-.landing-section_2-image_table-row-cell-image {
+.landing-section_2-image_table-row-cell {
     width: 25%;
+    //box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.landing-section_2-image_table-row-cell img {
+    width: 100%;
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -ms-filter: blur(1px);
+    -o-filter: blur(1px);
+    filter: blur(1px);
     -moz-transition: all 200ms ease-out;
     -o-transition: all 200ms ease-out;
     -webkit-transition: all 200ms ease-out;
+    padding: 0 8px;
+    margin: 8px 0;
     -ms-transition: all 200ms ease-out;
-    cursor: pointer;
 }
 
-.landing-section_2-image_table-row-cell-image:hover {
+.landing-section_2-image_table-row-cell:hover img {
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -o-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
-    -webkit-filter: blur(2px);
-    -moz-filter: blur(2px);
-    -ms-filter: blur(2px);
-    -o-filter: blur(2px);
-    filter: blur(2px);
+    -webkit-filter: blur(0);
+    -moz-filter: blur(0);
+    -ms-filter: blur(0);
+    -o-filter: blur(0);
+    filter: blur(0);
 }
 
 .image_table-row_1-cell_1 {
@@ -2712,9 +2711,6 @@ body.design .bx-controls-direction a {
 
 .landing-section_8 {
     width: 100%;
-    /* overflow: hidden; */
-    /* height: 870px; */
-    /* padding-bottom: 40px; */
 }
 
 .landing-section_8-steps {
@@ -2726,7 +2722,6 @@ body.design .bx-controls-direction a {
     width: 100%;
     position: relative;
     height: 60px;
-    /* margin: 20px 0; */
 }
 
 .landing-section_8-steps-center-circle {
@@ -2883,7 +2878,6 @@ body.design .bx-controls-direction a {
     overflow: hidden;
     width: 950px;
     height: 330px;
-    /* margin: 40px auto 0; */
     margin-bottom: 30px;
 }
 
@@ -3113,7 +3107,6 @@ body.design .bx-controls-direction a {
 /* SECTION 9 */
 
 .landing-section_9 {
-    /* overflow: hidden; */
     width: 100%;
     height: 820px;
 }
@@ -3130,11 +3123,8 @@ body.design .bx-controls-direction a {
 /* SECTION 10 */
 
 .landing-section_10 {
-    /* overflow: hidden; */
     width: 100%;
-    /* height: 800px; */
     background-image: url('/img/landing/background_3.jpg');  background-size: cover;  background-repeat: no-repeat;
-    /* padding-bottom: 30px; */
 }
 
 .landing-section_10 .landing-section-title {
@@ -3142,7 +3132,6 @@ body.design .bx-controls-direction a {
 }
 
 .landing-section_10-table {
-    /* width: 100%; */
     margin: 30px auto 0;
     overflow: hidden;
     text-align: center;
@@ -3153,7 +3142,6 @@ body.design .bx-controls-direction a {
     width: 220px;
     height: 420px;
     border: 2px solid #072154;
-    /* float: left; */
     margin: 5px 10px;
     background-color: #fff;
     display: inline-block;
@@ -3176,7 +3164,6 @@ body.design .bx-controls-direction a {
     font-size: 20px;
     font-weight: bold;
     height: 44px;
-    /* line-height: normal; */
 }
 
 .landing-section_10-table-cell-title_2 {
@@ -3416,6 +3403,86 @@ body.design .bx-controls-direction a {
 }
 
 /* END NAVIGATION MENU */
+
+/* LANDING UK MODAL */
+
+.close {
+    font: 400 14px / 20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 10px;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+    -webkit-appearance: none;
+    margin-top: -2px;
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .2;
+    filter: alpha(opacity=20);
+}
+
+.close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .5;
+    filter: alpha(opacity=50);
+}
+
+#myModal .uk-modal-dialog {
+    width: 950px;
+    padding: 0;
+    border-radius: 0;
+}
+
+.modal-content-image-wrap {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.modal-content-image {
+    background-size: contain;
+    background-position-x: center;
+    background-repeat: no-repeat;
+}
+
+.display-background-img {
+    position: absolute;
+    background-size: cover;
+    top: 0px;
+    left: 0px;
+    height: 573px;
+    width: 768px;
+}
+
+.landing-section_7-table-left-row-active {
+    background: #072154;
+}
+
+.landing-section_7-table-left-row-active a{
+    color: #fff;
+}
+
+.landing-section_1-form .form-submit {
+    clear: both;
+}
+
+.conversion-image_1 {
+    background-image: url(/img/landing/koala.jpg);
+}
+
+.conversion-image_2 {
+    background-image: url(/img/landing/pen.jpg);
+    left: 93px;
+}
+
+/* END LANDING UK MODAL */
 
 /* END LANDING PAGE */
 
@@ -3660,16 +3727,16 @@ and (max-width : 800px) {
         border-left: 0;
         border-bottom: 1px solid #072154;
     }
-    
+
     /* CHECKOUT */
-    
+
     .checkout-form-content-left,
     .checkout-form-content-right {
         width: 100%;
         margin: 0 auto;
         float: none;
     }
-    
+
     /* END CHECKOUT */
 
     /* PROMOTION SLIDER */
@@ -3858,14 +3925,6 @@ and (max-width : 800px) {
 
     /* END FAST-SALES  */
 
-    /* SELL-PAGES  */
-
-    .sell-pages-body-image {
-        height: 290px;
-    }
-
-    /* END SELL-PAGES  */
-
     /* SERVICES */
 
     .services-table-title {
@@ -3972,14 +4031,6 @@ and (max-width : 640px) {
         float: none !important;
     }
 
-    /* SELL-PAGES  */
-
-    .sell-pages-body-image {
-        height: 220px;
-    }
-
-    /* END SELL-PAGES  */
-
     /* FOOTER MENU */
 
     footer .navigation > li {
@@ -4019,14 +4070,6 @@ and (max-width : 480px) {
     .feedback-form {
         width: 315px;
     }
-
-    /* SELL-PAGES  */
-
-    .sell-pages-body-image {
-        height: 170px;
-    }
-
-    /* END SELL-PAGES  */
 
     /* LANDING */
 
@@ -4142,14 +4185,14 @@ and (max-width : 480px) {
     .landing-section_8-slider-item_4-text {
         width: 70%;
     }
-    
+
     /* CHECKOUT */
-    
+
     .checkout-form-content-left,
     .checkout-form-content-right {
         max-width: 320px;
     }
-    
+
     /* END CHECKOUT */
 
     /* END LANDING */
