@@ -66,7 +66,7 @@ class CountClientForm extends Form {
             'name' => 'submit',
             'attributes' => array(
                 'type' => 'submit',
-                'value' => 'Рассчитать количество новых клиентов!',
+                'value' => 'Узнать количество клиентов!',
                 'id' => 'form-submit',
                 'data-form' => 'Form'
             ),

@@ -60,6 +60,11 @@ return array(
                 'resource' => 'page',
                 'pages' => array(
                     array(
+                        'label' => 'Продвижение',
+                        'route' => 'page',
+                        'action' => 'promotion',
+                    ),
+                    array(
                         'label' => 'Старт быстрых продаж',
                         'route' => 'page',
                         'action' => 'fast-sales',
@@ -77,11 +82,16 @@ return array(
                 )
             ),
             array(
-                'label' => 'WEB Design',
+                'label' => 'WEB Дизайн',
                 'route' => 'page',
                 'action' => 'design',
                 'resource' => 'page',
                 'pages' => array(
+                    array(
+                        'label' => 'WEB Дизайн',
+                        'route' => 'page',
+                        'action' => 'design',
+                    ),
                     array(
                         'label' => 'Портфолио',
                         'route' => 'page',
@@ -95,6 +105,11 @@ return array(
                 'action' => 'marketing',
                 'resource' => 'page',
                 'pages' => array(
+                    array(
+                        'label' => 'WEB Маркетинг',
+                        'route' => 'page',
+                        'action' => 'marketing',
+                    ),
                     array(
                         'label' => 'Маркетинговые исследования',
                         'route' => 'page',
@@ -114,6 +129,11 @@ return array(
                 'resource' => 'page',
                 'pages' => array(
                     array(
+                        'label' => 'Реклама и PR',
+                        'route' => 'page',
+                        'action' => 'pr',
+                    ),
+                    array(
                         'label' => 'Узнаваемость бренда',
                         'route' => 'page',
                         'action' => 'brend',
@@ -126,6 +146,11 @@ return array(
                 'action' => 'contacts',
                 'resource' => 'page',
                 'pages' => array(
+                    array(
+                        'label' => 'Контакты',
+                        'route' => 'page',
+                        'action' => 'contacts',
+                    ),
                     array(
                         'label' => '+375 29 615-27-93',
                         'route' => 'page',

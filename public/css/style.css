@@ -12,7 +12,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,abbr,ac
 @font-face {
     font-family: 'Conv_niveaMedium';
     src: url('/fonts/niveaMedium.eot');
-    src: local('☺'), url('/fonts/niveaMedium.woff') format('woff'), url('/fonts/niveaMedium.ttf') format('truetype'), url('/fonts/niveaMedium.svg') format('svg');
+    src: local('â˜º'), url('/fonts/niveaMedium.woff') format('woff'), url('/fonts/niveaMedium.ttf') format('truetype'), url('/fonts/niveaMedium.svg') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -20,7 +20,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,abbr,ac
 @font-face {
     font-family: 'Conv_niveaBook';
     src: url('/fonts/niveaBook.eot');
-    src: local('☺'), url('/fonts/niveaBook.woff') format('woff'), url('/fonts/niveaBook.ttf') format('truetype'), url('/fonts/niveaBook.svg') format('svg');
+    src: local('â˜º'), url('/fonts/niveaBook.woff') format('woff'), url('/fonts/niveaBook.ttf') format('truetype'), url('/fonts/niveaBook.svg') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -28,7 +28,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,abbr,ac
 @font-face {
     font-family: 'Conv_introRegular';
     src: url('fonts/introRegular.eot');
-    src: local('☺'), url('/fonts/introRegular.woff') format('woff'), url('/fonts/introRegular.ttf') format('truetype'), url('/fonts/introRegular.svg') format('svg');
+    src: local('â˜º'), url('/fonts/introRegular.woff') format('woff'), url('/fonts/introRegular.ttf') format('truetype'), url('/fonts/introRegular.svg') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -36,7 +36,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,abbr,ac
 @font-face {
     font-family: 'Conv_euroRegular';
     src: url('/fonts/euroRegular.eot');
-    src: local('☺'), url('/fonts/euroRegular.woff') format('woff'), url('/fonts/euroRegular.ttf') format('truetype'), url('/fonts/euroRegular.svg') format('svg');
+    src: local('â˜º'), url('/fonts/euroRegular.woff') format('woff'), url('/fonts/euroRegular.ttf') format('truetype'), url('/fonts/euroRegular.svg') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -823,11 +823,12 @@ footer .navigation ul a {
 .body-table-cell {
     padding: 10px;
     width: 180px;
+    min-height: 85px;
     font-size: 17px;
     font-weight: bold;
     overflow: hidden;
     text-align: left;
-    display: inline-flex;
+    display: inline-block;
 }
 
 .body-table-cell_number {
@@ -1769,7 +1770,7 @@ body.design .bx-controls-direction a {
 }
 
 .landing-home {
-    background-image: url(/img/landing/home-background.jpg);
+    background: #072154;
     min-height: 624px;
     width: 100%;
     background-size: cover;
@@ -1829,7 +1830,7 @@ body.design .bx-controls-direction a {
     height: 30px;
     line-height: 30px;
     padding: 5px 0 5px 5px;
-    border: 2px solid #002157;
+    border: 2px solid #fff;
     font-size: 25px;
     color: #fff;
 }
@@ -2017,6 +2018,7 @@ body.design .bx-controls-direction a {
     font-weight: bold;
     font-size: 21px;
     cursor: pointer;
+    text-transform: uppercase;
 }
 
 .landing-section_1-form .form-submit input:hover {
@@ -2137,15 +2139,17 @@ body.design .bx-controls-direction a {
     /* margin-bottom: 40px; */
     padding-bottom: 30px;
     display: table;
+    text-align: center;
 }
 
 .landing-section_2-image_table-row-cell {
     width: 25%;
     //box-sizing: border-box;
     cursor: pointer;
-    display: inline-block;
     overflow: hidden;
+    float: left;
     box-sizing: border-box;
+    text-align: center;
 }
 
 .landing-section_2-image_table-row-cell img {
@@ -2405,11 +2409,7 @@ body.design .bx-controls-direction a {
 
 .landing-section_5 {
     width: 100%;
-    /* overflow: hidden; */
-    /* height: 1450px; */
-    background-image: url('/img/landing/background_1.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: #072154;
 }
 
 .landing-section_5 .landing-section-title {
@@ -2580,14 +2580,7 @@ body.design .bx-controls-direction a {
 
 .landing-section_7 {
     width: 100%;
-    /* overflow: hidden; */
-    /* padding-bottom: 30px; */
-    /* height: 750px; */
-    background-image: url('/img/landing/background_2.jpg');  background-size: cover;  background-repeat: no-repeat;
-}
-
-.landing-section_7 .landing-section-title {
-    color: #fff;
+    background: #f7f7f7;
 }
 
 .landing-section_7-table {
@@ -2606,14 +2599,13 @@ body.design .bx-controls-direction a {
     float: right;
     position: relative;
     height: 370px;
+    border: 1px solid;
+    box-sizing: border-box;
     display: none;
 }
 
 .landing-section_7-table-right-active {
     display: block;
-    position: relative;
-    width: 460px;
-    height: 370px;
     padding: 0px;
     background: #FFFFFF;
 }
@@ -2700,6 +2692,18 @@ body.design .bx-controls-direction a {
     right: -27px;
     border-style: solid;
     border: 20px solid transparent;	
+    border-right: 28px solid #000;
+    display: block;
+    z-index: 1;
+}
+
+.landing-section_7-table-left-row-active:after {
+    content: "";
+    position: absolute;
+    top: 16px;
+    right: -27px;
+    border-style: solid;
+    border: 19px solid transparent;	
     border-right: 26px solid #fff;
     display: block;
     z-index: 1;
@@ -3262,10 +3266,7 @@ body.design .bx-controls-direction a {
 /* SECTION 11, 12 */
 
 .landing-section_11 {
-    /* overflow: hidden; */
     width: 100%;
-    /* min-height: 650px; */
-    /* padding-bottom: 15px; */
 }
 
 .landing-section_11-form {
@@ -3314,11 +3315,12 @@ body.design .bx-controls-direction a {
 }
 
 .landing-section_12 {
-    /* overflow: hidden; */
     width: 100%;
-    /* height: 400px; */
-    background-image: url('/img/landing/background_4.jpg');  background-size: cover;  background-repeat: no-repeat;
-    /* padding-bottom: 30px; */
+    background: #072154;
+}
+
+.landing-section_12 .landing-section-title {
+    color: #fff;
 }
 
 .landing-section_12 .landing-section_1-form {
@@ -3344,6 +3346,12 @@ body.design .bx-controls-direction a {
 .landing-section_12 .landing-section_1-form-ps,
 .landing-section_12 .landing-section_1-form .form-input input {
     color: #fff;
+    border-color: #fff; 
+}
+
+.landing-section_12 .landing-section_1-form #form-submit {
+    background-color: #fff;
+    color: #072154;
 }
 
 .landing-section_12 ::-webkit-input-placeholder {
@@ -3409,19 +3417,16 @@ body.design .bx-controls-direction a {
 .close {
     font: 400 14px / 20px "Helvetica Neue",Helvetica,Arial,sans-serif;
     padding: 10px;
+    position: relative;
+    text-align: right;
     cursor: pointer;
-    background: 0 0;
-    border: 0;
-    -webkit-appearance: none;
-    margin-top: -2px;
-    float: right;
     font-size: 21px;
     font-weight: 700;
-    line-height: 1;
     color: #000;
     text-shadow: 0 1px 0 #fff;
     opacity: .2;
     filter: alpha(opacity=20);
+    display: block;
 }
 
 .close:hover {
@@ -3433,17 +3438,19 @@ body.design .bx-controls-direction a {
 }
 
 #myModal .uk-modal-dialog {
-    width: 950px;
     padding: 0;
     border-radius: 0;
+    width: auto;
+    max-width: 950px;
 }
 
 .modal-content-image-wrap {
     position: relative;
     width: 100%;
-    height: 550px;
+    max-height: 550px;
     overflow-x: hidden;
     overflow-y: scroll;
+    clear: both;
 }
 
 .modal-content-image {
@@ -3527,7 +3534,7 @@ and (max-width : 950px) {
 
     /* END LANDING */
 
-    .landing-section_2-image_table-row-cell-image {
+    .landing-section_2-image_table-row-cell {
         width: 50%;
     }
 
@@ -4106,8 +4113,9 @@ and (max-width : 480px) {
         width: 310px;
     }
 
-    .landing-section_2-image_table-row-cell-image {
+    .landing-section_2-image_table-row-cell {
         width: 100%;
+        margin: 0 auto;
     }
 
     .landing-section_7-table-left {
