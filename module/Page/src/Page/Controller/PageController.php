@@ -197,8 +197,8 @@ class PageController extends AbstractActionController {
         $body->setParts(array($htmlPart));
 
         $msg = new \Zend\Mail\Message();
-        $msg->setFrom('noreply@open.by');
-        $msg->addTo('Soulmar@mail.by');
+        $msg->setFrom('info@abcmedia.by');
+        $msg->addTo('wwwmediaservice@gmail.com');
         $msg->setSubject('Новый заказ');
         $msg->setEncoding('UTF-8');
         $msg->setBody($body);
